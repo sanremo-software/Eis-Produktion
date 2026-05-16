@@ -606,6 +606,113 @@
             font-weight: 600;
         }
         
+        /* ===== RECIPE VIEW ===== */
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .ingredient-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+        }
+        
+        .ingredient-name {
+            font-size: var(--font-size-md);
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .ingredient-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+            margin-bottom: var(--space-md);
+        }
+        
+        .nutrition-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-sm);
+        }
+        
+        .nutrition-item {
+            padding: var(--space-xs) var(--space-sm);
+            background: var(--light);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-xs);
+        }
+        
+        .nutrition-label {
+            color: var(--muted);
+            font-weight: 600;
+        }
+        
+        .nutrition-value {
+            color: var(--dark);
+            font-weight: 700;
+        }
+        
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            
+            .print-only {
+                display: block !important;
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            
+            .card {
+                box-shadow: none !important;
+                border: 1px solid #ccc !important;
+                page-break-inside: avoid;
+            }
+        }
+        
+        /* ===== UTILITIES ===== */
+        .d-flex { display: flex; }
+        .d-none { display: none; }
+        .flex-column { flex-direction: column; }
+        .align-items-center { align-items: center; }
+        .justify-content-between { justify-content: space-between; }
+        .gap-1 { gap: var(--space-xs); }
+        .gap-2 { gap: var(--space-sm); }
+        .gap-3 { gap: var(--space-md); }
+        .gap-4 { gap: var(--space-lg); }
+        .mt-1 { margin-top: var(--space-xs); }
+        .mt-2 { margin-top: var(--space-sm); }
+        .mt-3 { margin-top: var(--space-md); }
+        .mt-4 { margin-top: var(--space-lg); }
+        .mb-1 { margin-bottom: var(--space-xs); }
+        .mb-2 { margin-bottom: var(--space-sm); }
+        .mb-3 { margin-bottom: var(--space-md); }
+        .mb-4 { margin-bottom: var(--space-lg); }
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+        .text-muted { color: var(--muted); }
+        .text-success { color: var(--success); }
+        .text-danger { color: var(--danger); }
+        .text-warning { color: var(--warning); }
+        .text-primary { color: var(--primary); }
+        .fw-bold { font-weight: 700; }
+        .fw-bolder { font-weight: 800; }
+        .fs-sm { font-size: var(--font-size-sm); }
+        .fs-md { font-size: var(--font-size-md); }
+        .fs-lg { font-size: var(--font-size-lg); }
+        .w-100 { width: 100%; }
+        
         /* ===== EIMER (BUCKET) SELECTION STYLES ===== */
         .bucket-size-grid {
             display: grid;
@@ -697,64 +804,14 @@
                 grid-template-columns: 1fr;
             }
             
+            .ingredients-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .summary-item {
                 min-width: 100px;
             }
         }
-        
-        /* ===== PRINT STYLES ===== */
-        @media print {
-            .no-print {
-                display: none !important;
-            }
-            
-            .print-only {
-                display: block !important;
-            }
-            
-            body {
-                background: white !important;
-                color: black !important;
-            }
-            
-            .card {
-                box-shadow: none !important;
-                border: 1px solid #ccc !important;
-                page-break-inside: avoid;
-            }
-        }
-        
-        /* ===== UTILITIES ===== */
-        .d-flex { display: flex; }
-        .d-none { display: none; }
-        .flex-column { flex-direction: column; }
-        .align-items-center { align-items: center; }
-        .justify-content-between { justify-content: space-between; }
-        .gap-1 { gap: var(--space-xs); }
-        .gap-2 { gap: var(--space-sm); }
-        .gap-3 { gap: var(--space-md); }
-        .gap-4 { gap: var(--space-lg); }
-        .mt-1 { margin-top: var(--space-xs); }
-        .mt-2 { margin-top: var(--space-sm); }
-        .mt-3 { margin-top: var(--space-md); }
-        .mt-4 { margin-top: var(--space-lg); }
-        .mb-1 { margin-bottom: var(--space-xs); }
-        .mb-2 { margin-bottom: var(--space-sm); }
-        .mb-3 { margin-bottom: var(--space-md); }
-        .mb-4 { margin-bottom: var(--space-lg); }
-        .text-center { text-align: center; }
-        .text-right { text-align: right; }
-        .text-muted { color: var(--muted); }
-        .text-success { color: var(--success); }
-        .text-danger { color: var(--danger); }
-        .text-warning { color: var(--warning); }
-        .text-primary { color: var(--primary); }
-        .fw-bold { font-weight: 700; }
-        .fw-bolder { font-weight: 800; }
-        .fs-sm { font-size: var(--font-size-sm); }
-        .fs-md { font-size: var(--font-size-md); }
-        .fs-lg { font-size: var(--font-size-lg); }
-        .w-100 { width: 100%; }
     </style>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -781,7 +838,6 @@
                 <button class="nav-btn" data-view="production">
                     <i class="fas fa-industry"></i> Produktion
                 </button>
-                <!-- Rezepte entfernt -->
                 <button class="nav-btn" data-view="flavors">
                     <i class="fas fa-ice-cream"></i> Sorten
                 </button>
@@ -1277,6 +1333,7 @@
                                 <option value="sales">Verkäufe</option>
                                 <option value="production">Produktion</option>
                                 <option value="customers">Kunden</option>
+                                <option value="recipes">Rezepte</option>
                                 <option value="inventory">Bestand</option>
                             </select>
                         </div>
@@ -1443,7 +1500,7 @@
         <!-- FOOTER -->
         <footer class="app-footer no-print" style="padding: var(--space-md); background: var(--light); border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: var(--font-size-sm);">
             <div class="d-flex justify-content-between align-items-center">
-                <div>© 2025 Eiscafé Sanremo - Alle Rechte vorbehalten</div>
+                <div>© 2024 Eiscafé Sanremo - Alle Rechte vorbehalten</div>
                 <div>
                     <span id="current-time">--:--</span> | 
                     <span id="data-status" class="badge badge-success">Daten gespeichert</span>
@@ -1460,27 +1517,53 @@
     </div>
 
     <script>
-        // ===== DATABASE MANAGEMENT (VOLLSTÄNDIG, OHNE RECIPES) =====
+        // ===== DATABASE MANAGEMENT =====
         const DB = {
             VERSION: '1.0.0',
             KEYS: {
                 ORDERS: 'sanremo_orders',
                 CUSTOMERS: 'sanremo_customers',
+                RECIPES: 'sanremo_recipes',
                 FLAVORS: 'sanremo_flavors',
+                INGREDIENTS: 'sanremo_ingredients',
                 PRODUCTION: 'sanremo_production',
                 SETTINGS: 'sanremo_settings',
                 STATISTICS: 'sanremo_statistics'
             },
             
+            // Initialize all data
             init() {
                 if (!localStorage.getItem(this.KEYS.ORDERS)) {
                     localStorage.setItem(this.KEYS.ORDERS, JSON.stringify([]));
                 }
                 if (!localStorage.getItem(this.KEYS.CUSTOMERS)) {
                     localStorage.setItem(this.KEYS.CUSTOMERS, JSON.stringify([
-                        { id: '1', name: 'REWE', location: 'Bad Berleburg', contact: 'Herr Schmidt', phone: '02751 12345', email: 'rewe@example.com', type: 'supermarkt', notes: 'Lieferung bis 09:00 Uhr', created: new Date().toISOString() },
-                        { id: '2', name: 'EDEKA', location: 'Bad Berleburg', contact: 'Frau Meyer', phone: '02751 67890', email: 'edeka@example.com', type: 'supermarkt', notes: 'Hintereingang nutzen', created: new Date().toISOString() }
+                        {
+                            id: '1',
+                            name: 'REWE',
+                            location: 'Bad Berleburg',
+                            contact: 'Herr Schmidt',
+                            phone: '02751 12345',
+                            email: 'rewe@example.com',
+                            type: 'supermarkt',
+                            notes: 'Lieferung bis 09:00 Uhr',
+                            created: new Date().toISOString()
+                        },
+                        {
+                            id: '2',
+                            name: 'EDEKA',
+                            location: 'Bad Berleburg',
+                            contact: 'Frau Meyer',
+                            phone: '02751 67890',
+                            email: 'edeka@example.com',
+                            type: 'supermarkt',
+                            notes: 'Hintereingang nutzen',
+                            created: new Date().toISOString()
+                        }
                     ]));
+                }
+                if (!localStorage.getItem(this.KEYS.RECIPES)) {
+                    localStorage.setItem(this.KEYS.RECIPES, JSON.stringify([]));
                 }
                 if (!localStorage.getItem(this.KEYS.FLAVORS)) {
                     localStorage.setItem(this.KEYS.FLAVORS, JSON.stringify([
@@ -1499,6 +1582,9 @@
                         { id: '13', name: 'Mango', category: 'sorbet', description: 'Mango-Sorbet', active: true },
                         { id: '14', name: 'Hanutta', category: 'spezial', description: 'Spezialität', active: true }
                     ]));
+                }
+                if (!localStorage.getItem(this.KEYS.INGREDIENTS)) {
+                    localStorage.setItem(this.KEYS.INGREDIENTS, JSON.stringify([]));
                 }
                 if (!localStorage.getItem(this.KEYS.PRODUCTION)) {
                     localStorage.setItem(this.KEYS.PRODUCTION, JSON.stringify([]));
@@ -1521,105 +1607,1638 @@
                 }
             },
             
-            get(key) { try { return JSON.parse(localStorage.getItem(key)) || []; } catch(e) { return []; } },
-            set(key, data) { try { localStorage.setItem(key, JSON.stringify(data)); return true; } catch(e) { return false; } },
-            getOrders() { return this.get(this.KEYS.ORDERS); },
-            saveOrder(order) { const orders = this.getOrders(); order.id = order.id || 'order_' + Date.now(); order.created = new Date().toISOString(); order.updated = new Date().toISOString(); orders.push(order); return this.set(this.KEYS.ORDERS, orders); },
-            getCustomers() { return this.get(this.KEYS.CUSTOMERS); },
-            saveCustomer(customer) { const customers = this.getCustomers(); customer.id = customer.id || 'customer_' + Date.now(); customer.created = new Date().toISOString(); customers.push(customer); return this.set(this.KEYS.CUSTOMERS, customers); },
-            deleteCustomer(id) { const customers = this.getCustomers().filter(c => c.id !== id); return this.set(this.KEYS.CUSTOMERS, customers); },
-            getFlavors() { return this.get(this.KEYS.FLAVORS); },
-            saveFlavors(flavors) { return this.set(this.KEYS.FLAVORS, flavors); },
-            getSettings() { const s = this.get(this.KEYS.SETTINGS); if (s && !s.bucket_sizes) s.bucket_sizes = [3,4,5,6]; return s; },
-            saveSettings(settings) { return this.set(this.KEYS.SETTINGS, settings); },
-            backup() { return JSON.stringify({ version: this.VERSION, timestamp: new Date().toISOString(), orders: this.getOrders(), customers: this.getCustomers(), flavors: this.getFlavors(), production: this.get(this.KEYS.PRODUCTION), settings: this.getSettings(), statistics: this.get(this.KEYS.STATISTICS) }); },
-            restore(backupData) { try { const b = JSON.parse(backupData); this.set(this.KEYS.ORDERS, b.orders || []); this.set(this.KEYS.CUSTOMERS, b.customers || []); this.set(this.KEYS.FLAVORS, b.flavors || []); this.set(this.KEYS.PRODUCTION, b.production || []); this.set(this.KEYS.SETTINGS, b.settings || {}); this.set(this.KEYS.STATISTICS, b.statistics || []); return true; } catch(e) { return false; } }
+            // Generic get method
+            get(key) {
+                try {
+                    return JSON.parse(localStorage.getItem(key)) || [];
+                } catch (e) {
+                    console.error('Error reading from localStorage:', e);
+                    return [];
+                }
+            },
+            
+            // Generic set method
+            set(key, data) {
+                try {
+                    localStorage.setItem(key, JSON.stringify(data));
+                    return true;
+                } catch (e) {
+                    console.error('Error writing to localStorage:', e);
+                    return false;
+                }
+            },
+            
+            // Get all orders
+            getOrders() {
+                return this.get(this.KEYS.ORDERS);
+            },
+            
+            // Save an order
+            saveOrder(order) {
+                const orders = this.getOrders();
+                order.id = order.id || 'order_' + Date.now();
+                order.created = order.created || new Date().toISOString();
+                order.updated = new Date().toISOString();
+                orders.push(order);
+                return this.set(this.KEYS.ORDERS, orders);
+            },
+            
+            // Get all customers
+            getCustomers() {
+                return this.get(this.KEYS.CUSTOMERS);
+            },
+            
+            // Save a customer
+            saveCustomer(customer) {
+                const customers = this.getCustomers();
+                customer.id = customer.id || 'customer_' + Date.now();
+                customer.created = customer.created || new Date().toISOString();
+                customer.updated = new Date().toISOString();
+                customers.push(customer);
+                return this.set(this.KEYS.CUSTOMERS, customers);
+            },
+            
+            // Delete a customer
+            deleteCustomer(id) {
+                const customers = this.getCustomers();
+                const filtered = customers.filter(c => c.id !== id);
+                return this.set(this.KEYS.CUSTOMERS, filtered);
+            },
+            
+            // Get all flavors
+            getFlavors() {
+                return this.get(this.KEYS.FLAVORS);
+            },
+            
+            // Save flavors
+            saveFlavors(flavors) {
+                return this.set(this.KEYS.FLAVORS, flavors);
+            },
+            
+            // Get settings
+            getSettings() {
+                const settings = this.get(this.KEYS.SETTINGS);
+                if (settings && !settings.bucket_sizes) {
+                    settings.bucket_sizes = [3, 4, 5, 6];
+                }
+                if (settings && !settings.default_bucket_size) {
+                    settings.default_bucket_size = 6;
+                }
+                return settings;
+            },
+            
+            // Save settings
+            saveSettings(settings) {
+                return this.set(this.KEYS.SETTINGS, settings);
+            },
+            
+            // Backup all data
+            backup() {
+                const backup = {
+                    version: this.VERSION,
+                    timestamp: new Date().toISOString(),
+                    orders: this.getOrders(),
+                    customers: this.getCustomers(),
+                    recipes: this.get(this.KEYS.RECIPES),
+                    flavors: this.getFlavors(),
+                    ingredients: this.get(this.KEYS.INGREDIENTS),
+                    production: this.get(this.KEYS.PRODUCTION),
+                    settings: this.getSettings(),
+                    statistics: this.get(this.KEYS.STATISTICS)
+                };
+                return JSON.stringify(backup, null, 2);
+            },
+            
+            // Restore from backup
+            restore(backupData) {
+                try {
+                    const backup = JSON.parse(backupData);
+                    
+                    if (!backup.version || !backup.timestamp) {
+                        throw new Error('Invalid backup format');
+                    }
+                    
+                    this.set(this.KEYS.ORDERS, backup.orders || []);
+                    this.set(this.KEYS.CUSTOMERS, backup.customers || []);
+                    this.set(this.KEYS.RECIPES, backup.recipes || []);
+                    this.set(this.KEYS.FLAVORS, backup.flavors || []);
+                    this.set(this.KEYS.INGREDIENTS, backup.ingredients || []);
+                    this.set(this.KEYS.PRODUCTION, backup.production || []);
+                    this.set(this.KEYS.SETTINGS, backup.settings || {});
+                    this.set(this.KEYS.STATISTICS, backup.statistics || []);
+                    
+                    return true;
+                } catch (e) {
+                    console.error('Error restoring backup:', e);
+                    return false;
+                }
+            }
         };
 
         // ===== UTILITY FUNCTIONS =====
         const Utils = {
+            // Format date to German format
             formatDate(date, includeTime = false) {
                 const d = new Date(date);
                 const day = d.getDate().toString().padStart(2, '0');
                 const month = (d.getMonth() + 1).toString().padStart(2, '0');
                 const year = d.getFullYear();
-                if (includeTime) return `${day}.${month}.${year} ${d.getHours().toString().padStart(2,'0')}:${d.getMinutes().toString().padStart(2,'0')}`;
+                
+                if (includeTime) {
+                    const hours = d.getHours().toString().padStart(2, '0');
+                    const minutes = d.getMinutes().toString().padStart(2, '0');
+                    return `${day}.${month}.${year} ${hours}:${minutes}`;
+                }
+                
                 return `${day}.${month}.${year}`;
             },
-            calculateWeight(size, quantity) { return (parseFloat(size) / 1000) * quantity; },
-            calculateBuckets(totalKg, bucketSize) { return Math.ceil(totalKg / bucketSize); },
-            getCurrentBucketSize() { const selected = document.querySelector('.bucket-size-option.selected'); if (selected) return parseFloat(selected.getAttribute('data-size')); const settings = DB.getSettings(); return settings.default_bucket_size || 6; },
+            
+            // Calculate weight in kg
+            calculateWeight(size, quantity) {
+                const grams = parseFloat(size);
+                return (isNaN(grams) ? 0 : grams / 1000) * quantity;
+            },
+            
+            // Calculate number of buckets needed
+            calculateBuckets(totalKg, bucketSize) {
+                return Math.ceil(totalKg / bucketSize);
+            },
+            
+            // Get current bucket size from selector
+            getCurrentBucketSize() {
+                const selected = document.querySelector('.bucket-size-option.selected');
+                if (selected) {
+                    return parseFloat(selected.getAttribute('data-size'));
+                }
+                const settings = DB.getSettings();
+                return settings.default_bucket_size || 6;
+            },
+            
+            // Show notification
             showNotification(message, type = 'info') {
-                const existing = document.querySelector('.notification'); if (existing) existing.remove();
+                const existing = document.querySelector('.notification');
+                if (existing) existing.remove();
+                
                 const notification = document.createElement('div');
                 notification.className = `notification alert alert-${type}`;
-                notification.innerHTML = `<div class="alert-icon"><i class="fas fa-${type === 'success' ? 'check-circle' : type === 'warning' ? 'exclamation-triangle' : 'info-circle'}"></i></div><div class="alert-content">${message}</div>`;
+                notification.innerHTML = `
+                    <div class="alert-icon">
+                        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'warning' ? 'exclamation-triangle' : type === 'danger' ? 'times-circle' : 'info-circle'}"></i>
+                    </div>
+                    <div class="alert-content">${message}</div>
+                `;
+                
                 document.body.appendChild(notification);
-                notification.style.position = 'fixed'; notification.style.top = '20px'; notification.style.right = '20px'; notification.style.zIndex = '3000'; notification.style.maxWidth = '400px'; notification.style.boxShadow = 'var(--shadow-lg)';
-                setTimeout(() => { notification.style.opacity = '0'; notification.style.transform = 'translateX(100px)'; setTimeout(() => notification.remove(), 300); }, 5000);
+                notification.style.position = 'fixed';
+                notification.style.top = '20px';
+                notification.style.right = '20px';
+                notification.style.zIndex = '3000';
+                notification.style.maxWidth = '400px';
+                notification.style.boxShadow = 'var(--shadow-lg)';
+                
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    notification.style.transform = 'translateX(100px)';
+                    setTimeout(() => notification.remove(), 300);
+                }, 5000);
             },
+            
+            // Show modal
             showModal(title, content, buttons = []) {
                 const overlay = document.getElementById('modal-overlay');
                 const modalContent = document.getElementById('modal-content');
-                let html = `<div class="card-title" style="margin-bottom: var(--space-lg);"><i class="fas fa-info-circle"></i> ${title}</div><div style="margin-bottom: var(--space-lg);">${content}</div>`;
-                if (buttons.length > 0) { html += '<div class="d-flex gap-3 justify-content-end">'; buttons.forEach(btn => { html += `<button class="btn btn-${btn.type}" id="modal-btn-${btn.id}">${btn.label}</button>`; }); html += '</div>'; }
-                else { html += '<div class="text-center"><button class="btn btn-primary" id="modal-close">OK</button></div>'; }
-                modalContent.innerHTML = html; overlay.style.display = 'flex';
-                if (buttons.length > 0) { buttons.forEach(btn => { document.getElementById(`modal-btn-${btn.id}`).onclick = () => { btn.onClick(); overlay.style.display = 'none'; }; }); }
-                else { document.getElementById('modal-close').onclick = () => { overlay.style.display = 'none'; }; }
-                overlay.onclick = (e) => { if (e.target === overlay) overlay.style.display = 'none'; };
+                
+                let html = `
+                    <div class="card-title" style="margin-bottom: var(--space-lg);">
+                        <i class="fas fa-info-circle"></i> ${title}
+                    </div>
+                    <div style="margin-bottom: var(--space-lg);">
+                        ${content}
+                    </div>
+                `;
+                
+                if (buttons.length > 0) {
+                    html += '<div class="d-flex gap-3 justify-content-end">';
+                    buttons.forEach(btn => {
+                        html += `<button class="btn btn-${btn.type}" id="modal-btn-${btn.id}">${btn.label}</button>`;
+                    });
+                    html += '</div>';
+                } else {
+                    html += '<div class="text-center"><button class="btn btn-primary" id="modal-close">OK</button></div>';
+                }
+                
+                modalContent.innerHTML = html;
+                overlay.style.display = 'flex';
+                
+                if (buttons.length > 0) {
+                    buttons.forEach(btn => {
+                        document.getElementById(`modal-btn-${btn.id}`).onclick = () => {
+                            btn.onClick();
+                            overlay.style.display = 'none';
+                        };
+                    });
+                } else {
+                    document.getElementById('modal-close').onclick = () => {
+                        overlay.style.display = 'none';
+                    };
+                }
+                
+                overlay.onclick = (e) => {
+                    if (e.target === overlay) {
+                        overlay.style.display = 'none';
+                    }
+                };
             },
-            generateId() { return Date.now().toString(36) + Math.random().toString(36).substr(2); }
+            
+            // Generate unique ID
+            generateId() {
+                return Date.now().toString(36) + Math.random().toString(36).substr(2);
+            }
         };
 
         // ===== APPLICATION STATE =====
-        const AppState = { currentView: 'dashboard', currentOrder: { customerId: '', date: '', priority: 'normal', notes: '', items: [] }, currentCustomer: null, currentBucketSize: 6 };
+        const AppState = {
+            currentView: 'dashboard',
+            currentOrder: {
+                customerId: '',
+                date: '',
+                priority: 'normal',
+                notes: '',
+                items: []
+            },
+            currentCustomer: null,
+            currentBucketSize: 6
+        };
 
         // ===== VIEW MANAGER =====
         const ViewManager = {
-            init() { document.querySelectorAll('.nav-btn').forEach(btn => { btn.addEventListener('click', () => { const view = btn.getAttribute('data-view'); this.switchView(view); }); }); this.switchView('dashboard'); },
-            switchView(viewName) { document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-view') === viewName)); document.querySelectorAll('.view-container').forEach(view => view.classList.remove('active')); const targetView = document.getElementById(`${viewName}-view`); if (targetView) { targetView.classList.add('active'); AppState.currentView = viewName; this.initView(viewName); } },
-            initView(viewName) { if (viewName === 'dashboard') Dashboard.init(); if (viewName === 'orders') Orders.init(); if (viewName === 'production') Production.init(); if (viewName === 'flavors') Flavors.init(); if (viewName === 'customers') Customers.init(); if (viewName === 'statistics') Statistics.init(); if (viewName === 'settings') Settings.init(); }
+            init() {
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const view = btn.getAttribute('data-view');
+                        this.switchView(view);
+                    });
+                });
+                
+                this.switchView('dashboard');
+            },
+            
+            switchView(viewName) {
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.getAttribute('data-view') === viewName);
+                });
+                
+                document.querySelectorAll('.view-container').forEach(view => {
+                    view.classList.remove('active');
+                });
+                
+                const targetView = document.getElementById(`${viewName}-view`);
+                if (targetView) {
+                    targetView.classList.add('active');
+                    AppState.currentView = viewName;
+                    this.initView(viewName);
+                }
+            },
+            
+            initView(viewName) {
+                switch(viewName) {
+                    case 'dashboard':
+                        Dashboard.init();
+                        break;
+                    case 'orders':
+                        Orders.init();
+                        break;
+                    case 'production':
+                        Production.init();
+                        break;
+                    case 'flavors':
+                        Flavors.init();
+                        break;
+                    case 'customers':
+                        Customers.init();
+                        break;
+                    case 'statistics':
+                        Statistics.init();
+                        break;
+                    case 'settings':
+                        Settings.init();
+                        break;
+                }
+            }
         };
 
         // ===== DASHBOARD MODULE =====
-        const Dashboard = { init() { this.updateStatistics(); setInterval(() => this.updateTime(), 60000); this.updateTime(); }, updateStatistics() { const orders = DB.getOrders(); const today = new Date().toISOString().split('T')[0]; const todayOrders = orders.filter(o => o.date === today); document.getElementById('stat-today-orders').textContent = todayOrders.length; let todayProduction = 0; todayOrders.forEach(order => { order.items?.forEach(item => { todayProduction += Utils.calculateWeight(item.size, item.quantity); }); }); document.getElementById('stat-production-today').textContent = todayProduction.toFixed(1) + ' kg'; document.getElementById('stat-recipes').textContent = DB.getFlavors().length; }, updateTime() { const now = new Date(); document.getElementById('current-time').textContent = now.toLocaleTimeString('de-DE', { hour:'2-digit', minute:'2-digit' }); } };
-
-        // ===== FLAVORS MODULE (VOLLSTÄNDIG) =====
-        const Flavors = {
-            init() { this.setupEventListeners(); this.loadFlavors(); this.updateAllFlavorSelects(); },
-            defaultFlavors: [ { id: '1', name: 'Stracciatella', category: 'milcheis', description: 'Milcheis mit Schokostückchen', active: true }, { id: '2', name: 'Amarena Kirsch', category: 'sorbet', description: 'Sauerkirsch-Sorbet mit Amarena', active: true }, { id: '3', name: 'Vanille', category: 'milcheis', description: 'Klassische Vanille', active: true }, { id: '4', name: 'Spaghetti', category: 'speiseeis', description: 'Eis mit Spaghetti-Optik', active: true }, { id: '5', name: 'Toffifee', category: 'milcheis', description: 'Mit Toffifee-Stückchen', active: true }, { id: '6', name: 'Cookies', category: 'milcheis', description: 'Mit Cookie-Stückchen', active: true }, { id: '7', name: 'Weiß Schokolade Pistazien', category: 'milcheis', description: 'Weiße Schokolade mit Pistazien', active: true }, { id: '8', name: 'Erdbeer', category: 'fruchteis', description: 'Frisches Erdbeereis', active: true }, { id: '9', name: 'Joghurt Orange', category: 'fruchteis', description: 'Joghurt-Eis mit Orangen', active: true }, { id: '10', name: 'Kinder Buenos', category: 'milcheis', description: 'Mit Kinder Buenos', active: true }, { id: '11', name: 'Kinder Riegel', category: 'milcheis', description: 'Mit Kinder Riegel', active: true }, { id: '12', name: 'Joghurete Schokolade', category: 'milcheis', description: 'Joghurt-Eis mit Schokolade', active: true }, { id: '13', name: 'Mango', category: 'sorbet', description: 'Mango-Sorbet', active: true }, { id: '14', name: 'Hanutta', category: 'spezial', description: 'Spezialität', active: true } ],
-            setupEventListeners() { document.getElementById('add-flavor-btn')?.addEventListener('click', () => this.handleAddFlavor()); document.getElementById('reset-flavors-btn')?.addEventListener('click', () => this.resetToDefaults()); },
-            getActiveFlavors() { return DB.getFlavors().filter(f => f.active !== false); },
-            handleAddFlavor() { const name = document.getElementById('new-flavor-name').value.trim(); const category = document.getElementById('new-flavor-category').value; const description = document.getElementById('new-flavor-description').value.trim(); if (!name) { Utils.showNotification('Bitte geben Sie einen Namen ein', 'warning'); return; } if (this.addFlavor({ name: name.charAt(0).toUpperCase() + name.slice(1).toLowerCase(), category, description, active: true })) { document.getElementById('new-flavor-name').value = ''; document.getElementById('new-flavor-description').value = ''; } },
-            addFlavor(flavorData) { const flavors = DB.getFlavors(); if (flavors.some(f => f.name.toLowerCase() === flavorData.name.toLowerCase())) { Utils.showNotification('Diese Sorte existiert bereits', 'warning'); return false; } const newFlavor = { id: Utils.generateId(), ...flavorData, created: new Date().toISOString() }; flavors.push(newFlavor); if (DB.saveFlavors(flavors)) { Utils.showNotification(`Sorte "${flavorData.name}" hinzugefügt`, 'success'); this.loadFlavors(); this.updateAllFlavorSelects(); return true; } return false; },
-            loadFlavors() { const flavors = DB.getFlavors(); const tbody = document.getElementById('flavors-list'); if (!tbody) return; tbody.innerHTML = ''; flavors.forEach(flavor => { const tr = document.createElement('tr'); tr.innerHTML = `<td><strong>${flavor.name}</strong> ${!flavor.active ? '<span class="badge badge-danger">Inaktiv</span>' : ''}</td><td><span class="badge badge-primary">${flavor.category}</span></td><td class="text-muted fs-sm">${flavor.description || '—'}</td><td><span class="badge ${flavor.active ? 'badge-success' : 'badge-danger'}">${flavor.active ? 'Aktiv' : 'Inaktiv'}</span></td><td><div class="table-actions"><button class="btn-icon toggle-flavor" data-id="${flavor.id}"><i class="fas ${flavor.active ? 'fa-eye-slash' : 'fa-eye'}"></i></button><button class="btn-icon delete-flavor" data-id="${flavor.id}"><i class="fas fa-trash"></i></button></div></td>`; tbody.appendChild(tr); }); document.querySelectorAll('.toggle-flavor').forEach(btn => { btn.addEventListener('click', (e) => { const id = btn.getAttribute('data-id'); const flavors = DB.getFlavors(); const idx = flavors.findIndex(f => f.id === id); if (idx !== -1) { flavors[idx].active = !flavors[idx].active; DB.saveFlavors(flavors); this.loadFlavors(); this.updateAllFlavorSelects(); Utils.showNotification(`Sorte ${flavors[idx].active ? 'aktiviert' : 'deaktiviert'}`, 'success'); } }); }); document.querySelectorAll('.delete-flavor').forEach(btn => { btn.addEventListener('click', (e) => { const id = btn.getAttribute('data-id'); Utils.showModal('Sorte löschen', 'Wirklich löschen?', [{ id:'cancel', label:'Abbrechen', type:'outline', onClick:()=>{} }, { id:'delete', label:'Löschen', type:'danger', onClick:()=>{ const filtered = DB.getFlavors().filter(f => f.id !== id); DB.saveFlavors(filtered); this.loadFlavors(); this.updateAllFlavorSelects(); Utils.showNotification('Sorte gelöscht','success'); } }]); }); }); },
-            resetToDefaults() { Utils.showModal('Standard-Sorten wiederherstellen', 'Alle eigenen Sorten werden gelöscht.', [{ id:'cancel', label:'Abbrechen', type:'outline', onClick:()=>{} }, { id:'reset', label:'Wiederherstellen', type:'danger', onClick:()=>{ DB.saveFlavors(this.defaultFlavors); this.loadFlavors(); this.updateAllFlavorSelects(); Utils.showNotification('Standard-Sorten wiederhergestellt','success'); } }]); },
-            updateAllFlavorSelects() { const flavors = this.getActiveFlavors(); this.updateFlavorSelect('order-flavor', flavors); document.querySelectorAll('.order-flavor-select').forEach(select => this.updateFlavorSelectElement(select, flavors)); },
-            updateFlavorSelect(selectId, flavors) { const select = document.getElementById(selectId); if (select) this.updateFlavorSelectElement(select, flavors); },
-            updateFlavorSelectElement(selectElement, flavors) { const current = selectElement.value; selectElement.innerHTML = '<option value="">Sorte auswählen...</option>'; const grouped = {}; flavors.forEach(f => { if (!grouped[f.category]) grouped[f.category] = []; grouped[f.category].push(f); }); Object.keys(grouped).forEach(cat => { const optgroup = document.createElement('optgroup'); optgroup.label = cat; grouped[cat].forEach(f => { const opt = document.createElement('option'); opt.value = f.name; opt.textContent = f.name; optgroup.appendChild(opt); }); selectElement.appendChild(optgroup); }); if (current && Array.from(selectElement.options).some(opt => opt.value === current)) selectElement.value = current; }
+        const Dashboard = {
+            init() {
+                this.updateStatistics();
+                setInterval(() => this.updateTime(), 60000);
+                this.updateTime();
+            },
+            
+            updateStatistics() {
+                const orders = DB.getOrders();
+                const today = new Date().toISOString().split('T')[0];
+                
+                const todayOrders = orders.filter(o => o.date === today);
+                document.getElementById('stat-today-orders').textContent = todayOrders.length;
+                
+                let todayProduction = 0;
+                todayOrders.forEach(order => {
+                    order.items?.forEach(item => {
+                        todayProduction += Utils.calculateWeight(item.size, item.quantity);
+                    });
+                });
+                document.getElementById('stat-production-today').textContent = todayProduction.toFixed(1) + ' kg';
+                
+                const flavors = DB.getFlavors();
+                document.getElementById('stat-recipes').textContent = flavors.length;
+            },
+            
+            updateTime() {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString('de-DE', { 
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                });
+                document.getElementById('current-time').textContent = timeString;
+            }
         };
 
-        // ===== ORDERS MODULE =====
-        const Orders = { init() { this.loadCustomers(); this.setDefaultDate(); this.setupEventListeners(); this.loadRecentOrders(); }, loadCustomers() { const customers = DB.getCustomers(); const select = document.getElementById('order-customer'); select.innerHTML = '<option value="">Kunde auswählen...</option>'; customers.forEach(c => { const opt = document.createElement('option'); opt.value = c.id; opt.textContent = `${c.name} - ${c.location}`; select.appendChild(opt); }); }, setDefaultDate() { document.getElementById('order-date').value = new Date().toISOString().split('T')[0]; }, setupEventListeners() { document.getElementById('add-order-item').addEventListener('click', () => this.addOrderItem()); document.getElementById('clear-order').addEventListener('click', () => { AppState.currentOrder = { customerId: '', date: '', priority: 'normal', notes: '', items: [] }; this.renderOrderItems(); this.updateOrderSummary(); }); document.getElementById('save-order').addEventListener('click', () => this.saveOrder()); document.getElementById('print-order').addEventListener('click', () => { const orders = DB.getOrders(); if(orders.length) Printing.printOrder(orders[orders.length-1]); }); document.getElementById('print-delivery-note').addEventListener('click', () => { const orders = DB.getOrders(); if(orders.length) Printing.printDeliveryNote(orders[orders.length-1].id); }); document.getElementById('export-order').addEventListener('click', () => Utils.showNotification('Exportfunktion in Entwicklung', 'info')); }, addOrderItem() { AppState.currentOrder.items.push({ id: Utils.generateId(), flavor: '', size: '750', quantity: 1 }); this.renderOrderItems(); }, renderOrderItems() { const container = document.getElementById('order-items-list'); container.innerHTML = ''; AppState.currentOrder.items.forEach((item, idx) => { const div = document.createElement('div'); div.className = 'order-item'; div.innerHTML = `<select class="form-select order-flavor-select" data-index="${idx}"><option value="">Sorte wählen...</option></select><select class="form-select order-size" data-index="${idx}"><option value="170">170 g</option><option value="500">500 g</option><option value="750" selected>750 g</option><option value="1000">1000 g</option></select><input type="number" class="form-input order-quantity" data-index="${idx}" value="${item.quantity}" min="1"><button class="btn btn-danger btn-sm remove-item" data-index="${idx}"><i class="fas fa-trash"></i></button>`; container.appendChild(div); }); const flavors = Flavors.getActiveFlavors(); document.querySelectorAll('.order-flavor-select').forEach(sel => { const idx = parseInt(sel.dataset.index); flavors.forEach(f => { const opt = document.createElement('option'); opt.value = f.name; opt.textContent = f.name; sel.appendChild(opt); }); sel.value = AppState.currentOrder.items[idx]?.flavor || ''; sel.addEventListener('change', (e) => { AppState.currentOrder.items[idx].flavor = e.target.value; this.updateOrderSummary(); }); }); document.querySelectorAll('.order-size').forEach(sel => { const idx = parseInt(sel.dataset.index); sel.value = AppState.currentOrder.items[idx]?.size || '750'; sel.addEventListener('change', (e) => { AppState.currentOrder.items[idx].size = e.target.value; this.updateOrderSummary(); }); }); document.querySelectorAll('.order-quantity').forEach(inp => { const idx = parseInt(inp.dataset.index); inp.addEventListener('change', (e) => { AppState.currentOrder.items[idx].quantity = parseInt(e.target.value) || 1; this.updateOrderSummary(); }); }); document.querySelectorAll('.remove-item').forEach(btn => { btn.addEventListener('click', (e) => { const idx = parseInt(btn.dataset.index); AppState.currentOrder.items.splice(idx, 1); this.renderOrderItems(); this.updateOrderSummary(); }); }); this.updateOrderSummary(); }, updateOrderSummary() { let totalItems=0, total750=0, total170=0, totalKg=0; AppState.currentOrder.items.forEach(i => { totalItems += i.quantity; if(i.size === '750') total750 += i.quantity; if(i.size === '170') total170 += i.quantity; totalKg += Utils.calculateWeight(i.size, i.quantity); }); document.getElementById('total-items').textContent = totalItems; document.getElementById('total-750g').textContent = total750; document.getElementById('total-170g').textContent = total170; document.getElementById('total-kg').textContent = totalKg.toFixed(1); }, saveOrder() { const customerId = document.getElementById('order-customer').value; const date = document.getElementById('order-date').value; const priority = document.getElementById('order-priority').value; const notes = document.getElementById('order-notes').value; if (!customerId) { Utils.showNotification('Bitte Kunde wählen', 'warning'); return; } if (AppState.currentOrder.items.length === 0) { Utils.showNotification('Mindestens eine Position', 'warning'); return; } const order = { customerId, date, priority, notes, items: JSON.parse(JSON.stringify(AppState.currentOrder.items)), status: 'pending', created: new Date().toISOString() }; if (DB.saveOrder(order)) { Utils.showNotification('Bestellung gespeichert', 'success'); AppState.currentOrder = { customerId: '', date: '', priority: 'normal', notes: '', items: [] }; this.renderOrderItems(); this.updateOrderSummary(); document.getElementById('order-notes').value = ''; this.loadRecentOrders(); Dashboard.updateStatistics(); } }, loadRecentOrders() { const orders = DB.getOrders().sort((a,b)=>new Date(b.created)-new Date(a.created)); const tbody = document.getElementById('recent-orders'); tbody.innerHTML = ''; orders.slice(0,5).forEach(order => { const customer = DB.getCustomers().find(c => c.id === order.customerId); const tr = document.createElement('tr'); tr.innerHTML = `<td>${Utils.formatDate(order.date)}</td><td>${customer ? customer.name : 'Unbekannt'}</td><td>${order.items.reduce((s,i)=>s+i.quantity,0)} Stk.</td><td><span class="badge badge-warning">Ausstehend</span></td><td><button class="btn-icon view-order" data-id="${order.id}"><i class="fas fa-eye"></i></button><button class="btn-icon delete-order" data-id="${order.id}"><i class="fas fa-trash"></i></button></td>`; tbody.appendChild(tr); }); document.querySelectorAll('.view-order').forEach(btn => { btn.addEventListener('click', (e) => { const id = btn.getAttribute('data-id'); const order = DB.getOrders().find(o => o.id === id); if(order) Utils.showModal('Bestelldetails', `<p>Datum: ${Utils.formatDate(order.date)}</p><p>Priorität: ${order.priority}</p><p>Notizen: ${order.notes || 'Keine'}</p><ul>${order.items.map(i=>`<li>${i.quantity}x ${i.flavor} (${i.size}g)</li>`).join('')}</ul>`, []); }); }); document.querySelectorAll('.delete-order').forEach(btn => { btn.addEventListener('click', (e) => { const id = btn.getAttribute('data-id'); Utils.showModal('Löschen', 'Bestellung löschen?', [{ id:'cancel', label:'Abbrechen', type:'outline', onClick:()=>{} }, { id:'delete', label:'Löschen', type:'danger', onClick:()=>{ const orders = DB.getOrders().filter(o => o.id !== id); DB.set(DB.KEYS.ORDERS, orders); this.loadRecentOrders(); Utils.showNotification('Gelöscht','success'); } }]); }); }); } };
+        // ===== FLAVORS MODULE =====
+        const Flavors = {
+            init() {
+                this.setupEventListeners();
+                this.loadFlavors();
+                this.updateAllFlavorSelects();
+            },
+            
+            defaultFlavors: [
+                { id: '1', name: 'Stracciatella', category: 'milcheis', description: 'Milcheis mit Schokostückchen', active: true },
+                { id: '2', name: 'Amarena Kirsch', category: 'sorbet', description: 'Sauerkirsch-Sorbet mit Amarena', active: true },
+                { id: '3', name: 'Vanille', category: 'milcheis', description: 'Klassische Vanille', active: true },
+                { id: '4', name: 'Spaghetti', category: 'speiseeis', description: 'Eis mit Spaghetti-Optik', active: true },
+                { id: '5', name: 'Toffifee', category: 'milcheis', description: 'Mit Toffifee-Stückchen', active: true },
+                { id: '6', name: 'Cookies', category: 'milcheis', description: 'Mit Cookie-Stückchen', active: true },
+                { id: '7', name: 'Weiß Schokolade Pistazien', category: 'milcheis', description: 'Weiße Schokolade mit Pistazien', active: true },
+                { id: '8', name: 'Erdbeer', category: 'fruchteis', description: 'Frisches Erdbeereis', active: true },
+                { id: '9', name: 'Joghurt Orange', category: 'fruchteis', description: 'Joghurt-Eis mit Orangen', active: true },
+                { id: '10', name: 'Kinder Buenos', category: 'milcheis', description: 'Mit Kinder Buenos', active: true },
+                { id: '11', name: 'Kinder Riegel', category: 'milcheis', description: 'Mit Kinder Riegel', active: true },
+                { id: '12', name: 'Joghurete Schokolade', category: 'milcheis', description: 'Joghurt-Eis mit Schokolade', active: true },
+                { id: '13', name: 'Mango', category: 'sorbet', description: 'Mango-Sorbet', active: true },
+                { id: '14', name: 'Hanutta', category: 'spezial', description: 'Spezialität', active: true }
+            ],
+            
+            setupEventListeners() {
+                document.getElementById('add-flavor-btn')?.addEventListener('click', () => {
+                    this.handleAddFlavor();
+                });
+                
+                document.getElementById('reset-flavors-btn')?.addEventListener('click', () => {
+                    this.resetToDefaults();
+                });
+            },
+            
+            getActiveFlavors() {
+                const flavors = DB.getFlavors();
+                return flavors.filter(f => f.active !== false);
+            },
+            
+            handleAddFlavor() {
+                const nameInput = document.getElementById('new-flavor-name');
+                const categoryInput = document.getElementById('new-flavor-category');
+                const descriptionInput = document.getElementById('new-flavor-description');
+                
+                const name = nameInput.value.trim();
+                const category = categoryInput.value;
+                const description = descriptionInput.value.trim();
+                
+                if (!name) {
+                    Utils.showNotification('Bitte geben Sie einen Namen für die Sorte ein', 'warning');
+                    return;
+                }
+                
+                const flavorData = {
+                    name: name.charAt(0).toUpperCase() + name.slice(1).toLowerCase(),
+                    category,
+                    description,
+                    active: true
+                };
+                
+                if (this.addFlavor(flavorData)) {
+                    nameInput.value = '';
+                    descriptionInput.value = '';
+                    nameInput.focus();
+                }
+            },
+            
+            addFlavor(flavorData) {
+                const flavors = DB.getFlavors();
+                
+                const exists = flavors.some(f => 
+                    f.name.toLowerCase() === flavorData.name.toLowerCase()
+                );
+                
+                if (exists) {
+                    Utils.showNotification('Diese Sorte existiert bereits', 'warning');
+                    return false;
+                }
+                
+                const newFlavor = {
+                    id: Utils.generateId(),
+                    ...flavorData,
+                    created: new Date().toISOString()
+                };
+                
+                flavors.push(newFlavor);
+                
+                if (DB.saveFlavors(flavors)) {
+                    Utils.showNotification(`Sorte "${flavorData.name}" hinzugefügt`, 'success');
+                    this.loadFlavors();
+                    this.updateAllFlavorSelects();
+                    return true;
+                }
+                
+                return false;
+            },
+            
+            loadFlavors() {
+                const flavors = DB.getFlavors();
+                const tbody = document.getElementById('flavors-list');
+                
+                if (!tbody) return;
+                
+                tbody.innerHTML = '';
+                
+                flavors.forEach(flavor => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>
+                            <div class="d-flex align-items-center gap-2">
+                                <strong>${flavor.name}</strong>
+                                ${!flavor.active ? '<span class="badge badge-danger">Inaktiv</span>' : ''}
+                            </div>
+                        </td>
+                        <td><span class="badge badge-primary">${this.getCategoryName(flavor.category)}</span></td>
+                        <td class="text-muted fs-sm">${flavor.description || '—'}</td>
+                        <td><span class="badge ${flavor.active ? 'badge-success' : 'badge-danger'}">${flavor.active ? 'Aktiv' : 'Inaktiv'}</span></td>
+                        <td>
+                            <div class="table-actions">
+                                <button class="btn-icon toggle-flavor" data-id="${flavor.id}" data-active="${flavor.active}">
+                                    <i class="fas ${flavor.active ? 'fa-eye-slash' : 'fa-eye'}"></i>
+                                </button>
+                                <button class="btn-icon delete-flavor" data-id="${flavor.id}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    
+                    tbody.appendChild(tr);
+                });
+                
+                this.addFlavorEventListeners();
+            },
+            
+            addFlavorEventListeners() {
+                document.querySelectorAll('.toggle-flavor').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const flavorId = btn.getAttribute('data-id');
+                        const currentActive = btn.getAttribute('data-active') === 'true';
+                        this.toggleFlavorActive(flavorId, !currentActive);
+                    });
+                });
+                
+                document.querySelectorAll('.delete-flavor').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const flavorId = btn.getAttribute('data-id');
+                        this.deleteFlavor(flavorId);
+                    });
+                });
+            },
+            
+            toggleFlavorActive(flavorId, active) {
+                const flavors = DB.getFlavors();
+                const flavor = flavors.find(f => f.id === flavorId);
+                
+                if (flavor) {
+                    flavor.active = active;
+                    flavor.updated = new Date().toISOString();
+                    
+                    if (DB.saveFlavors(flavors)) {
+                        Utils.showNotification(`Sorte ${active ? 'aktiviert' : 'deaktiviert'}`, 'success');
+                        this.loadFlavors();
+                        this.updateAllFlavorSelects();
+                    }
+                }
+            },
+            
+            deleteFlavor(flavorId) {
+                const flavors = DB.getFlavors();
+                const flavor = flavors.find(f => f.id === flavorId);
+                
+                if (!flavor) return;
+                
+                Utils.showModal('Sorte löschen',
+                    `Sind Sie sicher, dass Sie die Sorte "${flavor.name}" löschen möchten?`,
+                    [
+                        {
+                            id: 'cancel',
+                            label: 'Abbrechen',
+                            type: 'outline',
+                            onClick: () => {}
+                        },
+                        {
+                            id: 'delete',
+                            label: 'Löschen',
+                            type: 'danger',
+                            onClick: () => {
+                                const filtered = flavors.filter(f => f.id !== flavorId);
+                                
+                                if (DB.saveFlavors(filtered)) {
+                                    Utils.showNotification('Sorte gelöscht', 'success');
+                                    this.loadFlavors();
+                                    this.updateAllFlavorSelects();
+                                }
+                            }
+                        }
+                    ]);
+            },
+            
+            resetToDefaults() {
+                Utils.showModal('Standard-Sorten wiederherstellen',
+                    'Möchten Sie die Standard-Sorten wiederherstellen? Dies löscht alle selbst erstellten Sorten.',
+                    [
+                        {
+                            id: 'cancel',
+                            label: 'Abbrechen',
+                            type: 'outline',
+                            onClick: () => {}
+                        },
+                        {
+                            id: 'reset',
+                            label: 'Wiederherstellen',
+                            type: 'danger',
+                            onClick: () => {
+                                if (DB.saveFlavors(this.defaultFlavors)) {
+                                    Utils.showNotification('Standard-Sorten wiederhergestellt', 'success');
+                                    this.loadFlavors();
+                                    this.updateAllFlavorSelects();
+                                }
+                            }
+                        }
+                    ]);
+            },
+            
+            updateAllFlavorSelects() {
+                const flavors = this.getActiveFlavors();
+                this.updateFlavorSelect('order-flavor', flavors);
+                document.querySelectorAll('.order-flavor-select').forEach(select => {
+                    this.updateFlavorSelectElement(select, flavors);
+                });
+            },
+            
+            updateFlavorSelect(selectId, flavors) {
+                const select = document.getElementById(selectId);
+                if (select) {
+                    this.updateFlavorSelectElement(select, flavors);
+                }
+            },
+            
+            updateFlavorSelectElement(selectElement, flavors) {
+                const currentValue = selectElement.value;
+                
+                selectElement.innerHTML = '<option value="">Sorte auswählen...</option>';
+                
+                const grouped = {};
+                flavors.forEach(flavor => {
+                    if (!grouped[flavor.category]) {
+                        grouped[flavor.category] = [];
+                    }
+                    grouped[flavor.category].push(flavor);
+                });
+                
+                Object.keys(grouped).forEach(category => {
+                    const optgroup = document.createElement('optgroup');
+                    optgroup.label = this.getCategoryName(category);
+                    
+                    grouped[category].forEach(flavor => {
+                        const option = document.createElement('option');
+                        option.value = flavor.name;
+                        option.textContent = flavor.name;
+                        optgroup.appendChild(option);
+                    });
+                    
+                    selectElement.appendChild(optgroup);
+                });
+                
+                if (currentValue && Array.from(selectElement.options).some(opt => opt.value === currentValue)) {
+                    selectElement.value = currentValue;
+                }
+            },
+            
+            getCategoryName(category) {
+                const names = {
+                    'milcheis': 'Milcheis',
+                    'sorbet': 'Sorbet',
+                    'fruchteis': 'Fruchteis',
+                    'speiseeis': 'Speiseeis',
+                    'spezial': 'Spezial'
+                };
+                return names[category] || 'Unbekannt';
+            }
+        };
+
+        // ===== ORDERS MODULE (COMPLETO) =====
+        const Orders = {
+            init() {
+                this.loadCustomers();
+                this.setDefaultDate();
+                this.setupEventListeners();
+                this.loadRecentOrders();
+                this.renderOrderItems();
+            },
+            
+            loadCustomers() {
+                const customers = DB.getCustomers();
+                const select = document.getElementById('order-customer');
+                select.innerHTML = '<option value="">Kunde auswählen...</option>';
+                
+                customers.forEach(customer => {
+                    const option = document.createElement('option');
+                    option.value = customer.id;
+                    option.textContent = `${customer.name} - ${customer.location}`;
+                    select.appendChild(option);
+                });
+            },
+            
+            setDefaultDate() {
+                const today = new Date().toISOString().split('T')[0];
+                document.getElementById('order-date').value = today;
+            },
+            
+            setupEventListeners() {
+                document.getElementById('add-order-item').addEventListener('click', () => {
+                    this.addOrderItem();
+                });
+                
+                document.getElementById('clear-order').addEventListener('click', () => {
+                    AppState.currentOrder = {
+                        customerId: '',
+                        date: '',
+                        priority: 'normal',
+                        notes: '',
+                        items: []
+                    };
+                    this.renderOrderItems();
+                    this.updateOrderSummary();
+                });
+                
+                document.getElementById('save-order').addEventListener('click', () => {
+                    this.saveOrder();
+                });
+                
+                document.getElementById('print-order').addEventListener('click', () => {
+                    const orders = DB.getOrders();
+                    if (orders.length) this.printOrder(orders[orders.length - 1]);
+                });
+                
+                document.getElementById('print-delivery-note').addEventListener('click', () => {
+                    const orders = DB.getOrders();
+                    if (orders.length) this.printDeliveryNote(orders[orders.length - 1]);
+                });
+                
+                document.getElementById('export-order').addEventListener('click', () => {
+                    Utils.showNotification('Exportfunktion in Entwicklung', 'info');
+                });
+            },
+            
+            addOrderItem() {
+                AppState.currentOrder.items.push({
+                    id: Utils.generateId(),
+                    flavor: '',
+                    size: '750',
+                    quantity: 1
+                });
+                this.renderOrderItems();
+            },
+            
+            renderOrderItems() {
+                const container = document.getElementById('order-items-list');
+                container.innerHTML = '';
+                
+                AppState.currentOrder.items.forEach((item, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'order-item';
+                    div.innerHTML = `
+                        <select class="form-select order-flavor-select" data-index="${index}">
+                            <option value="">Sorte wählen...</option>
+                        </select>
+                        <select class="form-select order-size" data-index="${index}">
+                            <option value="170">170 g</option>
+                            <option value="500">500 g</option>
+                            <option value="750" selected>750 g</option>
+                            <option value="1000">1000 g</option>
+                            <option value="3000">3 kg</option>
+                            <option value="4000">4 kg</option>
+                            <option value="5000">5 kg</option>
+                        </select>
+                        <input type="number" class="form-input order-quantity" 
+                               data-index="${index}" value="${item.quantity}" min="1" max="100">
+                        <button class="btn btn-danger btn-sm remove-item" data-index="${index}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    `;
+                    
+                    container.appendChild(div);
+                });
+                
+                this.addItemEventListeners();
+                this.updateOrderSummary();
+            },
+            
+            addItemEventListeners() {
+                const flavors = Flavors.getActiveFlavors();
+                
+                document.querySelectorAll('.order-flavor-select').forEach(select => {
+                    flavors.forEach(flavor => {
+                        const option = document.createElement('option');
+                        option.value = flavor.name;
+                        option.textContent = flavor.name;
+                        select.appendChild(option);
+                    });
+                    
+                    const index = parseInt(select.getAttribute('data-index'));
+                    select.value = AppState.currentOrder.items[index]?.flavor || '';
+                    
+                    select.addEventListener('change', (e) => {
+                        const idx = parseInt(e.target.getAttribute('data-index'));
+                        AppState.currentOrder.items[idx].flavor = e.target.value;
+                    });
+                });
+                
+                document.querySelectorAll('.order-size').forEach(select => {
+                    const index = parseInt(select.getAttribute('data-index'));
+                    select.value = AppState.currentOrder.items[index]?.size || '750';
+                    
+                    select.addEventListener('change', (e) => {
+                        const idx = parseInt(e.target.getAttribute('data-index'));
+                        AppState.currentOrder.items[idx].size = e.target.value;
+                        this.updateOrderSummary();
+                    });
+                });
+                
+                document.querySelectorAll('.order-quantity').forEach(input => {
+                    input.addEventListener('change', (e) => {
+                        const idx = parseInt(e.target.getAttribute('data-index'));
+                        AppState.currentOrder.items[idx].quantity = parseInt(e.target.value) || 1;
+                        this.updateOrderSummary();
+                    });
+                });
+                
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const idx = parseInt(button.getAttribute('data-index'));
+                        AppState.currentOrder.items.splice(idx, 1);
+                        this.renderOrderItems();
+                    });
+                });
+            },
+            
+            updateOrderSummary() {
+                let totalItems = 0;
+                let total750g = 0;
+                let total170g = 0;
+                let totalKg = 0;
+                
+                AppState.currentOrder.items.forEach(item => {
+                    totalItems += item.quantity;
+                    if (item.size === '750') total750g += item.quantity;
+                    if (item.size === '170') total170g += item.quantity;
+                    totalKg += Utils.calculateWeight(item.size, item.quantity);
+                });
+                
+                document.getElementById('total-items').textContent = totalItems;
+                document.getElementById('total-750g').textContent = total750g;
+                document.getElementById('total-170g').textContent = total170g;
+                document.getElementById('total-kg').textContent = totalKg.toFixed(1);
+            },
+            
+            saveOrder() {
+                const customerId = document.getElementById('order-customer').value;
+                const date = document.getElementById('order-date').value;
+                const priority = document.getElementById('order-priority').value;
+                const notes = document.getElementById('order-notes').value;
+                
+                if (!customerId) {
+                    Utils.showNotification('Bitte einen Kunden auswählen', 'warning');
+                    return;
+                }
+                
+                if (!date) {
+                    Utils.showNotification('Bitte ein Lieferdatum auswählen', 'warning');
+                    return;
+                }
+                
+                if (AppState.currentOrder.items.length === 0) {
+                    Utils.showNotification('Bitte mindestens eine Position hinzufügen', 'warning');
+                    return;
+                }
+                
+                const order = {
+                    customerId,
+                    date,
+                    priority,
+                    notes,
+                    items: [...AppState.currentOrder.items],
+                    status: 'pending',
+                    created: new Date().toISOString()
+                };
+                
+                if (DB.saveOrder(order)) {
+                    Utils.showNotification('Bestellung erfolgreich gespeichert', 'success');
+                    
+                    AppState.currentOrder = {
+                        customerId: '',
+                        date: '',
+                        priority: 'normal',
+                        notes: '',
+                        items: []
+                    };
+                    this.renderOrderItems();
+                    this.updateOrderSummary();
+                    document.getElementById('order-notes').value = '';
+                    
+                    this.loadRecentOrders();
+                    Dashboard.updateStatistics();
+                } else {
+                    Utils.showNotification('Fehler beim Speichern der Bestellung', 'danger');
+                }
+            },
+            
+            loadRecentOrders() {
+                const orders = DB.getOrders();
+                const customers = DB.getCustomers();
+                
+                orders.sort((a, b) => new Date(b.created) - new Date(a.created));
+                
+                const tbody = document.getElementById('recent-orders');
+                tbody.innerHTML = '';
+                
+                orders.slice(0, 5).forEach(order => {
+                    const customer = customers.find(c => c.id === order.customerId);
+                    const totalQuantity = order.items.reduce((sum, item) => sum + item.quantity, 0);
+                    
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${Utils.formatDate(order.date)}</td>
+                        <td>${customer ? customer.name : 'Unbekannt'}</td>
+                        <td>${totalQuantity} Stk.</td>
+                        <td><span class="badge badge-warning">Ausstehend</span></td>
+                        <td>
+                            <div class="table-actions">
+                                <button class="btn-icon view-order" data-id="${order.id}">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon delete-order" data-id="${order.id}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    
+                    tbody.appendChild(tr);
+                });
+                
+                document.querySelectorAll('.view-order').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const orderId = btn.getAttribute('data-id');
+                        const order = DB.getOrders().find(o => o.id === orderId);
+                        if (order) {
+                            let content = `<p><strong>Datum:</strong> ${Utils.formatDate(order.date)}</p>
+                                          <p><strong>Priorität:</strong> ${order.priority}</p>
+                                          <p><strong>Notizen:</strong> ${order.notes || 'Keine'}</p>
+                                          <h4>Positionen:</h4><ul>`;
+                            order.items.forEach(item => {
+                                content += `<li>${item.quantity}x ${item.flavor} (${item.size}g)</li>`;
+                            });
+                            content += '</ul>';
+                            Utils.showModal('Bestelldetails', content, []);
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('.delete-order').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const orderId = btn.getAttribute('data-id');
+                        Utils.showModal('Bestellung löschen', 
+                            'Sind Sie sicher, dass Sie diese Bestellung löschen möchten?',
+                            [
+                                { id: 'cancel', label: 'Abbrechen', type: 'outline', onClick: () => {} },
+                                { id: 'delete', label: 'Löschen', type: 'danger', onClick: () => {
+                                    const orders = DB.getOrders().filter(o => o.id !== orderId);
+                                    DB.set(DB.KEYS.ORDERS, orders);
+                                    this.loadRecentOrders();
+                                    Utils.showNotification('Bestellung gelöscht', 'success');
+                                }}
+                            ]);
+                    });
+                });
+            },
+            
+            printOrder(order) {
+                const customer = DB.getCustomers().find(c => c.id === order.customerId);
+                const totalKg = order.items.reduce((s, i) => s + Utils.calculateWeight(i.size, i.quantity), 0);
+                
+                let html = `<!DOCTYPE html><html><head><title>Bestellung</title>
+                <style>body{font-family:Arial;padding:20mm}table{width:100%;border-collapse:collapse}th,td{border:1px solid #000;padding:8px;text-align:left}th{background:#f2f2f2}.header{text-align:center;margin-bottom:20px}</style></head><body>
+                <div class="header"><h1>BESTELLUNG</h1><p>Eiscafé Sanremo - Bad Berleburg</p></div>
+                <p><strong>Kunde:</strong> ${customer?.name} - ${customer?.location}</p>
+                <p><strong>Lieferdatum:</strong> ${Utils.formatDate(order.date)}</p>
+                <p><strong>Priorität:</strong> ${order.priority}</p>
+                <table><thead><tr><th>Sorte</th><th>Größe</th><th>Menge</th><th>KG</th></tr></thead><tbody>`;
+                
+                order.items.forEach(i => {
+                    html += `<tr><td>${i.flavor}</td><td>${i.size}g</td><td>${i.quantity}</td><td>${(i.size/1000*i.quantity).toFixed(2)}</td></tr>`;
+                });
+                
+                html += `</tbody></table><p><strong>Gesamtgewicht:</strong> ${totalKg.toFixed(2)} kg</p>
+                ${order.notes ? `<p><strong>Notizen:</strong> ${order.notes}</p>` : ''}
+                <div style="margin-top:40px"><div style="display:inline-block;width:45%;border-top:1px solid #000;padding-top:8px;">Unterschrift Kunde</div>
+                <div style="display:inline-block;width:45%;margin-left:10%;border-top:1px solid #000;padding-top:8px;">Unterschrift Lieferant</div></div>
+                </body></html>`;
+                
+                const win = window.open();
+                win.document.write(html);
+                win.document.close();
+                setTimeout(() => win.print(), 200);
+            },
+            
+            printDeliveryNote(order) {
+                const customer = DB.getCustomers().find(c => c.id === order.customerId);
+                const totalKg = order.items.reduce((s, i) => s + Utils.calculateWeight(i.size, i.quantity), 0);
+                
+                let html = `<!DOCTYPE html><html><head><title>Lieferschein</title>
+                <style>body{font-family:Arial;padding:20mm}table{width:100%;border-collapse:collapse}th,td{border:1px solid #000;padding:8px}.header{text-align:center}</style></head><body>
+                <div class="header"><h1>LIEFERSCHEIN</h1><p>Eiscafé Sanremo - Bad Berleburg</p></div>
+                <p><strong>Kunde:</strong> ${customer?.name}</p><p><strong>Lieferdatum:</strong> ${Utils.formatDate(order.date)}</p>
+                <table><thead><tr><th>Sorte</th><th>Größe</th><th>Menge</th><th>KG</th></tr></thead><tbody>`;
+                
+                order.items.forEach(i => {
+                    html += `<tr><td>${i.flavor}</td><td>${i.size}g</td><td>${i.quantity}</td><td>${(i.size/1000*i.quantity).toFixed(2)}</td></tr>`;
+                });
+                
+                html += `</tbody></table><p><strong>Gesamtgewicht:</strong> ${totalKg.toFixed(2)} kg</p>
+                <div style="margin-top:40px"><div style="display:inline-block;width:45%;border-top:1px solid #000;margin-top:20px">Unterschrift Empfänger</div>
+                <div style="display:inline-block;width:45%;margin-left:10%;border-top:1px solid #000;margin-top:20px">Unterschrift Lieferant</div></div>
+                </body></html>`;
+                
+                const win = window.open();
+                win.document.write(html);
+                win.document.close();
+                setTimeout(() => win.print(), 200);
+            }
+        };
 
         // ===== PRODUCTION MODULE =====
-        const Production = { init() { this.setDefaultDate(); this.setupEventListeners(); this.initBucketSelector(); this.updateProductionStats(); }, setDefaultDate() { document.getElementById('production-date').value = new Date().toISOString().split('T')[0]; }, initBucketSelector() { const settings = DB.getSettings(); const defaultSize = settings.default_bucket_size || 6; const selector = document.getElementById('bucket-size-selector'); selector.querySelectorAll('.bucket-size-option').forEach(opt => { const size = parseFloat(opt.dataset.size); if(size === defaultSize) opt.classList.add('selected'); opt.addEventListener('click', () => { selector.querySelectorAll('.bucket-size-option').forEach(o => o.classList.remove('selected')); opt.classList.add('selected'); AppState.currentBucketSize = size; this.generateProductionPlan(); }); }); AppState.currentBucketSize = defaultSize; }, setupEventListeners() { document.getElementById('generate-production-plan').addEventListener('click', () => this.generateProductionPlan()); document.getElementById('start-production').addEventListener('click', () => this.startProduction()); document.getElementById('print-production-plan').addEventListener('click', () => Printing.printProductionPlan()); document.getElementById('production-date').addEventListener('change', () => this.updateProductionStats()); }, updateProductionStats() { const date = document.getElementById('production-date').value; const orders = DB.getOrders().filter(o => o.date === date); let totalKg = 0; let openOrders = 0; orders.forEach(order => { if(order.status !== 'completed') openOrders++; order.items?.forEach(item => totalKg += Utils.calculateWeight(item.size, item.quantity)); }); const bucketSize = AppState.currentBucketSize; const bucketsNeeded = Utils.calculateBuckets(totalKg, bucketSize); document.getElementById('prod-today-kg').textContent = totalKg.toFixed(1) + ' kg'; document.getElementById('prod-buckets-needed').textContent = bucketsNeeded; document.getElementById('prod-open-orders').textContent = openOrders; }, generateProductionPlan() { const date = document.getElementById('production-date').value; const orders = DB.getOrders().filter(o => o.date === date); const flavorMap = {}; orders.forEach(order => { order.items?.forEach(item => { if(!flavorMap[item.flavor]) flavorMap[item.flavor] = { flavor: item.flavor, size750:0, size170:0, kg:0 }; flavorMap[item.flavor].kg += Utils.calculateWeight(item.size, item.quantity); if(item.size === '750') flavorMap[item.flavor].size750 += item.quantity; if(item.size === '170') flavorMap[item.flavor].size170 += item.quantity; }); }); const flavors = Object.values(flavorMap).sort((a,b)=>b.kg - a.kg); const tbody = document.getElementById('production-plan'); tbody.innerHTML = ''; let totalKg = 0; const bucketSize = AppState.currentBucketSize; flavors.forEach(flavor => { const buckets = Utils.calculateBuckets(flavor.kg, bucketSize); totalKg += flavor.kg; const tr = document.createElement('tr'); tr.innerHTML = `<td><strong>${flavor.flavor}</strong></td><td>${flavor.size750}</td><td>${flavor.size170}</td><td>${flavor.kg.toFixed(2)} kg</td><td><strong>${buckets}</strong> (${bucketSize}kg)</td><td><span class="badge badge-warning">Geplant</span></td><td><button class="btn-icon start-flavor" data-flavor="${flavor.flavor}"><i class="fas fa-play"></i></button></td>`; tbody.appendChild(tr); }); const tfoot = document.getElementById('production-total'); tfoot.innerHTML = `<tr><td colspan="4" class="text-right"><strong>Gesamt:</strong></td><td><strong>${Utils.calculateBuckets(totalKg, bucketSize)} Eimer</strong></td><td></td><td></td></tr>`; document.querySelectorAll('.start-flavor').forEach(btn => btn.addEventListener('click', (e) => Utils.showNotification(`Produktion von ${btn.dataset.flavor} gestartet`, 'success'))); }, startProduction() { Utils.showModal('Produktion starten', 'Produktion für heute starten?', [{ id:'cancel', label:'Abbrechen', type:'outline', onClick:()=>{} }, { id:'start', label:'Starten', type:'success', onClick:()=>Utils.showNotification('Produktion gestartet','success') }]); } };
+        const Production = {
+            init() {
+                this.setDefaultDate();
+                this.setupEventListeners();
+                this.initBucketSelector();
+                this.updateProductionStats();
+            },
+            
+            setDefaultDate() {
+                const today = new Date().toISOString().split('T')[0];
+                document.getElementById('production-date').value = today;
+            },
+            
+            initBucketSelector() {
+                const selector = document.getElementById('bucket-size-selector');
+                const settings = DB.getSettings();
+                const defaultSize = settings.default_bucket_size || 6;
+                
+                selector.querySelectorAll('.bucket-size-option').forEach(option => {
+                    const size = parseFloat(option.getAttribute('data-size'));
+                    if (size === defaultSize) {
+                        option.classList.add('selected');
+                        AppState.currentBucketSize = size;
+                    }
+                    
+                    option.addEventListener('click', () => {
+                        selector.querySelectorAll('.bucket-size-option').forEach(opt => {
+                            opt.classList.remove('selected');
+                        });
+                        option.classList.add('selected');
+                        AppState.currentBucketSize = size;
+                        this.generateProductionPlan();
+                    });
+                });
+            },
+            
+            setupEventListeners() {
+                document.getElementById('generate-production-plan').addEventListener('click', () => {
+                    this.generateProductionPlan();
+                });
+                
+                document.getElementById('start-production').addEventListener('click', () => {
+                    this.startProduction();
+                });
+                
+                document.getElementById('print-production-plan').addEventListener('click', () => {
+                    this.printProductionPlan();
+                });
+                
+                document.getElementById('production-date').addEventListener('change', () => {
+                    this.updateProductionStats();
+                });
+            },
+            
+            updateProductionStats() {
+                const date = document.getElementById('production-date').value;
+                const orders = DB.getOrders();
+                
+                const dateOrders = orders.filter(o => o.date === date);
+                
+                let totalKg = 0;
+                let total750g = 0;
+                let total170g = 0;
+                let openOrders = 0;
+                
+                dateOrders.forEach(order => {
+                    if (order.status !== 'completed') openOrders++;
+                    
+                    order.items?.forEach(item => {
+                        totalKg += Utils.calculateWeight(item.size, item.quantity);
+                        if (item.size === '750') total750g += item.quantity;
+                        if (item.size === '170') total170g += item.quantity;
+                    });
+                });
+                
+                const bucketSize = AppState.currentBucketSize;
+                const bucketsNeeded = Utils.calculateBuckets(totalKg, bucketSize);
+                const completedPercent = dateOrders.length > 0 ? 
+                    Math.round((dateOrders.filter(o => o.status === 'completed').length / dateOrders.length) * 100) : 0;
+                
+                document.getElementById('prod-today-kg').textContent = totalKg.toFixed(1) + ' kg';
+                document.getElementById('prod-buckets-needed').textContent = bucketsNeeded;
+                document.getElementById('prod-completed').textContent = completedPercent + '%';
+                document.getElementById('prod-open-orders').textContent = openOrders;
+            },
+            
+            generateProductionPlan() {
+                const date = document.getElementById('production-date').value;
+                const orders = DB.getOrders();
+                
+                const flavorMap = {};
+                
+                orders
+                    .filter(o => o.date === date)
+                    .forEach(order => {
+                        order.items?.forEach(item => {
+                            if (!flavorMap[item.flavor]) {
+                                flavorMap[item.flavor] = {
+                                    flavor: item.flavor,
+                                    size750: 0,
+                                    size170: 0,
+                                    kg: 0
+                                };
+                            }
+                            
+                            flavorMap[item.flavor].kg += Utils.calculateWeight(item.size, item.quantity);
+                            if (item.size === '750') flavorMap[item.flavor].size750 += item.quantity;
+                            if (item.size === '170') flavorMap[item.flavor].size170 += item.quantity;
+                        });
+                    });
+                
+                const flavors = Object.values(flavorMap).sort((a, b) => b.kg - a.kg);
+                
+                const tbody = document.getElementById('production-plan');
+                tbody.innerHTML = '';
+                
+                let totalKg = 0;
+                let totalBuckets = 0;
+                const bucketSize = AppState.currentBucketSize;
+                
+                flavors.forEach(flavor => {
+                    const buckets = Utils.calculateBuckets(flavor.kg, bucketSize);
+                    totalKg += flavor.kg;
+                    totalBuckets += buckets;
+                    
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td><strong>${flavor.flavor || 'Unbekannt'}</strong></td>
+                        <td>${flavor.size750}</td>
+                        <td>${flavor.size170}</td>
+                        <td>${flavor.kg.toFixed(2)} kg</td>
+                        <td><strong>${buckets}</strong> (${bucketSize}kg)</td>
+                        <td><span class="badge badge-warning">Geplant</span></td>
+                        <td>
+                            <div class="table-actions">
+                                <button class="btn-icon start-flavor" data-flavor="${flavor.flavor}">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    
+                    tbody.appendChild(tr);
+                });
+                
+                const tfoot = document.getElementById('production-total');
+                tfoot.innerHTML = `
+                    <tr>
+                        <td colspan="4" style="text-align: right;"><strong>Gesamt:</strong></td>
+                        <td><strong>${totalBuckets} Eimer (${bucketSize}kg)</strong></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                `;
+                
+                document.querySelectorAll('.start-flavor').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const flavor = btn.getAttribute('data-flavor');
+                        Utils.showNotification(`Produktion von ${flavor} gestartet`, 'success');
+                    });
+                });
+                
+                Utils.showNotification(`Produktionsplan generiert mit ${bucketSize}kg Eimern`, 'success');
+            },
+            
+            printProductionPlan() {
+                const date = document.getElementById('production-date').value;
+                const orders = DB.getOrders();
+                const bucketSize = AppState.currentBucketSize;
+                
+                const flavorMap = {};
+                
+                orders
+                    .filter(o => o.date === date)
+                    .forEach(order => {
+                        order.items?.forEach(item => {
+                            if (!flavorMap[item.flavor]) {
+                                flavorMap[item.flavor] = {
+                                    flavor: item.flavor,
+                                    size750: 0,
+                                    size170: 0,
+                                    kg: 0
+                                };
+                            }
+                            flavorMap[item.flavor].kg += Utils.calculateWeight(item.size, item.quantity);
+                            if (item.size === '750') flavorMap[item.flavor].size750 += item.quantity;
+                            if (item.size === '170') flavorMap[item.flavor].size170 += item.quantity;
+                        });
+                    });
+                
+                const flavors = Object.values(flavorMap);
+                const totalKg = flavors.reduce((s, f) => s + f.kg, 0);
+                
+                let html = `<!DOCTYPE html><html><head><title>Produktionsplan</title>
+                <style>body{font-family:Arial;padding:20mm}table{width:100%;border-collapse:collapse}th,td{border:1px solid #000;padding:8px}th{background:#f2f2f2}.header{text-align:center}</style></head><body>
+                <div class="header"><h1>PRODUKTIONSPLAN</h1><p>Eiscafé Sanremo - Bad Berleburg</p><p>Datum: ${Utils.formatDate(date)}</p><p>Eimer-Größe: ${bucketSize} kg</p></div>
+                <table><thead><tr><th>Sorte</th><th>750g Becher</th><th>170g Becher</th><th>Menge (kg)</th><th>Eimer (${bucketSize}kg)</th></tr></thead><tbody>`;
+                
+                flavors.forEach(f => {
+                    const buckets = Utils.calculateBuckets(f.kg, bucketSize);
+                    html += `<tr><td><strong>${f.flavor}</strong></td><td>${f.size750}</td><td>${f.size170}</td><td>${f.kg.toFixed(2)} kg</td><td><strong>${buckets}</strong></td></tr>`;
+                });
+                
+                html += `</tbody></table><p><strong>Gesamtproduktion:</strong> ${totalKg.toFixed(1)} kg</p>
+                <p><strong>Benötigte Eimer (${bucketSize}kg):</strong> ${Utils.calculateBuckets(totalKg, bucketSize)}</p>
+                <div style="margin-top:40px"><div style="border-top:1px solid #000;padding-top:8px;">Datum, Unterschrift Produktionsleiter</div></div>
+                </body></html>`;
+                
+                const win = window.open();
+                win.document.write(html);
+                win.document.close();
+                setTimeout(() => win.print(), 200);
+            },
+            
+            startProduction() {
+                Utils.showModal('Produktion starten',
+                    'Möchten Sie die Produktion für den heutigen Tag starten?',
+                    [
+                        { id: 'cancel', label: 'Abbrechen', type: 'outline', onClick: () => {} },
+                        { id: 'start', label: 'Produktion starten', type: 'success', onClick: () => {
+                            Utils.showNotification('Produktion gestartet', 'success');
+                        }}
+                    ]);
+            }
+        };
 
         // ===== CUSTOMERS MODULE =====
-        const Customers = { init() { this.setupEventListeners(); this.loadCustomers(); }, setupEventListeners() { document.getElementById('save-customer').addEventListener('click', () => this.saveCustomer()); document.getElementById('clear-customer-form').addEventListener('click', () => this.clearForm()); }, saveCustomer() { const name = document.getElementById('customer-name').value.trim(); if(!name) { Utils.showNotification('Name erforderlich','warning'); return; } const customer = { name, location: document.getElementById('customer-location').value, contact: document.getElementById('customer-contact').value, phone: document.getElementById('customer-phone').value, email: document.getElementById('customer-email').value, type: document.getElementById('customer-type').value, notes: document.getElementById('customer-notes').value, created: new Date().toISOString() }; DB.saveCustomer(customer); Utils.showNotification('Kunde gespeichert','success'); this.clearForm(); this.loadCustomers(); Orders.loadCustomers(); }, clearForm() { document.getElementById('customer-name').value=''; document.getElementById('customer-location').value=''; document.getElementById('customer-contact').value=''; document.getElementById('customer-phone').value=''; document.getElementById('customer-email').value=''; document.getElementById('customer-notes').value=''; }, loadCustomers() { const customers = DB.getCustomers(); const tbody = document.getElementById('customers-list'); tbody.innerHTML = ''; customers.forEach(c => { const tr = document.createElement('tr'); tr.innerHTML = `<td><strong>${c.name}</strong></td><td>${c.location||''}</td><td>${c.contact||''}</td><td><span class="badge badge-primary">${c.type}</span></td><td><button class="btn-icon delete-customer" data-id="${c.id}"><i class="fas fa-trash"></i></button></td>`; tbody.appendChild(tr); }); document.querySelectorAll('.delete-customer').forEach(btn => btn.addEventListener('click', (e) => { const id = btn.getAttribute('data-id'); Utils.showModal('Kunde löschen', 'Wirklich löschen?', [{ id:'cancel', label:'Abbrechen', type:'outline', onClick:()=>{} }, { id:'delete', label:'Löschen', type:'danger', onClick:()=>{ DB.deleteCustomer(id); this.loadCustomers(); Orders.loadCustomers(); Utils.showNotification('Gelöscht','success'); } }]); })); } };
+        const Customers = {
+            init() {
+                this.setupEventListeners();
+                this.loadCustomers();
+            },
+            
+            setupEventListeners() {
+                document.getElementById('save-customer').addEventListener('click', () => {
+                    this.saveCustomer();
+                });
+                
+                document.getElementById('clear-customer-form').addEventListener('click', () => {
+                    this.clearCustomerForm();
+                });
+            },
+            
+            saveCustomer() {
+                const name = document.getElementById('customer-name').value.trim();
+                const location = document.getElementById('customer-location').value.trim();
+                const contact = document.getElementById('customer-contact').value.trim();
+                const phone = document.getElementById('customer-phone').value.trim();
+                const email = document.getElementById('customer-email').value.trim();
+                const type = document.getElementById('customer-type').value;
+                const notes = document.getElementById('customer-notes').value.trim();
+                
+                if (!name) {
+                    Utils.showNotification('Bitte geben Sie einen Kundennamen ein', 'warning');
+                    return;
+                }
+                
+                const customer = {
+                    name,
+                    location,
+                    contact,
+                    phone,
+                    email,
+                    type,
+                    notes,
+                    created: new Date().toISOString()
+                };
+                
+                if (DB.saveCustomer(customer)) {
+                    Utils.showNotification('Kunde erfolgreich gespeichert', 'success');
+                    this.clearCustomerForm();
+                    this.loadCustomers();
+                    Orders.loadCustomers();
+                } else {
+                    Utils.showNotification('Fehler beim Speichern des Kunden', 'danger');
+                }
+            },
+            
+            clearCustomerForm() {
+                document.getElementById('customer-name').value = '';
+                document.getElementById('customer-location').value = '';
+                document.getElementById('customer-contact').value = '';
+                document.getElementById('customer-phone').value = '';
+                document.getElementById('customer-email').value = '';
+                document.getElementById('customer-type').value = 'supermarkt';
+                document.getElementById('customer-notes').value = '';
+            },
+            
+            loadCustomers() {
+                const customers = DB.getCustomers();
+                const tbody = document.getElementById('customers-list');
+                tbody.innerHTML = '';
+                
+                customers.forEach(customer => {
+                    const orders = DB.getOrders();
+                    const customerOrders = orders.filter(o => o.customerId === customer.id);
+                    const lastOrder = customerOrders.length > 0 ? 
+                        Utils.formatDate(Math.max(...customerOrders.map(o => new Date(o.date)))) : 
+                        'Noch keine';
+                    
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td><strong>${customer.name}</strong></td>
+                        <td>${customer.location}</td>
+                        <td>${customer.contact}</td>
+                        <td><span class="badge badge-primary">${customer.type}</span></td>
+                        <td>${lastOrder}</td>
+                        <td>
+                            <div class="table-actions">
+                                <button class="btn-icon delete-customer" data-id="${customer.id}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    
+                    tbody.appendChild(tr);
+                });
+                
+                document.querySelectorAll('.delete-customer').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const customerId = btn.getAttribute('data-id');
+                        Utils.showModal('Kunde löschen',
+                            'Sind Sie sicher, dass Sie diesen Kunden löschen möchten?',
+                            [
+                                { id: 'cancel', label: 'Abbrechen', type: 'outline', onClick: () => {} },
+                                { id: 'delete', label: 'Löschen', type: 'danger', onClick: () => {
+                                    if (DB.deleteCustomer(customerId)) {
+                                        Utils.showNotification('Kunde gelöscht', 'success');
+                                        this.loadCustomers();
+                                        Orders.loadCustomers();
+                                    }
+                                }}
+                            ]);
+                    });
+                });
+            }
+        };
 
         // ===== STATISTICS MODULE =====
-        const Statistics = { init() { document.getElementById('generate-report').addEventListener('click', () => this.generateReport()); document.getElementById('print-report').addEventListener('click', () => Printing.printReport()); this.loadFlavorStats(); }, generateReport() { const tbody = document.getElementById('statistics-data'); tbody.innerHTML = `<tr><td>Gesamtumsatz</td><td>2.845 €</td><td>+12%</td><td class="text-success">Positiv</td><td><i class="fas fa-chart-line"></i></td></tr><tr><td>Bestellungen</td><td>20</td><td>+5%</td><td class="text-success">Steigend</td><td><i class="fas fa-chart-line"></i></td></tr>`; Utils.showNotification('Bericht generiert','success'); }, loadFlavorStats() { const tbody = document.getElementById('flavor-stats'); tbody.innerHTML = ''; Flavors.getActiveFlavors().slice(0,5).forEach(f => { const quantity = Math.floor(Math.random()*500)+100; const revenue = quantity*2.5; const percent = Math.floor(Math.random()*30)+10; tbody.innerHTML += `<tr><td><strong>${f.name}</strong></td><td>${quantity} kg</td><td>${revenue.toFixed(2)} €</td><td>${percent}%</td><td><span class="badge badge-success">↗ Steigend</span></td></tr>`; }); } };
+        const Statistics = {
+            init() {
+                this.setupEventListeners();
+                this.loadStatistics();
+            },
+            
+            setupEventListeners() {
+                document.getElementById('stat-period').addEventListener('change', (e) => {
+                    if (e.target.value === 'custom') {
+                        document.getElementById('custom-date-range').style.display = 'block';
+                    } else {
+                        document.getElementById('custom-date-range').style.display = 'none';
+                    }
+                });
+                
+                document.getElementById('generate-report').addEventListener('click', () => {
+                    this.generateReport();
+                });
+                
+                document.getElementById('print-report').addEventListener('click', () => {
+                    window.print();
+                });
+            },
+            
+            loadStatistics() {
+                const flavors = Flavors.getActiveFlavors();
+                const tbody = document.getElementById('flavor-stats');
+                tbody.innerHTML = '';
+                
+                flavors.slice(0, 5).forEach(flavor => {
+                    const quantity = Math.floor(Math.random() * 1000) + 100;
+                    const revenue = quantity * 2.5;
+                    const percentage = Math.floor(Math.random() * 30) + 10;
+                    
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td><strong>${flavor.name}</strong></td>
+                        <td>${quantity} kg</td>
+                        <td>${revenue.toFixed(2)} €</td>
+                        <td>${percentage}%</td>
+                        <td><span class="badge badge-success">↗ Steigend</span></td>
+                    `;
+                    
+                    tbody.appendChild(tr);
+                });
+            },
+            
+            generateReport() {
+                const period = document.getElementById('stat-period').value;
+                const type = document.getElementById('stat-type').value;
+                
+                let data = [];
+                
+                switch(type) {
+                    case 'sales':
+                        data = [
+                            { metric: 'Gesamtumsatz', value: '2.845,60 €', change: '+12%', trend: 'positive' },
+                            { metric: 'Durchschnitt pro Bestellung', value: '142,28 €', change: '+5%', trend: 'positive' },
+                            { metric: 'Anzahl Bestellungen', value: '20', change: '+15%', trend: 'positive' }
+                        ];
+                        break;
+                    case 'production':
+                        data = [
+                            { metric: 'Produzierte Menge', value: '456 kg', change: '+8%', trend: 'positive' },
+                            { metric: 'Eimer verbraucht', value: '76', change: '+7%', trend: 'positive' },
+                            { metric: 'Durchsatz pro Stunde', value: '12,5 kg', change: '+3%', trend: 'positive' }
+                        ];
+                        break;
+                    case 'customers':
+                        data = [
+                            { metric: 'Aktive Kunden', value: '15', change: '+2', trend: 'positive' },
+                            { metric: 'Neue Kunden', value: '3', change: '+1', trend: 'positive' },
+                            { metric: 'Durchschnittlicher Auftragswert', value: '189,71 €', change: '+14%', trend: 'positive' }
+                        ];
+                        break;
+                    default:
+                        data = [
+                            { metric: 'Gesamtumsatz', value: '2.845,60 €', change: '+12%', trend: 'positive' },
+                            { metric: 'Bestellungen', value: '20', change: '+15%', trend: 'positive' }
+                        ];
+                }
+                
+                const tbody = document.getElementById('statistics-data');
+                tbody.innerHTML = '';
+                
+                data.forEach(item => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td><strong>${item.metric}</strong></td>
+                        <td>${item.value}</td>
+                        <td>${item.change}</td>
+                        <td><span class="badge badge-success">Positiv</span></td>
+                        <td><i class="fas fa-chart-line"></i></td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+                
+                Utils.showNotification(`Bericht für ${period} generiert`, 'success');
+            }
+        };
 
         // ===== SETTINGS MODULE =====
-        const Settings = { init() { this.loadSettings(); this.setupEventListeners(); }, loadSettings() { const s = DB.getSettings(); document.getElementById('company-name').value = s.company_name || ''; document.getElementById('company-address').value = s.company_address || ''; document.getElementById('company-phone').value = s.company_phone || ''; if(s.sizes) { document.getElementById('size-170').value = s.sizes[0] || 170; document.getElementById('size-500').value = s.sizes[1] || 500; document.getElementById('size-750').value = s.sizes[2] || 750; document.getElementById('size-1000').value = s.sizes[3] || 1000; } document.getElementById('bucket-sizes').value = (s.bucket_sizes || [3,4,5,6]).join(','); document.getElementById('default-bucket-size').value = s.default_bucket_size || 6; document.getElementById('default-expiry').value = s.default_expiry_days || 180; document.getElementById('theme-select').value = s.theme || 'light'; document.getElementById('language-select').value = s.language || 'de'; }, setupEventListeners() { document.getElementById('save-settings').addEventListener('click', () => this.saveSettings()); document.getElementById('backup-data').addEventListener('click', () => this.backupData()); document.getElementById('restore-data').addEventListener('click', () => this.restoreData()); document.getElementById('reset-data').addEventListener('click', () => this.resetData()); document.getElementById('theme-select').addEventListener('change', (e) => this.applyTheme(e.target.value)); }, saveSettings() { const bucketSizes = document.getElementById('bucket-sizes').value.split(',').map(s=>parseFloat(s.trim())).filter(n=>!isNaN(n)&&n>0); const settings = { company_name: document.getElementById('company-name').value, company_address: document.getElementById('company-address').value, company_phone: document.getElementById('company-phone').value, sizes: [ parseInt(document.getElementById('size-170').value)||170, parseInt(document.getElementById('size-500').value)||500, parseInt(document.getElementById('size-750').value)||750, parseInt(document.getElementById('size-1000').value)||1000 ], bucket_sizes: bucketSizes.length?bucketSizes:[3,4,5,6], default_bucket_size: parseFloat(document.getElementById('default-bucket-size').value)||6, default_expiry_days: parseInt(document.getElementById('default-expiry').value)||180, theme: document.getElementById('theme-select').value, language: document.getElementById('language-select').value }; DB.saveSettings(settings); this.applyTheme(settings.theme); Utils.showNotification('Einstellungen gespeichert','success'); if(AppState.currentView === 'production') Production.initBucketSelector(); }, applyTheme(theme) { const root = document.documentElement; if(theme === 'dark') { root.style.setProperty('--light', '#1f2937'); root.style.setProperty('--card-bg', '#374151'); root.style.setProperty('--dark', '#f9fafb'); root.style.setProperty('--muted', '#9ca3af'); root.style.setProperty('--border', '#4b5563'); } else { root.style.setProperty('--light', '#f9fafb'); root.style.setProperty('--card-bg', '#ffffff'); root.style.setProperty('--dark', '#1f2937'); root.style.setProperty('--muted', '#6b7280'); root.style.setProperty('--border', '#e5e7eb'); } }, backupData() { const backup = DB.backup(); const blob = new Blob([backup], {type:'application/json'}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = `sanremo-backup-${new Date().toISOString().split('T')[0]}.json`; a.click(); URL.revokeObjectURL(url); Utils.showNotification('Backup erstellt','success'); }, restoreData() { const input = document.createElement('input'); input.type='file'; input.accept='.json'; input.onchange = (e) => { const file = e.target.files[0]; if(!file) return; const reader = new FileReader(); reader.onload = (ev) => { Utils.showModal('Backup wiederherstellen', 'Alle aktuellen Daten werden überschrieben.', [{ id:'cancel', label:'Abbrechen', type:'outline', onClick:()=>{} }, { id:'restore', label:'Wiederherstellen', type:'danger', onClick:()=>{ if(DB.restore(ev.target.result)) { Utils.showNotification('Backup wiederhergestellt','success'); location.reload(); } else Utils.showNotification('Fehler','danger'); } }]); }; reader.readAsText(file); }; input.click(); }, resetData() { Utils.showModal('Daten zurücksetzen', 'Alle Daten werden unwiderruflich gelöscht. Backup empfohlen.', [{ id:'cancel', label:'Abbrechen', type:'outline', onClick:()=>{} }, { id:'reset', label:'Zurücksetzen', type:'danger', onClick:()=>{ localStorage.clear(); DB.init(); location.reload(); } }]); } };
-
-        // ===== PRINTING MODULE (MINIMAL) =====
-        const Printing = { printOrder(order) { const win = window.open(); win.document.write(`<html><body><h1>Bestellung</h1><p>Datum: ${Utils.formatDate(order.date)}</p><ul>${order.items.map(i=>`<li>${i.quantity}x ${i.flavor} (${i.size}g)</li>`).join('')}</ul></body></html>`); win.print(); }, printDeliveryNote(orderId) { const order = DB.getOrders().find(o=>o.id===orderId); if(!order) return; const win = window.open(); win.document.write(`<html><body><h1>Lieferschein</h1><p>Datum: ${Utils.formatDate(order.date)}</p><ul>${order.items.map(i=>`<li>${i.quantity}x ${i.flavor} (${i.size}g)</li>`).join('')}</ul></body></html>`); win.print(); }, printProductionPlan() { const win = window.open(); win.document.write(`<html><body><h1>Produktionsplan</h1><p>Generiert am ${Utils.formatDate(new Date(),true)}</p></body></html>`); win.print(); }, printReport() { window.print(); } };
+        const Settings = {
+            init() {
+                this.loadSettings();
+                this.setupEventListeners();
+            },
+            
+            loadSettings() {
+                const settings = DB.getSettings();
+                
+                document.getElementById('company-name').value = settings.company_name || '';
+                document.getElementById('company-address').value = settings.company_address || '';
+                document.getElementById('company-phone').value = settings.company_phone || '';
+                
+                if (settings.sizes && settings.sizes.length >= 4) {
+                    document.getElementById('size-170').value = settings.sizes[0] || 170;
+                    document.getElementById('size-500').value = settings.sizes[1] || 500;
+                    document.getElementById('size-750').value = settings.sizes[2] || 750;
+                    document.getElementById('size-1000').value = settings.sizes[3] || 1000;
+                }
+                
+                if (settings.bucket_sizes) {
+                    document.getElementById('bucket-sizes').value = settings.bucket_sizes.join(',');
+                }
+                
+                document.getElementById('default-bucket-size').value = settings.default_bucket_size || 6;
+                document.getElementById('default-expiry').value = settings.default_expiry_days || 180;
+                document.getElementById('theme-select').value = settings.theme || 'light';
+                document.getElementById('language-select').value = settings.language || 'de';
+            },
+            
+            setupEventListeners() {
+                document.getElementById('save-settings').addEventListener('click', () => {
+                    this.saveSettings();
+                });
+                
+                document.getElementById('backup-data').addEventListener('click', () => {
+                    this.backupData();
+                });
+                
+                document.getElementById('restore-data').addEventListener('click', () => {
+                    this.restoreData();
+                });
+                
+                document.getElementById('reset-data').addEventListener('click', () => {
+                    this.resetData();
+                });
+                
+                document.getElementById('theme-select').addEventListener('change', (e) => {
+                    this.applyTheme(e.target.value);
+                });
+            },
+            
+            saveSettings() {
+                const bucketSizesInput = document.getElementById('bucket-sizes').value;
+                const bucketSizes = bucketSizesInput.split(',').map(s => parseFloat(s.trim())).filter(n => !isNaN(n) && n > 0);
+                
+                const settings = {
+                    company_name: document.getElementById('company-name').value.trim(),
+                    company_address: document.getElementById('company-address').value.trim(),
+                    company_phone: document.getElementById('company-phone').value.trim(),
+                    sizes: [
+                        parseInt(document.getElementById('size-170').value) || 170,
+                        parseInt(document.getElementById('size-500').value) || 500,
+                        parseInt(document.getElementById('size-750').value) || 750,
+                        parseInt(document.getElementById('size-1000').value) || 1000
+                    ],
+                    bucket_sizes: bucketSizes.length > 0 ? bucketSizes : [3, 4, 5, 6],
+                    default_bucket_size: parseFloat(document.getElementById('default-bucket-size').value) || 6,
+                    default_expiry_days: parseInt(document.getElementById('default-expiry').value) || 180,
+                    theme: document.getElementById('theme-select').value,
+                    language: document.getElementById('language-select').value
+                };
+                
+                if (DB.saveSettings(settings)) {
+                    Utils.showNotification('Einstellungen erfolgreich gespeichert', 'success');
+                    this.applyTheme(settings.theme);
+                    
+                    if (AppState.currentView === 'production') {
+                        Production.initBucketSelector();
+                    }
+                } else {
+                    Utils.showNotification('Fehler beim Speichern der Einstellungen', 'danger');
+                }
+            },
+            
+            applyTheme(theme) {
+                const root = document.documentElement;
+                
+                if (theme === 'dark') {
+                    root.style.setProperty('--light', '#1f2937');
+                    root.style.setProperty('--card-bg', '#374151');
+                    root.style.setProperty('--dark', '#f9fafb');
+                    root.style.setProperty('--muted', '#9ca3af');
+                    root.style.setProperty('--border', '#4b5563');
+                } else {
+                    root.style.setProperty('--light', '#f9fafb');
+                    root.style.setProperty('--card-bg', '#ffffff');
+                    root.style.setProperty('--dark', '#1f2937');
+                    root.style.setProperty('--muted', '#6b7280');
+                    root.style.setProperty('--border', '#e5e7eb');
+                }
+            },
+            
+            backupData() {
+                const backup = DB.backup();
+                const blob = new Blob([backup], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `sanremo-backup-${new Date().toISOString().split('T')[0]}.json`;
+                a.click();
+                
+                URL.revokeObjectURL(url);
+                Utils.showNotification('Backup erfolgreich erstellt', 'success');
+            },
+            
+            restoreData() {
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.accept = '.json';
+                
+                input.onchange = (e) => {
+                    const file = e.target.files[0];
+                    if (!file) return;
+                    
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        const backupData = event.target.result;
+                        
+                        Utils.showModal('Backup wiederherstellen',
+                            'Sind Sie sicher, dass Sie das Backup wiederherstellen möchten?',
+                            [
+                                { id: 'cancel', label: 'Abbrechen', type: 'outline', onClick: () => {} },
+                                { id: 'restore', label: 'Wiederherstellen', type: 'danger', onClick: () => {
+                                    if (DB.restore(backupData)) {
+                                        Utils.showNotification('Backup erfolgreich wiederhergestellt', 'success');
+                                        location.reload();
+                                    } else {
+                                        Utils.showNotification('Fehler beim Wiederherstellen des Backups', 'danger');
+                                    }
+                                }}
+                            ]);
+                    };
+                    
+                    reader.readAsText(file);
+                };
+                
+                input.click();
+            },
+            
+            resetData() {
+                Utils.showModal('Daten zurücksetzen',
+                    'Sind Sie sicher, dass Sie alle Daten zurücksetzen möchten?',
+                    [
+                        { id: 'cancel', label: 'Abbrechen', type: 'outline', onClick: () => {} },
+                        { id: 'reset', label: 'Alle Daten zurücksetzen', type: 'danger', onClick: () => {
+                            localStorage.clear();
+                            DB.init();
+                            Utils.showNotification('Alle Daten wurden zurückgesetzt', 'success');
+                            setTimeout(() => location.reload(), 2000);
+                        }}
+                    ]);
+            }
+        };
 
         // ===== INITIALIZATION =====
-        document.addEventListener('DOMContentLoaded', () => { DB.init(); ViewManager.init(); const settings = DB.getSettings(); Settings.applyTheme(settings.theme || 'light'); Flavors.init(); setInterval(() => { const status = document.getElementById('data-status'); status.textContent = 'Daten gespeichert'; status.className = 'badge badge-success'; }, 5000); });
+        document.addEventListener('DOMContentLoaded', () => {
+            DB.init();
+            ViewManager.init();
+            const settings = DB.getSettings();
+            Settings.applyTheme(settings.theme || 'light');
+            Flavors.init();
+            
+            let saveTimeout;
+            document.addEventListener('input', () => {
+                clearTimeout(saveTimeout);
+                const status = document.getElementById('data-status');
+                status.textContent = 'Änderungen...';
+                status.className = 'badge badge-warning';
+                
+                saveTimeout = setTimeout(() => {
+                    status.textContent = 'Daten gespeichert';
+                    status.className = 'badge badge-success';
+                }, 1000);
+            });
+            
+            const today = new Date().toISOString().split('T')[0];
+            document.querySelectorAll('input[type="date"]').forEach(input => {
+                if (!input.value) {
+                    input.value = today;
+                }
+            });
+            
+            console.log('Sanremo Eisproduktionssystem gestartet');
+        });
     </script>
 </body>
 </html>
