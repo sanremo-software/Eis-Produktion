@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanremo - Eisproduktionsmanagement</title>
+    <title>Sanremo - Eisproduktionsmanagement (6kg Baldes)</title>
     <style>
-        /* ===== VARIABLES & RESET ===== */
+        /* ===== VARIABLES & RESET (original, sem receitas) ===== */
         :root {
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
@@ -22,7 +22,6 @@
             --border-dark: #d1d5db;
             --card-bg: #ffffff;
             --body-bg: #f3f4f6;
-            
             --radius-sm: 6px;
             --radius-md: 10px;
             --radius-lg: 14px;
@@ -32,12 +31,10 @@
             --space-md: 16px;
             --space-lg: 24px;
             --space-xl: 32px;
-            
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
             --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
             --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
             --shadow-xl: 0 20px 40px rgba(0,0,0,0.1);
-            
             --font-size-xs: 12px;
             --font-size-sm: 14px;
             --font-size-md: 16px;
@@ -45,17 +42,12 @@
             --font-size-xl: 20px;
             --font-size-2xl: 24px;
             --font-size-3xl: 30px;
-            
             --transition-fast: 150ms ease;
             --transition-normal: 250ms ease;
             --transition-slow: 350ms ease;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         html, body {
             height: 100%;
@@ -89,33 +81,11 @@
             z-index: 1000;
         }
         
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-        }
-        
-        .logo-icon {
-            font-size: 28px;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        .logo-text {
-            font-size: var(--font-size-xl);
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-        
-        .logo-subtitle {
-            font-size: var(--font-size-sm);
-            opacity: 0.9;
-            font-weight: 500;
-        }
+        .logo { display: flex; align-items: center; gap: var(--space-sm); }
+        .logo-icon { font-size: 28px; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        .logo-text { font-size: var(--font-size-xl); font-weight: 800; letter-spacing: -0.5px; }
+        .logo-subtitle { font-size: var(--font-size-sm); opacity: 0.9; font-weight: 500; }
         
         .main-nav {
             display: flex;
@@ -142,21 +112,9 @@
             gap: var(--space-sm);
             white-space: nowrap;
         }
-        
-        .nav-btn:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
-        }
-        
-        .nav-btn.active {
-            background: white;
-            color: var(--primary);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .nav-btn i {
-            font-size: 18px;
-        }
+        .nav-btn:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-2px); }
+        .nav-btn.active { background: white; color: var(--primary); box-shadow: var(--shadow-md); }
+        .nav-btn i { font-size: 18px; }
         
         .main-content {
             flex: 1;
@@ -165,19 +123,9 @@
             background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
         }
         
-        .view-container {
-            display: none;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        .view-container.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .view-container { display: none; animation: fadeIn 0.3s ease; }
+        .view-container.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
         .dashboard-grid {
             display: grid;
@@ -194,12 +142,7 @@
             border: 1px solid var(--border);
             transition: all var(--transition-normal);
         }
-        
-        .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-        
+        .stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
         .stat-icon {
             width: 56px;
             height: 56px;
@@ -210,32 +153,11 @@
             font-size: 24px;
             margin-bottom: var(--space-md);
         }
-        
         .stat-icon.order { background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%); color: white; }
         .stat-icon.production { background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: white; }
-        
-        .stat-value {
-            font-size: var(--font-size-2xl);
-            font-weight: 800;
-            color: var(--dark);
-            margin: var(--space-xs) 0;
-        }
-        
-        .stat-label {
-            color: var(--muted);
-            font-size: var(--font-size-sm);
-            font-weight: 600;
-        }
-        
-        .stat-change {
-            font-size: var(--font-size-xs);
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 20px;
-            margin-top: var(--space-sm);
-            display: inline-block;
-        }
-        
+        .stat-value { font-size: var(--font-size-2xl); font-weight: 800; color: var(--dark); margin: var(--space-xs) 0; }
+        .stat-label { color: var(--muted); font-size: var(--font-size-sm); font-weight: 600; }
+        .stat-change { font-size: var(--font-size-xs); font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-top: var(--space-sm); display: inline-block; }
         .stat-change.positive { background: #dcfce7; color: #166534; }
         .stat-change.negative { background: #fee2e2; color: #991b1b; }
         
@@ -247,33 +169,11 @@
             border: 1px solid var(--border);
             margin-bottom: var(--space-lg);
         }
+        .card-title { font-size: var(--font-size-lg); font-weight: 700; color: var(--dark); margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-sm); }
+        .card-title i { color: var(--primary); }
         
-        .card-title {
-            font-size: var(--font-size-lg);
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: var(--space-md);
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-        }
-        
-        .card-title i {
-            color: var(--primary);
-        }
-        
-        .form-group {
-            margin-bottom: var(--space-md);
-        }
-        
-        .form-label {
-            display: block;
-            margin-bottom: var(--space-xs);
-            font-weight: 600;
-            color: var(--dark);
-            font-size: var(--font-size-sm);
-        }
-        
+        .form-group { margin-bottom: var(--space-md); }
+        .form-label { display: block; margin-bottom: var(--space-xs); font-weight: 600; color: var(--dark); font-size: var(--font-size-sm); }
         .form-input, .form-select, .form-textarea {
             width: 100%;
             padding: 12px 16px;
@@ -283,18 +183,12 @@
             transition: all var(--transition-fast);
             background: white;
         }
-        
         .form-input:focus, .form-select:focus, .form-textarea:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
-        
-        .form-textarea {
-            min-height: 100px;
-            resize: vertical;
-            font-family: inherit;
-        }
+        .form-textarea { min-height: 100px; resize: vertical; font-family: inherit; }
         
         .btn {
             padding: 12px 24px;
@@ -309,64 +203,17 @@
             gap: var(--space-sm);
             text-decoration: none;
         }
-        
-        .btn i {
-            font-size: 16px;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .btn-success {
-            background: linear-gradient(135deg, var(--success) 0%, var(--success-dark) 100%);
-            color: white;
-        }
-        
-        .btn-danger {
-            background: linear-gradient(135deg, var(--danger) 0%, var(--danger-dark) 100%);
-            color: white;
-        }
-        
-        .btn-warning {
-            background: linear-gradient(135deg, var(--warning) 0%, var(--warning-dark) 100%);
-            color: white;
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--border-dark);
-            color: var(--dark);
-        }
-        
-        .btn-outline:hover {
-            background: var(--light);
-            border-color: var(--primary);
-        }
-        
-        .btn-sm {
-            padding: 8px 16px;
-            font-size: var(--font-size-xs);
-        }
-        
-        .btn-icon {
-            padding: 8px;
-            border-radius: var(--radius-sm);
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            transition: all var(--transition-fast);
-        }
-        
-        .btn-icon:hover {
-            background: var(--light);
-        }
+        .btn i { font-size: 16px; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .btn-success { background: linear-gradient(135deg, var(--success) 0%, var(--success-dark) 100%); color: white; }
+        .btn-danger { background: linear-gradient(135deg, var(--danger) 0%, var(--danger-dark) 100%); color: white; }
+        .btn-warning { background: linear-gradient(135deg, var(--warning) 0%, var(--warning-dark) 100%); color: white; }
+        .btn-outline { background: transparent; border: 2px solid var(--border-dark); color: var(--dark); }
+        .btn-outline:hover { background: var(--light); border-color: var(--primary); }
+        .btn-sm { padding: 8px 16px; font-size: var(--font-size-xs); }
+        .btn-icon { padding: 8px; border-radius: var(--radius-sm); background: transparent; border: none; cursor: pointer; transition: all var(--transition-fast); }
+        .btn-icon:hover { background: var(--light); }
         
         .badge {
             display: inline-flex;
@@ -379,26 +226,10 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
-        .badge-primary {
-            background: #dbeafe;
-            color: var(--primary-dark);
-        }
-        
-        .badge-success {
-            background: #dcfce7;
-            color: var(--success-dark);
-        }
-        
-        .badge-warning {
-            background: #fef3c7;
-            color: var(--warning-dark);
-        }
-        
-        .badge-danger {
-            background: #fee2e2;
-            color: var(--danger-dark);
-        }
+        .badge-primary { background: #dbeafe; color: var(--primary-dark); }
+        .badge-success { background: #dcfce7; color: var(--success-dark); }
+        .badge-warning { background: #fef3c7; color: var(--warning-dark); }
+        .badge-danger { background: #fee2e2; color: var(--danger-dark); }
         
         .alert {
             padding: var(--space-md);
@@ -409,87 +240,21 @@
             gap: var(--space-sm);
             animation: slideIn 0.3s ease;
         }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+        .alert-success { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+        .alert-warning { background: #fef3c7; border: 1px solid #fcd34d; color: #92400e; }
+        .alert-danger { background: #fee2e2; border: 1px solid #fca5a5; color: #991b1b; }
+        .alert-info { background: #dbeafe; border: 1px solid #93c5fd; color: #1e40af; }
+        .alert-icon { font-size: 20px; flex-shrink: 0; }
+        .alert-content { flex: 1; }
         
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
-        .alert-success {
-            background: #dcfce7;
-            border: 1px solid #86efac;
-            color: #166534;
-        }
-        
-        .alert-warning {
-            background: #fef3c7;
-            border: 1px solid #fcd34d;
-            color: #92400e;
-        }
-        
-        .alert-danger {
-            background: #fee2e2;
-            border: 1px solid #fca5a5;
-            color: #991b1b;
-        }
-        
-        .alert-info {
-            background: #dbeafe;
-            border: 1px solid #93c5fd;
-            color: #1e40af;
-        }
-        
-        .alert-icon {
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-        
-        .alert-content {
-            flex: 1;
-        }
-        
-        .table-container {
-            overflow-x: auto;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border);
-            margin-bottom: var(--space-lg);
-        }
-        
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-        }
-        
-        .table th {
-            background: var(--light);
-            padding: 12px 16px;
-            text-align: left;
-            font-weight: 700;
-            font-size: var(--font-size-sm);
-            color: var(--dark);
-            border-bottom: 2px solid var(--border);
-            white-space: nowrap;
-        }
-        
-        .table td {
-            padding: 12px 16px;
-            border-bottom: 1px solid var(--border);
-            font-size: var(--font-size-sm);
-        }
-        
-        .table tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .table tr:hover {
-            background: #f8fafc;
-        }
-        
-        .table-actions {
-            display: flex;
-            gap: var(--space-xs);
-        }
+        .table-container { overflow-x: auto; border-radius: var(--radius-md); border: 1px solid var(--border); margin-bottom: var(--space-lg); }
+        .table { width: 100%; border-collapse: collapse; background: white; }
+        .table th { background: var(--light); padding: 12px 16px; text-align: left; font-weight: 700; font-size: var(--font-size-sm); color: var(--dark); border-bottom: 2px solid var(--border); white-space: nowrap; }
+        .table td { padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: var(--font-size-sm); }
+        .table tr:last-child td { border-bottom: none; }
+        .table tr:hover { background: #f8fafc; }
+        .table-actions { display: flex; gap: var(--space-xs); }
         
         .order-form-grid {
             display: grid;
@@ -498,13 +263,7 @@
             margin-bottom: var(--space-lg);
         }
         
-        .order-items-container {
-            background: white;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border);
-            overflow: hidden;
-        }
-        
+        .order-items-container { background: white; border-radius: var(--radius-md); border: 1px solid var(--border); overflow: hidden; }
         .order-item {
             display: grid;
             grid-template-columns: 1fr 1fr 100px 60px;
@@ -513,11 +272,7 @@
             border-bottom: 1px solid var(--border);
             align-items: center;
         }
-        
-        .order-item:last-child {
-            border-bottom: none;
-        }
-        
+        .order-item:last-child { border-bottom: none; }
         .order-summary {
             display: flex;
             flex-wrap: wrap;
@@ -527,7 +282,6 @@
             border-radius: var(--radius-md);
             margin-top: var(--space-lg);
         }
-        
         .summary-item {
             display: flex;
             flex-direction: column;
@@ -538,20 +292,8 @@
             min-width: 120px;
             box-shadow: var(--shadow-sm);
         }
-        
-        .summary-value {
-            font-size: var(--font-size-2xl);
-            font-weight: 800;
-            color: var(--primary);
-        }
-        
-        .summary-label {
-            font-size: var(--font-size-xs);
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 700;
-        }
+        .summary-value { font-size: var(--font-size-2xl); font-weight: 800; color: var(--primary); }
+        .summary-label { font-size: var(--font-size-xs); color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; }
         
         .production-stats {
             display: grid;
@@ -559,7 +301,6 @@
             gap: var(--space-md);
             margin-bottom: var(--space-lg);
         }
-        
         .production-tile {
             background: white;
             border-radius: var(--radius-md);
@@ -572,80 +313,9 @@
             border: 1px solid var(--border);
             transition: all var(--transition-fast);
         }
-        
-        .production-tile:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .production-value {
-            font-size: var(--font-size-2xl);
-            font-weight: 800;
-            color: var(--dark);
-            margin: var(--space-sm) 0;
-        }
-        
-        .production-label {
-            font-size: var(--font-size-sm);
-            color: var(--muted);
-            font-weight: 600;
-        }
-        
-        .ingredients-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: var(--space-md);
-            margin-bottom: var(--space-lg);
-        }
-        
-        @media print {
-            .no-print {
-                display: none !important;
-            }
-            .print-only {
-                display: block !important;
-            }
-            body {
-                background: white !important;
-                color: black !important;
-            }
-            .card {
-                box-shadow: none !important;
-                border: 1px solid #ccc !important;
-                page-break-inside: avoid;
-            }
-        }
-        
-        .d-flex { display: flex; }
-        .d-none { display: none; }
-        .flex-column { flex-direction: column; }
-        .align-items-center { align-items: center; }
-        .justify-content-between { justify-content: space-between; }
-        .gap-1 { gap: var(--space-xs); }
-        .gap-2 { gap: var(--space-sm); }
-        .gap-3 { gap: var(--space-md); }
-        .gap-4 { gap: var(--space-lg); }
-        .mt-1 { margin-top: var(--space-xs); }
-        .mt-2 { margin-top: var(--space-sm); }
-        .mt-3 { margin-top: var(--space-md); }
-        .mt-4 { margin-top: var(--space-lg); }
-        .mb-1 { margin-bottom: var(--space-xs); }
-        .mb-2 { margin-bottom: var(--space-sm); }
-        .mb-3 { margin-bottom: var(--space-md); }
-        .mb-4 { margin-bottom: var(--space-lg); }
-        .text-center { text-align: center; }
-        .text-right { text-align: right; }
-        .text-muted { color: var(--muted); }
-        .text-success { color: var(--success); }
-        .text-danger { color: var(--danger); }
-        .text-warning { color: var(--warning); }
-        .text-primary { color: var(--primary); }
-        .fw-bold { font-weight: 700; }
-        .fw-bolder { font-weight: 800; }
-        .fs-sm { font-size: var(--font-size-sm); }
-        .fs-md { font-size: var(--font-size-md); }
-        .fs-lg { font-size: var(--font-size-lg); }
-        .w-100 { width: 100%; }
+        .production-tile:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .production-value { font-size: var(--font-size-2xl); font-weight: 800; color: var(--dark); margin: var(--space-sm) 0; }
+        .production-label { font-size: var(--font-size-sm); color: var(--muted); font-weight: 600; }
         
         .bucket-size-grid {
             display: grid;
@@ -654,7 +324,6 @@
             margin-top: var(--space-sm);
             margin-bottom: var(--space-md);
         }
-        
         .bucket-size-option {
             border: 2px solid var(--border);
             border-radius: var(--radius-md);
@@ -663,95 +332,47 @@
             cursor: pointer;
             transition: all var(--transition-fast);
         }
-        
-        .bucket-size-option:hover {
-            border-color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .bucket-size-option.selected {
-            border-color: var(--success);
-            background: #f0fdf4;
-        }
-        
-        .bucket-size-value {
-            font-size: var(--font-size-xl);
-            font-weight: 800;
-            color: var(--dark);
-        }
-        
-        .bucket-size-label {
-            font-size: var(--font-size-xs);
-            color: var(--muted);
-            margin-top: var(--space-xs);
-        }
+        .bucket-size-option:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .bucket-size-option.selected { border-color: var(--success); background: #f0fdf4; }
+        .bucket-size-value { font-size: var(--font-size-xl); font-weight: 800; color: var(--dark); }
+        .bucket-size-label { font-size: var(--font-size-xs); color: var(--muted); margin-top: var(--space-xs); }
         
         @media (max-width: 768px) {
-            .app-container {
-                border-radius: 0;
-            }
-            .app-header {
-                flex-direction: column;
-                gap: var(--space-md);
-                padding: var(--space-md);
-            }
-            .main-nav {
-                width: 100%;
-                overflow-x: auto;
-                padding: var(--space-sm);
-            }
-            .nav-btn {
-                font-size: var(--font-size-xs);
-                padding: 8px 12px;
-            }
-            .main-content {
-                padding: var(--space-md);
-            }
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-            .production-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .order-form-grid {
-                grid-template-columns: 1fr;
-            }
-            .order-item {
-                grid-template-columns: 1fr;
-                gap: var(--space-sm);
-            }
+            .app-container { border-radius: 0; }
+            .app-header { flex-direction: column; gap: var(--space-md); padding: var(--space-md); }
+            .main-nav { width: 100%; overflow-x: auto; padding: var(--space-sm); }
+            .nav-btn { font-size: var(--font-size-xs); padding: 8px 12px; }
+            .main-content { padding: var(--space-md); }
+            .dashboard-grid { grid-template-columns: 1fr; }
+            .production-stats { grid-template-columns: repeat(2, 1fr); }
+            .order-form-grid { grid-template-columns: 1fr; }
+            .order-item { grid-template-columns: 1fr; gap: var(--space-sm); }
         }
-        
         @media (max-width: 480px) {
-            .production-stats {
-                grid-template-columns: 1fr;
-            }
-            .ingredients-grid {
-                grid-template-columns: 1fr;
-            }
-            .summary-item {
-                min-width: 100px;
-            }
+            .production-stats { grid-template-columns: 1fr; }
+            .summary-item { min-width: 100px; }
         }
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            body { background: white !important; color: black !important; }
+            .card { box-shadow: none !important; border: 1px solid #ccc !important; page-break-inside: avoid; }
+        }
+        .d-flex { display: flex; }
+        .gap-3 { gap: var(--space-md); }
+        .mt-4 { margin-top: var(--space-lg); }
+        .text-center { text-align: center; }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 <div class="app-container">
     <header class="app-header no-print">
-        <div class="logo">
-            <div class="logo-icon">🍨</div>
-            <div>
-                <div class="logo-text">Sanremo Eisproduktion</div>
-                <div class="logo-subtitle">Komplettes Produktionsmanagement</div>
-            </div>
-        </div>
+        <div class="logo"><div class="logo-icon">🍨</div><div><div class="logo-text">Sanremo Eisproduktion</div><div class="logo-subtitle">Komplettes Produktionsmanagement</div></div></div>
         <nav class="main-nav">
             <button class="nav-btn active" data-view="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</button>
             <button class="nav-btn" data-view="orders"><i class="fas fa-shopping-cart"></i> Bestellungen</button>
             <button class="nav-btn" data-view="production"><i class="fas fa-industry"></i> Produktion</button>
-            <!-- Rezepte button entfernt -->
             <button class="nav-btn" data-view="flavors"><i class="fas fa-ice-cream"></i> Sorten</button>
             <button class="nav-btn" data-view="customers"><i class="fas fa-users"></i> Kunden</button>
             <button class="nav-btn" data-view="statistics"><i class="fas fa-chart-bar"></i> Statistik</button>
@@ -760,32 +381,19 @@
     </header>
 
     <main class="main-content">
-        <!-- DASHBOARD VIEW -->
+        <!-- DASHBOARD -->
         <section id="dashboard-view" class="view-container active">
             <div class="card">
                 <div class="card-title"><i class="fas fa-tachometer-alt"></i> Dashboard</div>
                 <div class="dashboard-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon order"><i class="fas fa-shopping-cart"></i></div>
-                        <div class="stat-value" id="stat-today-orders">0</div>
-                        <div class="stat-label">Heutige Bestellungen</div>
-                        <div class="stat-change positive">+12%</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon production"><i class="fas fa-industry"></i></div>
-                        <div class="stat-value" id="stat-production-today">0 kg</div>
-                        <div class="stat-label">Heutige Produktion</div>
-                        <div class="stat-change positive">+8%</div>
-                    </div>
+                    <div class="stat-card"><div class="stat-icon order"><i class="fas fa-shopping-cart"></i></div><div class="stat-value" id="stat-today-orders">0</div><div class="stat-label">Heutige Bestellungen</div><div class="stat-change positive">+12%</div></div>
+                    <div class="stat-card"><div class="stat-icon production"><i class="fas fa-industry"></i></div><div class="stat-value" id="stat-production-today">0 kg</div><div class="stat-label">Heutige Produktion</div><div class="stat-change positive">+8%</div></div>
                 </div>
-                <div class="alert alert-info">
-                    <div class="alert-icon"><i class="fas fa-info-circle"></i></div>
-                    <div class="alert-content"><strong>Willkommen!</strong> Alle Eimer werden mit 6 kg berechnet.</div>
-                </div>
+                <div class="alert alert-info"><div class="alert-icon"><i class="fas fa-info-circle"></i></div><div class="alert-content"><strong>Willkommen!</strong> Alle Eimer werden mit 6 kg berechnet.</div></div>
             </div>
         </section>
 
-        <!-- ORDERS VIEW -->
+        <!-- BESTELLUNGEN -->
         <section id="orders-view" class="view-container">
             <div class="card">
                 <div class="card-title"><i class="fas fa-shopping-cart"></i> Bestellverwaltung</div>
@@ -798,12 +406,12 @@
                 <div class="d-flex gap-3 mb-4"><button class="btn btn-primary" id="add-order-item"><i class="fas fa-plus"></i> Position hinzufügen</button><button class="btn btn-outline" id="clear-order"><i class="fas fa-trash"></i> Leeren</button></div>
                 <div class="order-items-container mb-3"><div class="order-item fw-bold" style="background: var(--light);"><div>Sorte</div><div>Größe</div><div>Menge</div><div>Aktion</div></div><div id="order-items-list"></div></div>
                 <div class="order-summary"><div class="summary-item"><div class="summary-value" id="total-items">0</div><div class="summary-label">Positionen</div></div><div class="summary-item"><div class="summary-value" id="total-750g">0</div><div class="summary-label">750g</div></div><div class="summary-item"><div class="summary-value" id="total-170g">0</div><div class="summary-label">170g</div></div><div class="summary-item"><div class="summary-value" id="total-kg">0.0</div><div class="summary-label">KG</div></div></div>
-                <div class="d-flex gap-3 mt-4"><button class="btn btn-success" id="save-order"><i class="fas fa-save"></i> Bestellung speichern</button><button class="btn btn-primary" id="print-order"><i class="fas fa-print"></i> Drucken</button><button class="btn btn-primary" id="print-delivery-note"><i class="fas fa-truck"></i> Lieferschein</button><button class="btn btn-warning" id="export-order"><i class="fas fa-file-export"></i> Exportieren</button></div>
+                <div class="d-flex gap-3 mt-4"><button class="btn btn-success" id="save-order"><i class="fas fa-save"></i> Bestellung speichern</button><button class="btn btn-primary" id="print-order"><i class="fas fa-print"></i> Drucken</button><button class="btn btn-primary" id="print-delivery-note"><i class="fas fa-truck"></i> Lieferschein</button></div>
             </div>
-            <div class="card"><div class="card-title"><i class="fas fa-history"></i> Letzte Bestellungen</div><div class="table-container"><table class="table"><thead><tr><th>Datum</th><th>Kunde</th><th>Menge</th><th>Status</th><th>Aktionen</th></tr></thead><tbody id="recent-orders"></tbody><table></div></div>
+            <div class="card"><div class="card-title"><i class="fas fa-history"></i> Letzte Bestellungen</div><div class="table-container"><table class="table"><thead><tr><th>Datum</th><th>Kunde</th><th>Menge</th><th>Status</th><th>Aktionen</th></tr></thead><tbody id="recent-orders"></tbody></table></div></div>
         </section>
 
-        <!-- PRODUCTION VIEW (6kg fest) -->
+        <!-- PRODUKTION (6kg fix) -->
         <section id="production-view" class="view-container">
             <div class="card">
                 <div class="card-title"><i class="fas fa-industry"></i> Produktionsplanung (6kg Baldes)</div>
@@ -833,28 +441,28 @@
             <div class="card"><div class="card-title"><i class="fas fa-chart-line"></i> Produktionsfortschritt</div><div class="table-container"><table class="table"><thead><tr><th>Sorte</th><th>Geplant (KG)</th><th>Produziert (KG)</th><th>Fortschritt</th><th>Letzte Aktualisierung</th></tr></thead><tbody id="production-progress"></tbody></table></div></div>
         </section>
 
-        <!-- FLAVORS VIEW -->
+        <!-- SORTEN -->
         <section id="flavors-view" class="view-container">
             <div class="card"><div class="card-title"><i class="fas fa-ice-cream"></i> Sortenverwaltung</div>
-                <div class="order-form-grid"><div class="form-group"><label class="form-label">Neue Sorte</label><input type="text" class="form-input" id="new-flavor-name" placeholder="z.B. Haselnuss, Zitrone..."></div><div class="form-group"><label class="form-label">Kategorie</label><select class="form-select" id="new-flavor-category"><option value="milcheis">Milcheis</option><option value="sorbet">Sorbet</option><option value="fruchteis">Fruchteis</option><option value="speiseeis">Speiseeis</option><option value="spezial">Spezial</option></select></div></div>
-                <div class="form-group"><label class="form-label">Beschreibung (optional)</label><textarea class="form-textarea" id="new-flavor-description" placeholder="Kurze Beschreibung der Sorte..."></textarea></div>
+                <div class="order-form-grid"><div class="form-group"><label class="form-label">Neue Sorte</label><input type="text" class="form-input" id="new-flavor-name" placeholder="z.B. Haselnuss..."></div><div class="form-group"><label class="form-label">Kategorie</label><select class="form-select" id="new-flavor-category"><option value="milcheis">Milcheis</option><option value="sorbet">Sorbet</option><option value="fruchteis">Fruchteis</option><option value="speiseeis">Speiseeis</option><option value="spezial">Spezial</option></select></div></div>
+                <div class="form-group"><label class="form-label">Beschreibung (optional)</label><textarea class="form-textarea" id="new-flavor-description" placeholder="Kurze Beschreibung..."></textarea></div>
                 <div class="d-flex gap-3 mb-4"><button class="btn btn-success" id="add-flavor-btn"><i class="fas fa-plus"></i> Sorte hinzufügen</button><button class="btn btn-outline" id="reset-flavors-btn"><i class="fas fa-undo"></i> Standard-Sorten</button></div>
                 <div class="table-container"><table class="table"><thead><tr><th>Sorte</th><th>Kategorie</th><th>Beschreibung</th><th>Status</th><th>Aktionen</th></tr></thead><tbody id="flavors-list"></tbody></table></div>
             </div>
             <div class="card"><div class="card-title"><i class="fas fa-info-circle"></i> Informationen</div><div class="alert alert-info"><div class="alert-icon"><i class="fas fa-lightbulb"></i></div><div class="alert-content"><strong>Tipp:</strong> Sorten werden automatisch in allen Modulen verfügbar. Deaktivierte Sorten erscheinen nicht in den Auswahllisten.</div></div></div>
         </section>
 
-        <!-- CUSTOMERS VIEW -->
+        <!-- KUNDEN -->
         <section id="customers-view" class="view-container">
             <div class="card"><div class="card-title"><i class="fas fa-users"></i> Kundenverwaltung</div>
-                <div class="order-form-grid"><div class="form-group"><label class="form-label">Kundenname</label><input type="text" class="form-input" id="customer-name" placeholder="z.B. REWE, EDEKA..."></div><div class="form-group"><label class="form-label">Filiale / Standort</label><input type="text" class="form-input" id="customer-location" placeholder="z.B. Bad Berleburg"></div><div class="form-group"><label class="form-label">Kontaktperson</label><input type="text" class="form-input" id="customer-contact" placeholder="Name der Kontaktperson"></div><div class="form-group"><label class="form-label">Telefon</label><input type="tel" class="form-input" id="customer-phone" placeholder="Telefonnummer"></div><div class="form-group"><label class="form-label">E-Mail</label><input type="email" class="form-input" id="customer-email" placeholder="E-Mail-Adresse"></div><div class="form-group"><label class="form-label">Kundentyp</label><select class="form-select" id="customer-type"><option value="supermarkt">Supermarkt</option><option value="restaurant">Restaurant</option><option value="cafe">Café</option><option value="grosshandel">Großhandel</option><option value="privat">Privatkunde</option></select></div></div>
-                <div class="form-group"><label class="form-label">Notizen</label><textarea class="form-textarea" id="customer-notes" placeholder="Besondere Vereinbarungen, Lieferzeiten..."></textarea></div>
+                <div class="order-form-grid"><div class="form-group"><label class="form-label">Kundenname</label><input type="text" class="form-input" id="customer-name" placeholder="z.B. REWE"></div><div class="form-group"><label class="form-label">Filiale / Standort</label><input type="text" class="form-input" id="customer-location" placeholder="Bad Berleburg"></div><div class="form-group"><label class="form-label">Kontaktperson</label><input type="text" class="form-input" id="customer-contact" placeholder="Name"></div><div class="form-group"><label class="form-label">Telefon</label><input type="tel" class="form-input" id="customer-phone" placeholder="Telefon"></div><div class="form-group"><label class="form-label">E-Mail</label><input type="email" class="form-input" id="customer-email" placeholder="E-Mail"></div><div class="form-group"><label class="form-label">Kundentyp</label><select class="form-select" id="customer-type"><option value="supermarkt">Supermarkt</option><option value="restaurant">Restaurant</option><option value="cafe">Café</option><option value="grosshandel">Großhandel</option><option value="privat">Privatkunde</option></select></div></div>
+                <div class="form-group"><label class="form-label">Notizen</label><textarea class="form-textarea" id="customer-notes" placeholder="Besondere Vereinbarungen..."></textarea></div>
                 <div class="d-flex gap-3"><button class="btn btn-success" id="save-customer"><i class="fas fa-save"></i> Kunden speichern</button><button class="btn btn-outline" id="clear-customer-form"><i class="fas fa-times"></i> Formular leeren</button></div>
             </div>
             <div class="card"><div class="card-title"><i class="fas fa-address-book"></i> Kundenliste</div><div class="table-container"><table class="table"><thead><tr><th>Name</th><th>Standort</th><th>Kontakt</th><th>Typ</th><th>Letzte Bestellung</th><th>Aktionen</th></tr></thead><tbody id="customers-list"></tbody></table></div></div>
         </section>
 
-        <!-- STATISTICS VIEW -->
+        <!-- STATISTIK -->
         <section id="statistics-view" class="view-container">
             <div class="card"><div class="card-title"><i class="fas fa-chart-bar"></i> Statistik & Berichte</div>
                 <div class="order-form-grid"><div class="form-group"><label class="form-label">Zeitraum</label><select class="form-select" id="stat-period"><option value="today">Heute</option><option value="week">Diese Woche</option><option value="month" selected>Dieser Monat</option><option value="quarter">Dieses Quartal</option><option value="year">Dieses Jahr</option><option value="custom">Benutzerdefiniert</option></select></div><div class="form-group" id="custom-date-range" style="display: none;"><div class="d-flex gap-3"><div style="flex:1;"><label class="form-label">Von</label><input type="date" class="form-input" id="stat-from"></div><div style="flex:1;"><label class="form-label">Bis</label><input type="date" class="form-input" id="stat-to"></div></div></div><div class="form-group"><label class="form-label">Berichtstyp</label><select class="form-select" id="stat-type"><option value="sales">Verkäufe</option><option value="production">Produktion</option><option value="customers">Kunden</option></select></div></div>
@@ -864,7 +472,7 @@
             </div>
         </section>
 
-        <!-- SETTINGS VIEW -->
+        <!-- EINSTELLUNGEN -->
         <section id="settings-view" class="view-container">
             <div class="card"><div class="card-title"><i class="fas fa-cog"></i> Systemeinstellungen</div>
                 <div class="form-group"><label class="form-label">Unternehmensname</label><input type="text" class="form-input" id="company-name" value="Eiscafé Sanremo"></div>
@@ -883,186 +491,342 @@
         </section>
     </main>
 
-    <footer class="app-footer no-print" style="padding: var(--space-md); background: var(--light); border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: var(--font-size-sm);">
-        <div class="d-flex justify-content-between align-items-center"><div>© 2024 Eiscafé Sanremo - Alle Rechte vorbehalten</div><div><span id="current-time">--:--</span> | <span id="data-status" class="badge badge-success">Daten gespeichert</span></div></div>
-    </footer>
+    <footer class="app-footer no-print" style="padding: var(--space-md); background: var(--light); border-top: 1px solid var(--border); text-align: center; color: var(--muted);"><div class="d-flex justify-content-between align-items-center"><div>© 2024 Eiscafé Sanremo</div><div><span id="current-time">--:--</span> | <span id="data-status" class="badge badge-success">Daten gespeichert</span></div></div></footer>
 </div>
 
 <div id="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; justify-content: center; align-items: center;"><div id="modal-content" style="background: white; border-radius: var(--radius-lg); padding: var(--space-xl); max-width: 500px; width: 90%; max-height: 80vh; overflow-y: auto;"></div></div>
 
 <script>
-    // ==================== DATABASE (ORIGINAL, SEM RECEITAS) ====================
+    // ==================== DATABASE ====================
     const DB = {
-        VERSION: '1.0.0',
-        KEYS: { ORDERS: 'sanremo_orders', CUSTOMERS: 'sanremo_customers', RECIPES: 'sanremo_recipes', FLAVORS: 'sanremo_flavors', INGREDIENTS: 'sanremo_ingredients', PRODUCTION: 'sanremo_production', SETTINGS: 'sanremo_settings', STATISTICS: 'sanremo_statistics' },
+        KEYS: { ORDERS: 'sanremo_orders', CUSTOMERS: 'sanremo_customers', FLAVORS: 'sanremo_flavors', SETTINGS: 'sanremo_settings' },
         init() {
             if (!localStorage.getItem(this.KEYS.ORDERS)) localStorage.setItem(this.KEYS.ORDERS, JSON.stringify([]));
-            if (!localStorage.getItem(this.KEYS.CUSTOMERS)) localStorage.setItem(this.KEYS.CUSTOMERS, JSON.stringify([{ id: '1', name: 'REWE', location: 'Bad Berleburg', contact: 'Herr Schmidt', phone: '02751 12345', email: 'rewe@example.com', type: 'supermarkt', notes: 'Lieferung bis 09:00 Uhr', created: new Date().toISOString() }, { id: '2', name: 'EDEKA', location: 'Bad Berleburg', contact: 'Frau Meyer', phone: '02751 67890', email: 'edeka@example.com', type: 'supermarkt', notes: 'Hintereingang nutzen', created: new Date().toISOString() }]));
-            if (!localStorage.getItem(this.KEYS.RECIPES)) localStorage.setItem(this.KEYS.RECIPES, JSON.stringify([]));
+            if (!localStorage.getItem(this.KEYS.CUSTOMERS)) localStorage.setItem(this.KEYS.CUSTOMERS, JSON.stringify([{ id: '1', name: 'REWE', location: 'Bad Berleburg', contact: 'Herr Schmidt', type: 'supermarkt' }]));
             if (!localStorage.getItem(this.KEYS.FLAVORS)) localStorage.setItem(this.KEYS.FLAVORS, JSON.stringify([
-                { id: '1', name: 'Stracciatella', category: 'milcheis', description: 'Milcheis mit Schokostückchen', active: true },
-                { id: '2', name: 'Amarena Kirsch', category: 'sorbet', description: 'Sauerkirsch-Sorbet mit Amarena', active: true },
-                { id: '3', name: 'Vanille', category: 'milcheis', description: 'Klassische Vanille', active: true },
-                { id: '4', name: 'Spaghetti', category: 'speiseeis', description: 'Eis mit Spaghetti-Optik', active: true },
-                { id: '5', name: 'Toffifee', category: 'milcheis', description: 'Mit Toffifee-Stückchen', active: true },
-                { id: '6', name: 'Cookies', category: 'milcheis', description: 'Mit Cookie-Stückchen', active: true },
-                { id: '7', name: 'Weiß Schokolade Pistazien', category: 'milcheis', description: 'Weiße Schokolade mit Pistazien', active: true },
-                { id: '8', name: 'Erdbeer', category: 'fruchteis', description: 'Frisches Erdbeereis', active: true },
-                { id: '9', name: 'Joghurt Orange', category: 'fruchteis', description: 'Joghurt-Eis mit Orangen', active: true },
-                { id: '10', name: 'Kinder Buenos', category: 'milcheis', description: 'Mit Kinder Buenos', active: true },
-                { id: '11', name: 'Kinder Riegel', category: 'milcheis', description: 'Mit Kinder Riegel', active: true },
-                { id: '12', name: 'Joghurete Schokolade', category: 'milcheis', description: 'Joghurt-Eis mit Schokolade', active: true },
-                { id: '13', name: 'Mango', category: 'sorbet', description: 'Mango-Sorbet', active: true },
-                { id: '14', name: 'Hanutta', category: 'spezial', description: 'Spezialität', active: true }
+                { id: '1', name: 'Stracciatella', category: 'milcheis', active: true }, { id: '2', name: 'Amarena Kirsch', category: 'sorbet', active: true },
+                { id: '3', name: 'Vanille', category: 'milcheis', active: true }, { id: '4', name: 'Spaghetti', category: 'speiseeis', active: true },
+                { id: '5', name: 'Toffifee', category: 'milcheis', active: true }, { id: '6', name: 'Cookies', category: 'milcheis', active: true },
+                { id: '7', name: 'Erdbeer', category: 'fruchteis', active: true }, { id: '8', name: 'Mango', category: 'sorbet', active: true },
+                { id: '9', name: 'Joghurt Orange', category: 'fruchteis', active: true }, { id: '10', name: 'Kinder Buenos', category: 'milcheis', active: true },
+                { id: '11', name: 'Menta', category: 'milcheis', active: true }, { id: '12', name: 'Yogurette', category: 'milcheis', active: true },
+                { id: '13', name: 'Schokolade', category: 'milcheis', active: true }, { id: '14', name: 'Dubai Schokolade', category: 'spezial', active: true },
+                { id: '15', name: 'Snickers', category: 'milcheis', active: true }, { id: '16', name: 'Spaghetti Schoko', category: 'speiseeis', active: true },
+                { id: '17', name: 'Hunde Eis', category: ': 'spezialspezial', active:', active: true true }
             ]));
-            if (!localStorage.getItem(this.KEYS.SETTINGS)) localStorage.setItem(this.KEYS.SETTINGS, JSON.stringify({ company_name: 'Eiscafé Sanremo', company_address: 'Bad Berleburg', company_phone: '0176 72809926', sizes: [170,500,750,1000], bucket_sizes: [3,4,5,6], default_bucket_size: 6, default_expiry_days: 180, theme: 'light', language: 'de' }));
+            if (! }
+            ]));
+            if (!localStoragelocalStorage.getItem(this.getItem(this.KEYS.SETTINGS)).KEYS.SETTINGS)) localStorage.set localStorage.setItem(this.KEItem(this.KEYS.SETTYS.SETTINGS, JSON.stringifyINGS, JSON.stringify({ company({ company: 'Eisc: 'aféEiscafé Sanremo Sanremo', theme', theme: ': 'light'light' }));
+            
+            // --- }));
+            
+            // --- DEMO DEMO OR ORDERSDERS (para (para que a produção most que a produção mostre dadosre dados) ---) ---
+           
+            const orders = this const orders = this.getOrders();
+           .getOrders();
+            if ( if (orders.lengthorders.length === 0) === 0) {
+                {
+                const demo const demoDateDate = new = new Date().toISO Date().toISOString().String().sliceslice((0,0,1010);
+                const demoOrder);
+                const demoOrder = = {
+                    id {
+                    id: ': 'order_dorder_demo',
+                    customeremo',
+Id:                    customerId: '1',
+                    '1',
+                    date: date: demoDate demoDate,
+                    priority:,
+                    'normal priority:',
+                    'normal',
+ notes:                    notes: 'Demo Bestellung 'Demo Bestellung',
+                   ',
+                    items: items: [
+                        [
+                        { { flavor flavor: 'Spaghetti: 'Spaghetti', size', size: ': '750',750', quantity: quantity: 10 10 },
+                        },
+                        { flavor { flavor: ': 'SpaghettiSpaghetti', size: '170',', size: '170', quantity: quantity: 15 15 },
+                        },
+                        { flavor: ' { flavor: 'JoghJoghurturt Orange Orange',', size size: ': '750',750', quantity: quantity: 5 },
+                        5 { flavor },
+                        { flavor: 'Jogh: 'Joghurt Orangeurt Orange', size', size: ': '170', quantity: 10170', quantity: },
+                        10 },
+                        { flavor { flavor: 'Erd: 'Erdbeerbeer', size: '', size: '750',750', quantity: quantity: 5 5 },
+                        { flavor },
+                        { flavor: ': 'ErdErdbeerbeer', size: '', size: '170',170', quantity: quantity: 10 10 },
+                        },
+                        { flavor: 'Stracc { flavor: 'Stracciatellaiatella', size', size: ': '750',750', quantity: 10 quantity: 10 },
+                        { flavor },
+                        { flavor: ': 'StraccStracciatellaiatella', size', size:: '170', quantity: '170', quantity: 10 10 },
+                        { flavor },
+                        { flavor: ': 'ToffToffifeeifee', size', size: ': '750', quantity: 5750', quantity: 5 },
+                        },
+                        { flavor: ' { flavor: 'ToffToffifeeifee', size', size: ': '170',170', quantity: quantity: 10 10 },
+                        { flavor },
+                       : ' { flavor: 'Menta', sizeMenta', size: ': '750',750', quantity quantity:: 5 },
+                        5 { flavor },
+                        { flavor: 'Y: 'Yogurette', size: '750',ogurette', size: '750', quantity: quantity: 5 5 },
+                        { flavor },
+                        { flavor: ': 'YogYoguretteurette', size', size: '170',: ' quantity:170', quantity: 10 10 },
+                        },
+                        { flavor { flavor: 'Schokol: 'ade',Schokolade', size: size: '750', quantity '750: 5', quantity:  },
+                        {5 flavor: },
+                        { 'K flavor: 'Kinder Buenos', size: 'inder Buenos', size: '750',750', quantity: quantity: 5 5 },
+                        { flavor },
+                        { flavor: ': 'KinderKinder Buenos Buenos', size:', size: '170', quantity '170', quantity: : 1010 },
+                        { },
+                        { flavor flavor:: 'Dubai Sch 'Dubai Schokoladeokolade', size', size: ': '170',170', quantity: 20 quantity: 20 },
+                        },
+                        { flavor { flavor: ': 'SnickersSnickers', size', size: '170',: '170', quantity:  quantity: 10 },
+                        { flavor10 },
+                        { flavor: ': 'AmarenaAmarena Kirsch', size Kirsch', size:: '170', '170', quantity: 10 quantity: 10 },
+                        },
+                        { flavor { flavor: 'Cookies: 'Cookies', size', size: ': '170',170', quantity: quantity: 10 },
+                        10 { flavor },
+                        { flavor: ': 'SpaghettiSpaghetti Schoko Schoko', size', size: ': '170',170', quantity: quantity: 20 },
+                        20 { flavor },
+                        { flavor: ': 'VanilleVanille', size', size: '170',: ' quantity:170', quantity: 10 10 },
+                        },
+                        { flavor { flavor: ': 'Hunde Eis',Hunde Eis', size: size: '170 '170', quantity', quantity: : 10 }
+                   10 }
+                    ],
+                    status ],
+                    status: ': 'pendingpending',
+                    created',
+                    created: new: new Date(). Date().toISOtoISOString()
+               String()
+                };
+                this };
+                this.set(this.set(this.KE.KEYS.YS.ORDERSORDERS,, [demoOrder [demoOrder]);
+            }
+       ]);
+            }
+ },
+               },
+        get(key get(key) {) { try { try { return JSON.parse(l return JSON.parse(localStorageocalStorage.getItem(key.getItem(key)) ||)) || []; []; } catch(e) } catch { return(e) { return []; []; } } },
+        set },
+        set(key,(key, data) data) { localStorage { localStorage.setItem.setItem(key, JSON.stringify(key, JSON.stringify(data));(data)); return true return true;; },
+        getOrders() },
+        getOrders() { return this.get { return this.get(this.(this.KEYSKEYS.ORDERS.ORDERS);); },
+        saveOrder },
+        saveOrder(order(order) { const) { const orders orders = this.getOrders = this.getOrders(); order.id =(); order.id = 'order 'order_' +_' + Date.now Date.now(); order.created =(); order.created = new Date().to new Date().toISOStringISOString(); orders(); orders.push(order); this.push(order); this.set(this.set(this.KE.KEYS.YS.ORDERS, ordersORDERS,); orders); },
+        get },
+        getCustomers()Customers() { return { return this this.get(this.KEYS.CUSTOMERS); },
+        saveCustomer(c).get(this.KEYS.CUSTOMERS); },
+        saveCustomer(c) { const { const customers = this.getCustomers(); customers = this.getCustomers(); c.id c.id = = ' 'customer_' +customer_' + Date.now Date.now(); customers(); customers.push(c.push(c); this); this.set(this.set(this.KE.KEYS.CUSTOMERSYS.CUSTOMERS, customers);, customers); },
+        delete },
+        deleteCustomer(idCustomer(id) { this.set(this.) { this.set(this.KEYSKEYS.CUSTOM.CUSTOMERS,ERS, this.get this.getCustomers().Customers().filter(c => c.id !==filter(c => c.id !== id)); id)); },
         },
-        get(key) { try { return JSON.parse(localStorage.getItem(key)) || []; } catch(e) { return []; } },
-        set(key, data) { localStorage.setItem(key, JSON.stringify(data)); return true; },
-        getOrders() { return this.get(this.KEYS.ORDERS); },
-        saveOrder(order) { const orders = this.getOrders(); order.id = 'order_' + Date.now(); order.created = new Date().toISOString(); orders.push(order); return this.set(this.KEYS.ORDERS, orders); },
-        getCustomers() { return this.get(this.KEYS.CUSTOMERS); },
-        saveCustomer(c) { const customers = this.getCustomers(); c.id = 'customer_' + Date.now(); customers.push(c); return this.set(this.KEYS.CUSTOMERS, customers); },
-        deleteCustomer(id) { return this.set(this.KEYS.CUSTOMERS, this.getCustomers().filter(c => c.id !== id)); },
-        getFlavors() { return this.get(this.KEYS.FLAVORS); },
-        saveFlavors(f) { return this.set(this.KEYS.FLAVORS, f); },
-        getSettings() { const s = this.get(this.KEYS.SETTINGS); if(s && !s.bucket_sizes) s.bucket_sizes = [3,4,5,6]; if(s && !s.default_bucket_size) s.default_bucket_size = 6; return s; },
-        saveSettings(s) { return this.set(this.KEYS.SETTINGS, s); },
-        backup() { return JSON.stringify({ version: this.VERSION, timestamp: new Date().toISOString(), orders: this.getOrders(), customers: this.getCustomers(), flavors: this.getFlavors(), settings: this.getSettings() }); },
-        restore(backupData) { try { const b = JSON.parse(backupData); this.set(this.KEYS.ORDERS, b.orders || []); this.set(this.KEYS.CUSTOMERS, b.customers || []); this.set(this.KEYS.FLAVORS, b.flavors || []); this.set(this.KEYS.SETTINGS, b.settings || {}); return true; } catch(e) { return false; } }
+        getFl getFlavors() {avors() return this.get(this {.KE return this.get(this.KEYS.FYS.FLAVLAVORS);ORS); },
+        },
+        saveFlavors saveFlavors(f)(f) { this { this.set(this.KE.set(this.KEYS.FYS.FLAVLAVORS,ORS, f); f); },
+        },
+        getSettings getSettings() { return this() { return this.get(this.KE.get(this.KEYS.SYS.SETTETTINGS);INGS); },
+        saveSettings },
+        saveSettings(s)(s) { this.set(this { this.set(this.KE.KEYS.SYS.SETTETTINGSINGS,, s); s); }
+    }
     };
-    DB.init();
+    };
+    DB.init DB.init();
 
     const Utils = {
-        formatDate(date, incTime = false) { const d = new Date(date); return `${d.getDate().toString().padStart(2,'0')}.${(d.getMonth()+1).toString().padStart(2,'0')}.${d.getFullYear()}` + (incTime ? ` ${d.getHours().toString().padStart(2,'0')}:${d.getMinutes().toString().padStart(2,'0')}` : ''); },
-        calculateWeight(size, quantity) { const grams = parseFloat(size); return (isNaN(grams) ? 0 : grams / 1000) * quantity; },
-        calculateBuckets(totalKg) { return Math.ceil(totalKg / 6); }, // FIXO 6kg
-        getCurrentBucketSize() { return 6; }, // sempre 6kg
-        showNotification(msg, type='info') { const n = document.createElement('div'); n.className = `notification alert alert-${type}`; n.innerHTML = `<div class="alert-icon"><i class="fas fa-${type==='success'?'check-circle':type==='warning'?'exclamation-triangle':'info-circle'}"></i></div><div class="alert-content">${msg}</div>`; document.body.appendChild(n); n.style.cssText = 'position:fixed;top:20px;right:20px;z-index:3000;max-width:400px;box-shadow:var(--shadow-lg)'; setTimeout(() => { n.style.opacity='0'; n.style.transform='translateX(100px)'; setTimeout(()=>n.remove(),300); }, 5000); },
-        showModal(title, content, buttons=[]) { const overlay = document.getElementById('modal-overlay'), modal = document.getElementById('modal-content'); let html = `<div class="card-title" style="margin-bottom:var(--space-lg);"><i class="fas fa-info-circle"></i> ${title}</div><div style="margin-bottom:var(--space-lg);">${content}</div>`; if(buttons.length) { html += '<div class="d-flex gap-3 justify-content-end">'; buttons.forEach(btn=>{ html += `<button class="btn btn-${btn.type}" id="modal-btn-${btn.id}">${btn.label}</button>`; }); html += '</div>'; } else html += '<div class="text-center"><button class="btn btn-primary" id="modal-close">OK</button></div>'; modal.innerHTML = html; overlay.style.display = 'flex'; if(buttons.length) buttons.forEach(btn=>{ document.getElementById(`modal-btn-${btn.id}`).onclick = () => { btn.onClick(); overlay.style.display = 'none'; }; }); else document.getElementById('modal-close').onclick = () => overlay.style.display = 'none'; overlay.onclick = (e) => { if(e.target===overlay) overlay.style.display = 'none'; }; },
-        generateId() { return Date.now().toString(36) + Math.random().toString(36).substr(2); }
-    };
+       ();
 
-    // ==================== FLAVORS (original) ====================
-    const Flavors = {
-        defaultFlavors: [
-            { id: '1', name: 'Stracciatella', category: 'milcheis', description: 'Milcheis mit Schokostückchen', active: true },
-            { id: '2', name: 'Amarena Kirsch', category: 'sorbet', description: 'Sauerkirsch-Sorbet mit Amarena', active: true },
-            { id: '3', name: 'Vanille', category: 'milcheis', description: 'Klassische Vanille', active: true },
-            { id: '4', name: 'Spaghetti', category: 'speiseeis', description: 'Eis mit Spaghetti-Optik', active: true },
-            { id: '5', name: 'Toffifee', category: 'milcheis', description: 'Mit Toffifee-Stückchen', active: true },
-            { id: '6', name: 'Cookies', category: 'milcheis', description: 'Mit Cookie-Stückchen', active: true },
-            { id: '7', name: 'Weiß Schokolade Pistazien', category: 'milcheis', description: 'Weiße Schokolade mit Pistazien', active: true },
-            { id: '8', name: 'Erdbeer', category: 'fruchteis', description: 'Frisches Erdbeereis', active: true },
-            { id: '9', name: 'Joghurt Orange', category: 'fruchteis', description: 'Joghurt-Eis mit Orangen', active: true },
-            { id: '10', name: 'Kinder Buenos', category: 'milcheis', description: 'Mit Kinder Buenos', active: true },
-            { id: '11', name: 'Kinder Riegel', category: 'milcheis', description: 'Mit Kinder Riegel', active: true },
-            { id: '12', name: 'Joghurete Schokolade', category: 'milcheis', description: 'Joghurt-Eis mit Schokolade', active: true },
-            { id: '13', name: 'Mango', category: 'sorbet', description: 'Mango-Sorbet', active: true },
-            { id: '14', name: 'Hanutta', category: 'spezial', description: 'Spezialität', active: true }
-        ],
-        init() { this.setupListeners(); this.loadFlavors(); this.updateAllFlavorSelects(); },
-        setupListeners() { document.getElementById('add-flavor-btn')?.addEventListener('click', () => this.handleAddFlavor()); document.getElementById('reset-flavors-btn')?.addEventListener('click', () => this.resetToDefaults()); },
-        getActiveFlavors() { return DB.getFlavors().filter(f => f.active !== false); },
-        handleAddFlavor() { const name = document.getElementById('new-flavor-name').value.trim(); const cat = document.getElementById('new-flavor-category').value; const desc = document.getElementById('new-flavor-description').value.trim(); if(!name) return Utils.showNotification('Bitte Namen eingeben','warning'); if(this.addFlavor({ name: name.charAt(0).toUpperCase()+name.slice(1).toLowerCase(), category: cat, description: desc, active: true })) { document.getElementById('new-flavor-name').value=''; document.getElementById('new-flavor-description').value=''; } },
-        addFlavor(data) { const flavors = DB.getFlavors(); if(flavors.some(f=>f.name.toLowerCase()===data.name.toLowerCase())){ Utils.showNotification('Sorte existiert bereits','warning'); return false; } flavors.push({ id: Utils.generateId(), ...data, created: new Date().toISOString() }); DB.saveFlavors(flavors); this.loadFlavors(); this.updateAllFlavorSelects(); Utils.showNotification(`Sorte "${data.name}" hinzugefügt`,'success'); return true; },
-        loadFlavors() { const tbody = document.getElementById('flavors-list'); if(!tbody) return; tbody.innerHTML = DB.getFlavors().map(f => `<tr><td><strong>${f.name}</strong> ${!f.active?'<span class="badge badge-danger">Inaktiv</span>':''}</td><td><span class="badge badge-primary">${f.category}</span></td><td class="text-muted">${f.description||'—'}</td><td><span class="badge ${f.active?'badge-success':'badge-danger'}">${f.active?'Aktiv':'Inaktiv'}</span></td><td><div class="table-actions"><button class="btn-icon edit-flavor" data-id="${f.id}"><i class="fas fa-edit"></i></button><button class="btn-icon toggle-flavor" data-id="${f.id}" data-active="${f.active}"><i class="fas ${f.active?'fa-eye-slash':'fa-eye'}"></i></button><button class="btn-icon delete-flavor" data-id="${f.id}"><i class="fas fa-trash"></i></button></div></td></tr>`).join('');
-            document.querySelectorAll('.edit-flavor').forEach(btn=>btn.addEventListener('click',(e)=>{ this.editFlavor(btn.dataset.id); }));
-            document.querySelectorAll('.toggle-flavor').forEach(btn=>btn.addEventListener('click',(e)=>{ this.toggleFlavorActive(btn.dataset.id, btn.dataset.active==='true'?false:true); }));
-            document.querySelectorAll('.delete-flavor').forEach(btn=>btn.addEventListener('click',(e)=>{ this.deleteFlavor(btn.dataset.id); }));
+    const Utils = {
+        formatDate formatDate(d,(d, incTime incTime = = false false) {) { const date const date = new Date(d = new Date(d); return); return `${date `${date.getDate.getDate().toString().toString().pad().padStart(Start(2,'2,'0')}.${0')}.${(date(date.getMonth.getMonth()+()+11).toString).toString().pad().padStart(Start(2,'0')2,'0')}.${}.${date.getdate.getFullYearFullYear()}`()}` + ( + (incTime ? `incTime ? ` ${date ${date.getHours().toString.getHours().toString().pad().padStart(Start(2,'0')2,'0')}:${date.get}:${date.getMinutes().toString().padStart(2,'0Minutes().toString().padStart(2,'0')}` : ''); },
+        calculate')}` : ''); },
+        calculateWeight(sizeWeight(size, quantity, quantity) {) { const grams const grams = parseFloat(size = parseFloat(size); return); return (is (isNaN(NaN(grams)grams) ?  ? 0 :0 : grams / 100 grams / 1000)0) * quantity * quantity;; },
+        calculateBuckets },
+        calculateBuckets((kg) { returnkg) { return Math. Math.ceil(ceil(kg /kg / 6 6); }, // F); },IXO // FIXO 6 6kgkg
+        show
+        showNotification(msgNotification(msg, type=', typeinfo')='info') { const { const n = n = document.createElement document.createElement('div'); n('div.className'); n = `.classNamenotification alert = `notification alert alert- alert-${type${type}`;}`; n.innerHTML = n.innerHTML `<div class =="alert `<div class="alert-icon-icon"><i class"><i class="fas="fas fa-${type fa-${type==='success'?'check==='success'?'check-circle':-circle':type==type==='warning='warning'?''?'exclamationexclamation-triangle':'info-triangle-circle'}':'info-circle'}"></i"></i></div></div><div><div class=" class="alert-content">${alert-content">${msg}</msg}</div>`div>`; document.body.appendChild; document.body.appendChild(n);(n); n.style.cssText n.style.cssText = ' = 'position:position:fixed;fixed;top:top:20px20px;right;right:20:20px;px;z-indexz-index:300:3000;0;max-widthmax-width:400:400px;px;box-shadowbox-shadow:var(--:varshadow(--shadow-lg)-lg)'; setTimeout'; setTimeout(() =>(() => { n { n.style.op.style.opacity='0';acity='0'; n.style n.style.transform='.transform='translateX(100translateX(100px)px)'; setTimeout'; setTimeout(()=>(()=>n.removen.remove(),(),300); },300); }, 500 5000);0); },
         },
-        editFlavor(id) { const flavor = DB.getFlavors().find(f=>f.id==id); if(!flavor) return; const content = `<div class="form-group"><label>Name</label><input id="edit-name" class="form-input" value="${flavor.name}"></div><div class="form-group"><label>Kategorie</label><select id="edit-cat" class="form-select">${['milcheis','sorbet','fruchteis','speiseeis','spezial'].map(c=>`<option value="${c}" ${flavor.category===c?'selected':''}>${c}</option>`).join('')}</select></div><div class="form-group"><label>Beschreibung</label><textarea id="edit-desc" class="form-textarea">${flavor.description||''}</textarea></div><div class="form-group"><label>Status</label><select id="edit-active" class="form-select"><option value="true" ${flavor.active?'selected':''}>Aktiv</option><option value="false" ${!flavor.active?'selected':''}>Inaktiv</option></select></div>`; Utils.showModal('Sorte bearbeiten', content, [{id:'cancel',label:'Abbrechen',type:'outline'},{id:'save',label:'Speichern',type:'success',onClick:()=>{ const newName = document.getElementById('edit-name').value.trim(); if(!newName) return; flavor.name = newName; flavor.category = document.getElementById('edit-cat').value; flavor.description = document.getElementById('edit-desc').value.trim(); flavor.active = document.getElementById('edit-active').value === 'true'; DB.saveFlavors(DB.getFlavors()); this.loadFlavors(); this.updateAllFlavorSelects(); Utils.showNotification('Aktualisiert','success'); }}]); },
-        toggleFlavorActive(id, active) { const flavors = DB.getFlavors(); const f = flavors.find(f=>f.id==id); if(f){ f.active=active; DB.saveFlavors(flavors); this.loadFlavors(); this.updateAllFlavorSelects(); Utils.showNotification(`Sorte ${active?'aktiviert':'deaktiviert'}`,'success'); } },
-        deleteFlavor(id) { Utils.showModal('Sorte löschen','Sicher?',[{id:'cancel',label:'Abbrechen',type:'outline'},{id:'delete',label:'Löschen',type:'danger',onClick:()=>{ DB.saveFlavors(DB.getFlavors().filter(f=>f.id!=id)); this.loadFlavors(); this.updateAllFlavorSelects(); Utils.showNotification('Gelöscht','success'); }}]); },
-        resetToDefaults() { Utils.showModal('Standard-Sorten','Alle selbst erstellten Sorten werden gelöscht.',[{id:'cancel',label:'Abbrechen',type:'outline'},{id:'reset',label:'Wiederherstellen',type:'danger',onClick:()=>{ DB.saveFlavors(this.defaultFlavors); this.loadFlavors(); this.updateAllFlavorSelects(); Utils.showNotification('Standard wiederhergestellt','success'); }}]); },
-        updateAllFlavorSelects() { const flavors = this.getActiveFlavors(); document.querySelectorAll('.order-flavor').forEach(sel => { const cur = sel.value; sel.innerHTML = '<option value="">Sorte wählen...</option>'; flavors.forEach(f=>{ const opt = document.createElement('option'); opt.value = f.name; opt.textContent = f.name; sel.appendChild(opt); }); if(cur && Array.from(sel.options).some(o=>o.value===cur)) sel.value = cur; }); }
+        showModal showModal(title,(title, content, buttons= content,[]) { buttons=[]) { const overlay const overlay = document = document.getElementById('.getElementById('modal-overmodal-overlay'), modal =lay'), document.getElementById modal =('modal document.getElementById('modal-content');-content'); let html let html = `<div class = `<div class="card="card-title"-title" style=" style="margin-bottommargin-bottom:var(--space:var(--space-lg);"><i-lg);"><i class=" class="fas fafas fa-info-circle-info-circle"></i"></i> ${title}</> ${title}</divdiv><div style><div style="margin-bottom:var="margin-bottom:var(--(--space-lgspace-lg);">${content}</div>`; if(buttons);">${content}</div>`; if(buttons.length.length) {) { html += html += '<div '<div class=" class="d-flexd-flex gap-3 justify-content-end gap-3">'; justify-content-end">'; buttons.forEach buttons.forEach(btn(btn=>{=>{ html += html += `<button class=" `<buttonbtn btn class="btn btn-${-${btn.typebtn.type}" id}" id="modal="modal-btn--btn-${btn${btn.id}">${.id}btn.label">${btn.label}</button}</button>`;>`; }); }); html += '</div html += '</div>';>'; } else } else html += html += '<div '<div class=" class="text-center"><buttontext-center"><button class=" class="btn btnbtn btn-primary"-primary" id=" id="modal-modal-close">OKclose">OK</</button></button></div>'; modaldiv>'; modal.innerHTML =.innerHTML = html; html; overlay.style.display = 'flex overlay.style.display = 'flex'; if'; if(buttons(buttons.length) buttons.forEach.length)(btn buttons.forEach=>{ document.getElementById(btn=>{ document.getElementById(`modal(`modal-btn--btn-${btn.id}`${btn.id}`).on).onclickclick = = () => () => { btn { btn.onClick.onClick(); overlay(); overlay.style.display = '.style.display = 'none';none'; }; } }; }); else); else document.getElementById document.getElementById('modal-close('modal').onclick =-close () =>').onclick = () => overlay.style overlay.style.display =.display = 'none 'none'; overlay.onclick'; overlay.onclick = (e) = (e) => { => { if(e if(e.target===.target===overlay) overlayoverlay) overlay.style.display = '.style.display = 'none';none'; }; }; },
+        generate },
+        generateId() { returnId() Date.now { return Date.now().toString().toString(36(36) +) + Math.random Math.random().toString(().toString36(36).substr(2);).substr(2); }
+    }
     };
 
-    // ==================== ORDERS (original, com cálculo corrigido) ====================
-    let currentOrderItems = [];
-    const Orders = {
-        init() { this.loadCustomers(); this.setDefaultDate(); this.setupEvents(); this.loadRecentOrders(); this.renderOrderItems(); this.updateOrderSummary(); },
-        loadCustomers() { const select = document.getElementById('order-customer'); select.innerHTML = '<option value="">Kunde auswählen...</option>'; DB.getCustomers().forEach(c=>{ select.appendChild(new Option(`${c.name} - ${c.location}`, c.id)); }); },
-        setDefaultDate() { document.getElementById('order-date').valueAsDate = new Date(); },
-        setupEvents() { document.getElementById('add-order-item').onclick = () => this.addOrderItem(); document.getElementById('clear-order').onclick = () => { currentOrderItems = []; this.renderOrderItems(); this.updateOrderSummary(); }; document.getElementById('save-order').onclick = () => this.saveOrder(); document.getElementById('print-order').onclick = () => Printing.printOrder(); document.getElementById('print-delivery-note').onclick = () => this.printDeliveryNote(); },
-        addOrderItem() { currentOrderItems.push({ id: Utils.generateId(), flavor: '', size: '750', quantity: 1 }); this.renderOrderItems(); },
-        renderOrderItems() { const container = document.getElementById('order-items-list'); container.innerHTML = ''; currentOrderItems.forEach((item,idx)=>{ const div = document.createElement('div'); div.className='order-item'; div.innerHTML = `<select class="form-select order-flavor" data-index="${idx}"></select><select class="form-select order-size" data-index="${idx}"><option value="170">170 g</option><option value="500">500 g</option><option value="750" selected>750 g</option><option value="1000">1000 g</option><option value="3000">3 kg</option><option value="4000">4 kg</option><option value="5000">5 kg</option></select><input type="number" class="form-input order-quantity" data-index="${idx}" value="${item.quantity}" min="1"><button class="btn btn-danger btn-sm remove-item" data-index="${idx}"><i class="fas fa-trash"></i></button>`; container.appendChild(div); }); Flavors.updateAllFlavorSelects(); this.attachItemEvents(); this.updateOrderSummary(); },
-        attachItemEvents() { document.querySelectorAll('.order-flavor').forEach(sel=>sel.addEventListener('change',e=>{ let idx=parseInt(sel.dataset.index); currentOrderItems[idx].flavor=sel.value; })); document.querySelectorAll('.order-size').forEach(sel=>sel.addEventListener('change',e=>{ let idx=parseInt(sel.dataset.index); currentOrderItems[idx].size=sel.value; this.updateOrderSummary(); })); document.querySelectorAll('.order-quantity').forEach(inp=>inp.addEventListener('change',e=>{ let idx=parseInt(inp.dataset.index); let q=parseInt(inp.value); if(!isNaN(q) && q>0) currentOrderItems[idx].quantity=q; this.updateOrderSummary(); })); document.querySelectorAll('.remove-item').forEach(btn=>btn.addEventListener('click',e=>{ let idx=parseInt(btn.dataset.index); currentOrderItems.splice(idx,1); this.renderOrderItems(); })); },
-        updateOrderSummary() { let totalItems=0, total750=0, total170=0, totalKg=0; currentOrderItems.forEach(it=>{ totalItems+=it.quantity; if(it.size==='750') total750+=it.quantity; if(it.size==='170') total170+=it.quantity; totalKg += Utils.calculateWeight(it.size, it.quantity); }); document.getElementById('total-items').textContent=totalItems; document.getElementById('total-750g').textContent=total750; document.getElementById('total-170g').textContent=total170; document.getElementById('total-kg').textContent=totalKg.toFixed(1); },
-        saveOrder() { const cust = document.getElementById('order-customer').value, date = document.getElementById('order-date').value, prio = document.getElementById('order-priority').value, notes = document.getElementById('order-notes').value; if(!cust) return Utils.showNotification('Kunde auswählen','warning'); if(!date) return Utils.showNotification('Lieferdatum','warning'); if(!currentOrderItems.length) return Utils.showNotification('Mindestens eine Position','warning'); DB.saveOrder({ customerId: cust, date, priority: prio, notes, items: currentOrderItems.map(i=>({ flavor: i.flavor, size: i.size, quantity: i.quantity })), status: 'pending' }); Utils.showNotification('Bestellung gespeichert','success'); currentOrderItems = []; this.renderOrderItems(); document.getElementById('order-notes').value=''; this.loadRecentOrders(); Dashboard.updateStatistics(); },
-        loadRecentOrders() { const orders = DB.getOrders().slice().reverse().slice(0,5); const tbody = document.getElementById('recent-orders'); tbody.innerHTML = orders.map(o=>{ const cust = DB.getCustomers().find(c=>c.id===o.customerId); const totalQty = o.items.reduce((s,i)=>s+i.quantity,0); return `<tr><td>${Utils.formatDate(o.date)}</td><td>${cust?.name||'?'}</td><td>${totalQty} Stk.</td><td><span class="badge badge-warning">offen</span></td><td><div class="table-actions"><button class="btn-icon view-order" data-id="${o.id}"><i class="fas fa-eye"></i></button><button class="btn-icon delete-order" data-id="${o.id}"><i class="fas fa-trash"></i></button></div></td></tr>`; }).join('');
-            document.querySelectorAll('.view-order').forEach(btn=>btn.addEventListener('click',e=>{ const id=btn.dataset.id; this.viewOrder(id); }));
-            document.querySelectorAll('.delete-order').forEach(btn=>btn.addEventListener('click',e=>{ const id=btn.dataset.id; this.deleteOrder(id); }));
-        },
-        viewOrder(id) { const order = DB.getOrders().find(o=>o.id==id); if(order){ let itemsHtml = '<ul>'; order.items.forEach(i=>{ itemsHtml += `<li>${i.quantity}x ${i.flavor} (${i.size}g)</li>`; }); itemsHtml+='</ul>'; Utils.showModal('Bestelldetails',`<p><strong>Datum:</strong> ${Utils.formatDate(order.date)}</p><p><strong>Status:</strong> ${order.status}</p><p><strong>Notizen:</strong> ${order.notes||'Keine'}</p>${itemsHtml}`); } },
-        deleteOrder(id) { Utils.showModal('Bestellung löschen','Sicher?',[{id:'cancel',label:'Abbrechen',type:'outline'},{id:'delete',label:'Löschen',type:'danger',onClick:()=>{ DB.set(DB.KEYS.ORDERS, DB.getOrders().filter(o=>o.id!=id)); this.loadRecentOrders(); Dashboard.updateStatistics(); Utils.showNotification('Gelöscht','success'); }}]); },
-        printDeliveryNote() { const orders = DB.getOrders(); if(!orders.length) return Utils.showNotification('Keine Bestellung','warning'); Printing.printDeliveryNote(orders[orders.length-1].id); }
     };
 
-    // ==================== PRODUCTION (sempre 6kg) ====================
-    const Production = {
-        init() { document.getElementById('production-date').valueAsDate = new Date(); this.initBucketSelector(); this.updateProductionStats(); this.setupEvents(); },
-        initBucketSelector() { const selector = document.getElementById('bucket-size-selector'); selector.querySelectorAll('.bucket-size-option').forEach(opt=>opt.classList.remove('selected')); const six = selector.querySelector('.bucket-size-option[data-size="6"]'); if(six) six.classList.add('selected'); },
-        setupEvents() { document.getElementById('generate-production-plan').onclick = () => this.generateProductionPlan(); document.getElementById('start-production').onclick = () => this.startProduction(); document.getElementById('print-production-plan').onclick = () => Printing.printProductionPlan(); document.getElementById('production-date').onchange = () => { this.updateProductionStats(); this.generateProductionPlan(); }; },
-        updateProductionStats() { const date = document.getElementById('production-date').value; const orders = DB.getOrders().filter(o=>o.date===date); let totalKg=0, open=0; orders.forEach(o=>{ if(o.status!=='completed') open++; o.items?.forEach(i=>{ totalKg += Utils.calculateWeight(i.size, i.quantity); }); }); const buckets = Utils.calculateBuckets(totalKg); document.getElementById('prod-today-kg').innerText = totalKg.toFixed(1)+' kg'; document.getElementById('prod-buckets-needed').innerText = buckets; document.getElementById('prod-open-orders').innerText = open; const comp = orders.length ? Math.round((orders.filter(o=>o.status==='completed').length/orders.length)*100) : 0; document.getElementById('prod-completed').innerText = comp+'%'; },
-        generateProductionPlan() { const date = document.getElementById('production-date').value; const orders = DB.getOrders().filter(o=>o.date===date); const map = new Map(); orders.forEach(o=>{ o.items.forEach(i=>{ if(!map.has(i.flavor)) map.set(i.flavor, { size750:0, size170:0, kg:0 }); const d = map.get(i.flavor); d.kg += Utils.calculateWeight(i.size, i.quantity); if(i.size==='750') d.size750 += i.quantity; if(i.size==='170') d.size170 += i.quantity; }); }); const tbody = document.getElementById('production-plan'); tbody.innerHTML = ''; let totalKg=0, totalBuckets=0; for(let [flavor,data] of map.entries()){ const buckets = Utils.calculateBuckets(data.kg); totalKg += data.kg; totalBuckets += buckets; tbody.innerHTML += `<tr><td><strong>${flavor}</strong></td><td>${data.size750}</td><td>${data.size170}</td><td>${data.kg.toFixed(2)} kg</td><td><strong>${buckets}</strong> (6kg)</td><td><span class="badge badge-warning">Geplant</span></td><td><div class="table-actions"><button class="btn-icon start-flavor" data-flavor="${flavor}"><i class="fas fa-play"></i></button></div></td></tr>`; } if(!map.size) tbody.innerHTML = '<tr><td colspan="7">Keine Bestellungen für dieses Datum</td></tr>'; document.getElementById('production-total').innerHTML = `<tr><td colspan="4" style="text-align:right;"><strong>Gesamt:</strong></td><td><strong>${totalBuckets} Eimer (6kg)</strong></td><td colspan="2"></td></tr>`;
-            document.querySelectorAll('.start-flavor').forEach(btn=>btn.addEventListener('click',e=>{ Utils.showNotification(`Produktion von ${btn.dataset.flavor} gestartet`,'success'); })); },
-        startProduction() { Utils.showModal('Produktion starten','Bestellungen werden auf "in Bearbeitung" gesetzt.',[{id:'cancel',label:'Abbrechen',type:'outline'},{id:'start',label:'Starten',type:'success',onClick:()=>{ Utils.showNotification('Produktion gestartet','success'); }}]); }
-    };
-
-    // ==================== CUSTOMERS (original) ====================
-    const Customers = {
-        init() { this.loadCustomers(); document.getElementById('save-customer').onclick = () => this.saveCustomer(); document.getElementById('clear-customer-form').onclick = () => this.clearForm(); },
-        saveCustomer() { const name = document.getElementById('customer-name').value.trim(); if(!name) return Utils.showNotification('Name erforderlich','warning'); DB.saveCustomer({ name, location: document.getElementById('customer-location').value, contact: document.getElementById('customer-contact').value, phone: document.getElementById('customer-phone').value, email: document.getElementById('customer-email').value, type: document.getElementById('customer-type').value, notes: document.getElementById('customer-notes').value }); this.clearForm(); this.loadCustomers(); Orders.loadCustomers(); Utils.showNotification('Kunde gespeichert','success'); },
-        clearForm() { document.getElementById('customer-name').value=''; document.getElementById('customer-location').value=''; document.getElementById('customer-contact').value=''; document.getElementById('customer-phone').value=''; document.getElementById('customer-email').value=''; document.getElementById('customer-type').value='supermarkt'; document.getElementById('customer-notes').value=''; },
-        loadCustomers() { const tbody = document.getElementById('customers-list'); tbody.innerHTML = DB.getCustomers().map(c=>`<tr><td><strong>${c.name}</strong></td><td>${c.location||''}</td><td>${c.contact||''}</td><td><span class="badge badge-primary">${c.type}</span></td><td>—</td><td><div class="table-actions"><button class="btn-icon edit-customer" data-id="${c.id}"><i class="fas fa-edit"></i></button><button class="btn-icon delete-customer" data-id="${c.id}"><i class="fas fa-trash"></i></button></div></td></tr>`).join('');
-            document.querySelectorAll('.edit-customer').forEach(btn=>btn.addEventListener('click',e=>{ const id=btn.dataset.id; const c=DB.getCustomers().find(c=>c.id==id); if(c){ document.getElementById('customer-name').value=c.name; document.getElementById('customer-location').value=c.location||''; document.getElementById('customer-contact').value=c.contact||''; document.getElementById('customer-phone').value=c.phone||''; document.getElementById('customer-email').value=c.email||''; document.getElementById('customer-type').value=c.type; document.getElementById('customer-notes').value=c.notes||''; } }));
-            document.querySelectorAll('.delete-customer').forEach(btn=>btn.addEventListener('click',e=>{ const id=btn.dataset.id; Utils.showModal('Kunde löschen','Sicher?',[{id:'cancel',label:'Abbrechen',type:'outline'},{id:'delete',label:'Löschen',type:'danger',onClick:()=>{ DB.deleteCustomer(id); this.loadCustomers(); Orders.loadCustomers(); Utils.showNotification('Gelöscht','success'); }}]); }));
+    // = // ==================== FLAVORS=================== FLAVORS (original (original) =) ======================================
+    const=
+    const Flavors = Flavors = {
+        {
+        defaultFl defaultFlavorsavors:: [
+            { id [
+            { id:: '1 '1', name', name: ': 'StraccStracciatellaiatella', category: '', category: 'milchemilcheis',is', active: active: true }, true }, { id { id: ': '2', name: 'Am2', name: 'Amarena Kirarena Kirsch',sch', category: category: ' 'sorbetsorbet', active: true', active: true },
+            },
+            { id { id: ': '3',3', name: name: 'Vanille', 'Vanille', category: category: 'mil 'milcheis', active:cheis true }, {', active: true }, { id: id: '4 '4', name: 'Spaghetti', category', name: 'Spaghetti', category: ': 'speisespeiseeis',eis', active: active: true },
+            { id: true },
+            { '5 id: '5', name', name: ': 'ToffToffifee', category: 'ifee', categorymilche: 'milcheis',is', active: true }, { active: true }, { id id: ': '6',6', name: name: 'Cookies', 'Cookies', category: ' category: 'milcheismil', activecheis', active: true: true },
+            },
+            { id { id: ': '7',7', name: name: 'Er 'Erdbedbeer',er', category category: 'f: 'fruchteruchteis',is', active: active: true }, { true }, { id id: ': '8', name:8', name: 'M 'ango',Mango', category: category: 'sorbet 'sorbet', active', active: true: true }
         }
+        ],
+        ],
+        init() init() { this { this.loadFl.loadFlavors(); document.getElementByIdavors(); document.getElementById('add-flavor-btn').onclick = () =>('add-flavor-btn').onclick = () => this.add this.add();(); document.getElementById document.getElementById('reset('reset-flav-flavors-btn').onors-btn').onclick =click = () => () => this.reset this.reset(); this(); this.updateSelect.updateSelectss(); },
+       (); getActive },
+        getActive() {() { return DB return DB.getFlavors.getFl().filteravors().filter(f => f.active(f => f.active !== false !== false); },
+        add); },
+        add() {() { const name const name = document.getElementById(' = document.getElementById('new-flnew-flavor-name').valueavor-name.trim();').value.trim(); if(!name) if(! return;name) return; const flavors = DB const flavors = DB.getFl.getFlavorsavors(); flavors(); flavors.push({.push({ id: id: Utils.generateId Utils(), name.generateId(), name, category, category: document: document.getElementById('.getElementById('new-flnew-flavor-category').avorvalue,-category').value, active: active: true }); DB true }); DB.saveFl.saveFlavors(flavors(flavorsavors); this); this.loadFl.loadFlavorsavors(); this.update(); this.updateSelects();Selects(); document.getElementById document.getElementById('new('new-flavor-flavor-name').-name').value='value=''; Ut'; Utils.showils.showNotification('Notification('SorteSorte hinz hinzugefüugefügt','gt','success'); },
+success'); },
+        loadFlavors       () { loadFlavors() { const t const tbody =body = document.getElementById(' document.getElementById('flflavorsavors-list');-list'); if(! if(!tbody)tbody) return; tbody return; tbody.innerHTML = DB.get.innerHTML = DB.getFlavFlavors().ors().map(fmap(f => `<tr> => `<tr><td>${f.name<td>${f.name}${}${!!f.activef.active?'?' <span class <span class="bad="badge badgege badge-danger">Inaktiv-danger">Inaktiv</span</span>':>':''}''}</td><td></td><td>${${f.categoryf.category}</td>}</td><td><td>——</td></td><td><span<td><span class=" class="badgebadge ${f ${f.active?'.active?'badge-success':'badge-success':'badgebadge-danger'}-danger'}">${">${f.activef.active?'A?'Aktiv':'Inaktivktiv':'Inaktiv'}</'}</span>span><td><div class<td><div class="table="table-actions-actions"><button"><button class=" class="btn-iconbtn-icon toggle-flavor" data-id toggle-flavor" data-id="${f="${f.id}.id}"><"><i class="fas ${f.active?'fai class="fas ${f.active?'fa-eye-sl-eye-slash':'ash':'fa-eyefa-eye'}"></i></'}"></i></button><button class="btnbutton><button class="btn-icon delete-icon delete-flavor" data-flavor" data-id="${f.id-id="${f.id}}"><i class="fas"><i class="fas fa-trash"></ fa-trash"></i></button></div></td></tr>i></button></div></td></tr>`).`).join('');
+            documentjoin('');
+            document.querySelectorAll('.toggle.querySelectorAll('.toggle-flavor-flavor').forEach').forEach(btn(btn => btn.addEventListener => btn.addEventListener('click', e('click', e => { => { const id = const id = btn.dat btn.dataset.idaset.id; const flavors =; const flavors = DB.get DB.getFlavFlavors();ors(); const idx = flavors.findIndex const idx = flavors.findIndex(f=>(f=>f.id==idf.id); if==id(idx!==-); if(idx!1){==-1){ flavors[idx].active flavors[idx].active = ! = !flavors[idxflavors[idx].active].active; DB; DB.saveFl.saveFlavors(flavorsavors(flavors); this.loadFl); this.loadFlavors(); thisavors(); this.updateSelect.updateSelects();s(); Utils Utils.showNotification.showNotification('('Status geändertStatus geändert','success','success'); }'); } }));
+            }));
+            document.querySelectorAll('. document.querySelectorAll('.delete-fldelete-flavor').avor').forEach(forEach(btn => btn.addEventListenerbtn => btn.addEventListener('click('click', e', e => => { { const id const id = btn = btn.dataset.id;.dataset.id; DB.save DB.saveFlavorsFlav(DB.getors(FlavDB.getors().Flavors().filter(f=>ffilter(f=>f.id!=.id!=id)); this.loadid)); this.loadFlavFlavors(); this.updateors(); this.updateSelectsSelects(); Ut(); Utils.showils.showNotification('Notification('GelöschGelt','öscht','success');success'); }));
+        }));
+        },
+ },
+               updateSelect updateSelects() { consts() active = { const active = this.get this.getActive();Active(); document.querySelector document.querySelectorAll('.All('.order-florder-flavor').forEach(avor').forEach(sel =>sel => { const { const cur = cur = sel.value; sel.value sel; sel.innerHTML = '<option.innerHTML = '<option value=""> value="">SorteSorte wählen wählen</option</option>' +>' + active.map active.map(f=>`<option value="${f.name}(f=>`<option value="${f.name}">${">${f.namef.name}</option}</option>`).join('>`).'); ifjoin(''); if(cur && active.s(cur && active.some(fome(f=>f=>f.name===.name===cur)) sel.valuecur)) = cur; } sel.value = cur; });); },
+        reset },
+        reset() {() { DB.save DB.saveFlavors(thisFlavors(this.defaultFl.defaultFlavorsavors); this); this.loadFl.loadFlavorsavors(); this(); this.updateSelects();.updateSelects(); Utils.showNotification Utils.showNotification('Standard('Standard wiederhergestellt wiederhergestellt','success'); }
+   ','success'); }
     };
 
-    // ==================== STATISTICS (original, sem receitas) ====================
+    // ================= };
+
+    // ==================== OR=== ORDERSDERS =================== ====================
+    let=
+    let currentOrder currentOrderItems = [];
+   Items = [];
+    const Orders const Orders = = {
+        init {
+        init() {() { this.load this.loadCustomers();Customers(); document.getElementById('order document.getElementById('order-date').-date').valueAsvalueAsDate =Date = new Date new Date(); this.renderItems(); this.renderItems(); this(); this.updateSummary.updateSummary(); document(); document.getElementById('.getElementById('add-orderadd-order-item').onclick-item').onclick = () = () => this => this.addItem.addItem(); document(); document.getElementById('.getElementById('clear-orderclear-order').on').onclick =click = () => () => { current { currentOrderItemsOrderItems = []; this = [];.renderItems this.renderItems(); this(); this.updateSummary.updateSummary(); };(); }; document.getElementById document.getElementById('save-order').('save-order').onclick = ()onclick = () => this => this.save();.save(); document.getElementById document.getElementById('('printprint-order').-order').onclickonclick = () => this = ().printLast => this.printLast(); document(); document.getElementById('.getElementById('print-delprint-delivery-nivery-note').ote').onclickonclick = () => this = () => this.printLast.printLastDeliveryDelivery(); this(); this.loadRecent();.loadRecent },
+        load(); },
+        loadCustomers()Customers() { const select = { const select = document.getElementById('order-customer'); select document.getElementById('order-customer'); select.innerHTML =.innerHTML = '<option '<option value="">Kunde value="">Kunde wählen wählen</option</option>' +>' + DB.getCustomers().map(c DB.getCustomers().map(c=>`<option value="${c.id=>`<option value="${c.id}">}">${c.name} - ${${c.name} - ${c.locationc.location}</option>`).join('}</option>`).join(''); },
+'); },
+        add        addItem() { currentOrderItemsItem() { currentOrderItems.push({.push({ id: id: Date.now(), flavor: '', Date.now(), flavor: '', size: '750 size: '750', quantity: 1 }', quantity: 1 }); this); this.renderItems(); this.renderItems(); this.updateSummary();.updateSummary(); },
+        render },
+        renderItems() { constItems() { const container = container = document.getElementById(' document.getElementById('orderorder-items-list'); container-items-list'); container.innerHTML = '';.innerHTML = ''; currentOrderItems.forEach currentOrderItems.forEach((it,((it,idxidx)=>{)=>{ const div = document.createElement const div = document.createElement('('div');div'); div.className='order-item div.className='order-item'; div.innerHTML = `<select class="form-select order-flavor" data-index="${idx}"></select><select class="form-select order'; div.innerHTML = `<select class="form-select order-flavor" data-index="${idx}"></select><select class="form-select order-size"-size" data-index data-index="${idx="${idx}}"><option value="170"><option value">170="170">170 g</ g</optionoption><option value="750><option value="750" selected" selected>750 g</>750 g</optionoption><><option valueoption value="1000">1000 g</option></="1000">1000 g</option></selectselect><input type><input type="number="number" class" class="form="form-input order-quant-input order-quantity"ity" data-index data-index="${idx}" value="${idx}" value="${it.quantity="${it.quantity}" min="1"><button class="btn btn}" min="1"><button class="btn btn-danger btn-sm remove-item"-danger btn-sm remove-item" data-index="${idx data-index="${idx}}"><i class="fas"><i class="fas fa-tr fa-trash"></ash"></i></i></button>`button>`; container.appendChild(div);; container.appendChild(div); }); }); Flav Flavorsors.update.updateSelectSelects(); document.querySelectors();All('. document.querySelectororder-size').All('.order-size').forEachforEach(sel=>sel(sel=>sel.addEventListener('.addEventListener('change',echange',=>{ lete=>{ let idx= idx=parseIntparseInt(sel(sel.dataset.dataset.index);.index); currentOrderItems[idx].size currentOrderItems[idx=sel].size=sel.value;.value; this.updateSummary(); } this.updateSummary(); })); document.querySelector));All('. document.querySelectorAll('.order-quorderantity-quantity').forEach(inp=>').forEach(inp=>ininp.addEventListenerp.addEventListener('change('change',e',e=>{ let idx=parse=>{ let idx=parseInt(inInt(inp.datp.dataset.indexaset.index); let); let q= q=parseIntparseInt(inp(inp.value);.value); if(!is if(!NaN(q)isNaN && q(q) && q>0>0) current) currentOrderItemsOrderItems[idx].quantity=q[idx].quantity=q; this; this.updateSummary.updateSummary(); }(); })); document.querySelectorAll)); document.querySelectorAll('.remove('.remove-item').-item').forEach(forEach(btn=>btn=>btn.addEventListenerbtn.addEventListener('click('click',e',e=>{=>{ let idx=parseInt( let idx=parsebtn.datInt(btn.dataset.indexaset.index); current); currentOrderItems.spliceOrderItems.s(idx,plice(idx,1);1); this this.render.renderItems();Items(); })); },
+        })); updateSummary },
+        updateSummary() { let total() { let totalItemsItems=0=0, total, total750=0, total170=0750=0, total170=0, total, totalKg=Kg=0;0; currentOrder currentOrderItems.forEachItems.forEach(it=>{ total(it=>Items+={ totalItems+=it.it.quantity;quantity; if(it if(it.size==.size==='750') total='750') total750+=750+=it.it.quantity; if(itquantity;.size== if(it='170') total.size==='170') total170+=170+=it.it.quantity;quantity; totalKg totalKg += Ut += Utils.calculateWeightils.c(it.sizealculateWeight(it.size, it, it.quantity.quantity); }); }); document); document.getElementById('.getElementById('total-itemstotal-items').inner').innerText=totalItemsText=; documenttotalItems.getElementById('; document.getElementById('total-total-750g750g').inner').innerText=total750Text=total750; document.getElementById('total-; document.getElementById('total-170g170g').inner').innerText=Text=total170; documenttotal170.getElementById('; document.getElementById('total-ktotal-kg').g').innerText=totalinnerTextKg.to=totalKg.toFixed(Fixed(11);); },
+        },
+        save() save() { const { const cust = cust = document.getElementById document.getElementById('('orderorder-customer-customer').value').value, date, date = document = document.getElementById('.getElementById('order-dateorder-date').value').value, priority, priority = document = document.getElementById('.getElementById('order-porder-priority').riority').value, notes = document.getElementByIdvalue,('order-notes notes = document.getElementById('order-notes').value; if').value; if(!cust || !(!cust ||date || !date || ! !currentOrdercurrentOrderItems.lengthItems.length) return) return Utils.showNotification Utils.showNotification('B('Bitte alleitte alle Felder Felder und mind und mindestens eineestens eine Position',' Position','warning');warning'); DB.save DB.saveOrder({Order({ customerId customerId: cust: cust, date, date, priority, priority, notes, notes, items, items: current: currentOrderItemsOrderItems.map(i.map(i=>(=>({ flavor: i{ flavor: i.flavor.flavor, size, size: i: i.size, quantity: i.size, quantity:.quantity } i.)), statusquantity })), status: ': 'pending'pending' } });); Utils.showNotification Utils.showNotification('Best('Bestellung gesellung gespeicherpeichert','t','success');success'); currentOrder currentOrderItems =Items = []; this.render []; this.renderItems();Items(); document document.getElementById('.getElementById('order-order-notes').notes').value=''; thisvalue=''; this.loadRecent.loadRecent(); Dashboard(); Dashboard.update();.update(); Production Production.generate();.generate(); },
+        },
+        loadRecent loadRecent()() { const { const orders orders = DB = DB.getOrders.getOrders().slice().slice().reverse().slice(0().reverse().slice(0,5,5); const); const tbody tbody = document.getElementById('recent = document.getElementById('recent-orders-orders'); t'); tbody.innerHTMLbody.innerHTML = orders = orders.map(o=>{.map(o=>{ const cust const cust = DB = DB.getCustomers.getCustomers().find().find(c=>c.id(c=>c.id===o.customer===o.customerId);Id); const total const totalKg =Kg = o.items.reduce(( o.items.reduce((s,is,i)=>s)=>s+Utils+Utils.calculate.calculateWeightWeight(i.size,i.quantity(i.size,i),0.quantity),0); return); return `<tr> `<tr><td><td>${o.date}${o.date}</td><td></td><td>${cust${cust?.name?.name||'||'?'}?'}</td><td></td><td>${totalKg.to${totalFixed(Kg.toFixed(1)}1)} kg</ kg</tdtd><td><td><span class="bad><span classge badge="bad-warning">offge badge-warning">offen</span>en</</td><tdspan></td><td><button><button class="btn class="-icon print-delbtn-iconivery" print-delivery" data-id data-id="${o="${o.id}"><i.id} class=""><ifas fa class="fas fa-print-print"></i></button> </"></i></button> </trtr>`;>`; }).join }).join('');
+           ('');
+            document.querySelector document.querySelectorAll('.All('.print-delivery').print-delforEach(ivery').forEach(btn=>btn=>btn.addEventListenerbtn.addEventListener('click('click',e=>{',e=>{ const id const id=btn=btn.dataset.id;.dataset this.print.id; this.printDelivery(idDelivery(id);); }));
+        }));
+        },
+        print },
+        printDelivery(idDelivery(id) {) { const order const order = DB = DB.getOrders.getOrders().find(o=>().findo.id(o=>o.id==id==id); if(!); if(!orderorder) return) return; const; const customer = DB.get customer =Customers(). DB.getfind(cCustomers().find(c=>c=>c.id===.id===order.corder.customerIdustomerId); let items='); let items='', total', totalKg=Kg=0;0; order.items order.items.forEach(i=>{.forEach(i const kg=>{ const = Ut kg = Utils.cils.calculateWeight(i.size,i.alculateWeight(i.sizequantity);,i.quantity); totalKg+=kg totalKg+=kg; items; items+=`+=`<tr><tr><td>${<td>${i.fli.flavor}</td><td>avor}</td><td>${i.size}g${i.size}g</</tdtd><td>><td>${i${i.quantity.quantity}</td}</td><td>${kg><td>${kg.toFixed(2)} kg</.toFixed(2)} kg</tr>`tr>`; }; }); const); const win = win = window.open window.open('','('','_blank_blank'); win.document'); win.write(`.document.write(`<html<html><head><title><head><title>L>Lieferscheieferschein</in</titletitle><style>body{><style>body{font-familyfont-family:sans:sans-serif;padding:20px-serif;padding:}table20px}table,th,th,td,td{border{border:1px solid:1px solid #000 #000;border;border-collapse-collapse:collapse:collapse;padding:6;padding:6px}</px}</style></style></head><bodyhead><body><h2><h2>L>Lieferschein</ieferschein</h2h2><p><p>K>Kunde:unde: ${ ${customer?.namecustomer?.name} |} | Datum Datum: ${: ${order.dateorder.date}</p><table>}</p><table><thead><thead><tr><tr><th>S<th>Sorte</orte</thth><th>><th>GröGröße</ße</thth><th>Menge</><th>Menge</thth><th><th>KG>KG</th</th></tr>></tr></thead</thead><tbody>${items}</><tbody>${items}</tbodytbody><tfoot><tfoot><tr><td colspan><tr><td colspan="="3"><strong3"><strong>Total>Total</strong</strong></></td><td><strong>${totalKg.totd><td><strong>${totalKg.toFixed(Fixed(2)} kg</2)} kg</strong></td></strong></td></tr><trtr><tr><td colspan><td colspan="3="3"><strong>Bal"><strong>Baldes 6kgdes 6kg</strong</strong></td><td></td><td><strong><strong>${>${Utils.cUtils.calculateBuckets(totalKg)}alculateBuckets(totalKg)}</strong</strong></td></tr></t></td></tr></tfoot>foot></table></table><p>Notizen<p>Notizen: ${order.notes||: ${order.notes||'-''-'}</p}</p></body></body></html>`);></html>`); win.d win.document.close(); winocument.close.print();(); win },
+       .print(); },
+        printLast printLast() {() { const orders const orders = DB = DB.getOrders(); if.getOrders(); if(orders.length)(orders.length) this.print this.printDelivery(Delivery(ordersorders[orders.length[orders.length-1].id-1].id);); },
+        print },
+        printLastDeliveryLastDelivery() { this.printLast(); }
+    };
+
+   () { this.printLast(); }
+    };
+
+    // = // ======================================= PRODU PRODUCTION (6kgCTION (6kg fix) fix) ================= ======================
+=
+    const Production = {
+    const Production = {
+               init() init() { document { document.getElementById('.getElementById('production-dateproduction-date').valueAsDate').valueAsDate = new = new Date(); Date(); this.generate this.generate(); document(); document.getElementById('generate.getElementById('generate-production-production-plan').-plan').onclickonclick = () = () => this => this.generate(); document.getElementById('start.generate(); document.getElementById('start-production').-production').onclick = ()onclick = () => this.start => this.start();(); document.getElementById document.getElementById('print('print-production-plan-production-plan').on').onclick =click = () => () => this.print(); document.getElementById(' this.print(); document.getElementById('production-dateproduction-date').on').onchange = () =>change = () => this.generate(); this.generate(); },
+        generate },
+        generate() {() { const date const date = document = document.getElementById('production-date').value.getElementById('production-date').value; const orders =; const orders = DB.get DB.getOrders().Orders().filter(ofilter(o=>o.date====>o.date===date); const mapdate); const map = new = new Map(); Map(); orders.forEach orders.forEach(o=>{ o(o=>{ o.items.forEach.items.forEach(i=>{ if(i=>{ if(!map(!map.has(i.has(i.flavor.flavor)))) map map.set(i.set(i.fl.flavoravor,{,{sizesize750:0,750:0,size170:0size170:0,kg,kg:0:0}); const}); const d= d=map.get(i.flmap.getavor);(i.flavor); d. d.kg +=kg += Utils Utils.calculate.calculateWeight(i.size,iWeight(i.quantity.size,i.quantity); if); if(i.size(i.size==='==='750')750') d.size750 += d.size750 += i.quantity; if(i i.quantity; if(i.size==.size==='170='170') d') d.size170 += i.size170 += i.quantity; }.quantity); }; }); }); const); const tbody tbody = document = document.getElementById('production-plan.getElementById(''); tproduction-plan'); tbody.innerHTMLbody.innerHTML = '' = ''; let; let totalKg totalKg=0, total=0,Buckets totalBuckets=0=0; for; for(let [flavor(let [flavor,data,data]] of of map. map.entries())entries()){ const{ const buckets = buckets = Utils Utils.calculate.calculateBucketsBuckets(data.(data.kg);kg); totalKg totalKg += += data. data.kg;kg; totalBuck totalBuckets +=ets += buckets; buckets; tbody.innerHTML += tbody `<tr>.innerHTML += `<tr><td<td><strong><strong>${>${flavorflavor}</strong}</strong></td><td></td><td>${data>${data.size750.size750}</td}</td><td><td>${>${data.sizedata.size170}</td170}</td><td>${data><td>${data.kg.kg.toFixed.toFixed(2(2)} kg)} kg</td</td><td><strong><td><strong>${>${buckbuckets}</ets}</strong> (6strong> (6kg)</tdkg)</td><td><span class><td><span class="bad="badge badgege badge-warning-warning">Geplant</span></">Geplant</span></tdtd><td><td><button class="btn><button class="btn-icon start-icon start-flavor" data-flavor-flavor" data-flavor="${="${flavorflavor}}"><i"><i class=" class="fas fa-play"></fas fai></-play"></button></i></button></td></td></tr>`tr>`; }; } if(!map.size if(!) tmap.size) tbody.innerHTML =body.innerHTML = '<tr '<tr><td colspan="7><td colspan="7">Ke">Keine Bestine Bestellungen für dieses Datumellungen für dieses Datum</td</td></tr></tr>';>'; document.getElementById('production-total document.getElementById('production-total').inner').innerHTML =HTML = `<tr `<tr><td colspan="><td4" style=" colspan="4" style="text-aligntext-align:right:right;"><strong>;"><strong>GesGesamt:</strongamt:</strong></td></td><td><td><strong><strong>${>${totalBucktotalBuckets} Eets} Eimerimer (6kg)</ (6strong></kg)</strong></tdtd><td colspan><td colspan="="22"></td></tr"></td>></tr>`;
+            document.getElementById('`;
+            document.getElementById('prod-tprod-today-koday-kg').g').innerinnerTextText = total = totalKg.toKg.toFixed(1)+Fixed(1)+' kg' kg'; document'; document.getElementById('.getElementById('prod-bprod-buckets-needed').ucketsinnerText-needed').innerText = total = totalBucketsBuckets; const open =; const DB.get open = DB.getOrders().Orders().filter(ofilter(o=>o=>o.date===.date===date &&date && o.status o.status!=='!=='completed').length; document.getElementByIdcompleted').length;('prod document.getElementById-open-('prod-open-orders').orders').innerTextinnerText = open = open; const; const comp = map comp =.size ? map.size ?  0 :0 : 0; document 0; document.getElementById('prod-com.getElementById('prod-completed').pleted').innerTextinnerText = ' = '0%0%';
+            document.querySelector';
+            document.querySelectorAll('.All('.start-flstart-flavor').avor').forEach(forEach(btn=>btn=>btn.addEventListenerbtn.addEventListener('click('click',e',e=>{=>{ Utils Utils.showNotification(`Produ.showNotificationktion von(`Produktion von ${btn ${btn.dataset.dataset.flavor.flavor} gest} gestartet`,'artet`,'success');success'); } }));)); },
+        },
+        start() start() { Ut { Utils.showils.showModal('ProduktionModal(' startenProduktion','Alle starten Bestell','Alle Bestellungen werdenungen werden auf " auf "in Bearin Bearbeitungbeitung" ges" gesetzt.',[{idetzt.',[{id:'cancel:'cancel',label',label:'Ab:'Abbrechenbrechen',type:'outline'',type:'outline'},{id:'start},{id:'start',label',label:'St:'Starten',arten',type:'type:'success',onClicksuccess',onClick:()=>{:()=>{ Utils Utils.showNotification('Produ.showNotification('Produktion gestartetktion gestartet','success','success'); }}'); }}]);]); },
+        print() { },
+        print() { const date const date = document = document.getElementById('.getElementById('production-date').valueproduction-date').value; const; const orders = orders = DB.get DB.getOrders().Orders().filter(ofilter(o=>o.date====>odate);.date===date); const map = new const map = new Map(); Map(); orders.forEach orders.forEach(o=>(o=>{ o{ o.items.forEach.items.forEach(i=>(i=>{ if(!map{ if(!map.has.has(i(i.flavor)) map.flavor)) map.set(i.set(i.flavor,{.flavorsize750,{size750:0,size170:0,:0,size170:0,kg:kg:0});0}); const d const d=map.get(i.flavor=map.get(i.flavor); d); d.kg.kg+=Utils+=Utils.calculate.calculateWeight(i.size,i.quantityWeight(i.size,i.quantity); if); if(i.size(i.size==='==='750') d.size750+=750') d.size750+=i.i.quantity;quantity; if(i if(i.size==.size==='170='170') d') d.size170+=i.size170+=i.quantity.quantity; }; }); }); let); } rows='', total); let rows='Buckets', totalBuckets=0=0; for; for(let(let [flavor,data] of [flavor,data] of map. map.entries())entries()){ const{ const b= b=Utils.cUtils.calculateBuckets(dataalculateBuck.kgets(data.kg); total); totalBucketsBuckets+=b+=b; rows; rows+=`+=`<tr><td><tr><td>${fl${flavor}</avor}</tdtd><td>><td>${data${data.size750}</td.size750}</td><td><td>${>${data.sizedata.size170}</170}</td><td>td><td>${data${data.kg.kg.toFixed.toFixed(2(2)} kg)} kg</td</td><td>><td>${${b}</b}</td></td></tr>`tr>`; }; } if(! if(!rows)rows) rows=' rows='<tr<tr><td colspan="><td colspan="5">5">KeineKeine Bestell Bestellungen</ungen</td></td></tr>tr>'; const'; const win=window.open win=('','window.open('','_blank_blank'); win'); win.document.document.write(`.write(`<html><head<html><head><title>><title>ProduProduktionsplanktionsplan ${date ${date}</title><style}</title>body><style>body{font{font-family:s-family:sans-serif;paddingans:20px}-serif;padding:20table,px}table,th,th,tdtd{b{border:order:1px1px solid #000; solid #border-coll000;apse:border-collapse:collapse;collapse;padding:padding:8px8px}</style></head}</style><body></head><h><body><h2>2>ProduktionsProduktionsplan -plan - ${Utils.formatDate ${Utils(date)}.formatDate(date)}</h2><p</h2><p>Baldes>Baldes: : 6 kg6 kg fix ( fix (aufgeraufgerundetundet)</p)</p><table><thead><table><thead><tr><tr><th>S><th>Sorte</orte</thth><th>750g><th>750g</th</th><th><th>170>170g</g</thth><th><th>>KG</KG</thth><th>><th>Eimer (6Eimer (6kg)</kg)</th></th></tr></theadtr></><tbody>thead><tbody>${rows}</tbody><t${rows}</tbody><tfootfoot><tr><tr><td colspan><td colspan="4="4"><strong"><strong>G>GESAMT</ESAMT</strongstrong></></tdtd><td><td><strong>><strong>${total${totalBuckets} EBucketsimer</} Eimer</strong></strong></td></tr></td></tr></tfoot></tabletfoot></table></body></body></html>`); win.document.close(); win></html>`); win.document.close(); win.print();.print(); }
+    }
+    };
+
+ };
+
+       // = // ======================================= CUSTOMERS = CUSTOMERS ======================================
+   =
+    const Customers const Customers = = {
+        init {
+        init() {() { this.load this.load(); document(); document.getElementById('.getElementById('save-customer').save-customer').onclickonclick = () = () => this => this.save();.save(); document.getElementById('clear document.getElementById('clear-customer-customer-form').-form').onclickonclick = () = () => this => this.clear(); },
+        save.clear(); },
+        save() {() { const name const name = document = document.getElementById('.getElementById('customer-namecustomer-name').value.trim(); if(!').value.trim();name) if(!name) return; return; DB.saveCustomer({ DB.saveCustomer({ name, location: name, location: document.getElementById document.getElementById('customer('customer-location-location').value, contact').value: document.getElementById(', contact: document.getElementById('customer-contactcustomer-contact').value, phone').value, phone: document: document.getElementById('customer.getElementById('customer-phone').-phone').value,value, email: email: document.getElementById('customer document.getElementById('customer-email').-email').valuevalue, type, type: document.getElementById(': document.getElementById('customer-type').valuecustomer-type').value, notes, notes: document: document.getElementById('.getElementById('customer-customer-notes').notes').value }value }); this); this.clear(); this.load.clear();(); Orders this.load(); Orders.loadCustomers.loadCustomers(); Ut(); Utils.showils.showNotification('Notification('KundeKunde gespeichert gespe','successichert');','success'); },
+        clear },
+        clear()() { { document.getElementById document.getElementById('customer('customer-name').value='-name').value=''; document'; document.getElementById('.getElementById('customer-lcustomer-location').value='ocation').'; documentvalue=''; document.getElementById('.getElementById('customer-contact').valuecustomer-contact').value=''; document.getElementById('customer-phone=''; document.getElementById('customer-phone').value='';').value=''; document.getElementById document.getElementById('customer('customer-email-email').value='';').value=''; document.getElementById('customer document.getElementById('customer--notes').notes').value='';value=''; },
+        load },
+        load() {() { const tbody = const tbody = document.getElementById document.getElementById('customers-list('custom'); ters-list'); tbody.innerHTMLbody.innerHTML = DB = DB.getCustomers.getCustomers().map().map(c=>`<(c=>`<trtr><td><td><strong>><strong>${c${c.name}</.name}</strong></strong></td><td>${c.location||''}</td><td>${c.location||''}</tdtd><td>><td>${c${c.contact.contact||''}</td||''><td}</td><td><span><span class=" class="badgebadge badge-primary badge-primary">${c.type">${c.type||||'super'supermarkt'}</spanmarkt'}</span></td></td><td><td>—>—</td</td><td><button><td class="><button class="btn-iconbtn-icon delete-c delete-customer"ustomer" data-id data-id="${c="${c.id}.id}"><i class=""><i class="fas fafas fa-trash-trash"></i"></i></button></button></td></tr></td></tr>`).>`).joinjoin('');
+            document('');
+            document.querySelectorAll.querySelectorAll('.delete('.delete-customer-customer').forEach').forEach(btn(btn=>btn=>btn.addEventListener('.addEventListener('click',click',e=>e=>{ const{ const id= id=btn.datbtn.dataset.id; Utaset.idils.showModal('; Utils.showModal('KundeKunde löschen löschen','S','Sicher?icher?',[{',[{id:'cancel',id:'label:'cancel',Abbrelabel:'Abbrechen',chen',type:'outlinetype:'outline'},{'},{id:'id:'delete',delete',label:'label:'LöschenLö',type:'schen',type:'danger',danger',onClickonClick:():()=>{=>{ DB.delete DB.deleteCustomer(id); thisCustomer(id); this.load();.load(); Orders.load Orders.loadCustomers();Customers(); Utils Utils.showNotification('.showNotificationGelö('Gelöscht','successscht','success'); }}'); }}]);]); }));
+        }
+    }));
+        };
+
+    // }
+    };
+
+    // ================= ==================== STAT=== STATISTICSISTICS ================= ====================
+    const===
     const Statistics = {
-        init() { document.getElementById('stat-period').addEventListener('change',e=>document.getElementById('custom-date-range').style.display=e.target.value==='custom'?'block':'none'); document.getElementById('generate-report').onclick = () => this.generateReport(); this.loadFlavorStats(); },
-        loadFlavorStats() { const tbody = document.getElementById('flavor-stats'); const orders = DB.getOrders(); const map = new Map(); orders.forEach(o=>{ o.items.forEach(i=>{ const kg = Utils.calculateWeight(i.size, i.quantity); map.set(i.flavor, (map.get(i.flavor)||0)+kg); }); }); tbody.innerHTML = Array.from(map.entries()).map(([name,kg])=>`<tr><td><strong>${name}</strong></td><td>${kg.toFixed(1)} kg</td><td>${(kg*2.5).toFixed(2)} €</td><td>—</td><td><span class="badge badge-success">↗</span></td></tr>`).join(''); if(!map.size) tbody.innerHTML='<tr><td colspan="5">Keine Daten</td></tr>'; },
-        generateReport() { Utils.showNotification('Bericht generiert','success'); }
+        Statistics = {
+        init() init() { document { document.getElementById('.getElementById('stat-periodstat-period').').addaddEventListener('change',EventListener('change',e=>e=>document.getElementByIddocument.getElementById('custom('custom-date-range-date-range').').stylestyle.display=e.display=e.target.value.target.value==='==='custom'custom'?'block?'block':'none':'none'); document.getElementById(''); document.getElementById('generate-reportgenerate-report').onclick = () =>').onclick = () => this.gen this.gen();(); this this.load.loadFlFlavorStats();avorStats },
+        load(); },
+        loadFlavorFlavorStats()Stats() { const { const orders = DB orders = DB.getOrders(); const map =.getOrders(); const map = new Map new Map(); orders(); orders.forEach.forEach(o(o=>o=>o.items.forEach.items.forEach(i=>(i=>{ const kg = Utils.c{ const kg = Utils.calculateWeight(i.size,i.quantity); mapalculateWeight(i.size,i.quantity); map.set(i.set(i.flavor.flavor, (, (map.getmap.get(i.fl(i.flavor)avor)||0||0)+kg)+kg); })); const); } tbody)); const tbody = document = document.getElementById('.getElementById('flavor-statsflavor-stats'); tbody.innerHTML'); tbody.innerHTML = Array = Array.from(map.from(map.entries.entries()).map((()).map(([[name,kg]name,kg])=>`)=>`<tr><td<tr><strong><td><strong>>${name}</${name}</strong></strong></tdtd><td>><td>${kg${kg.toFixed(1.toFixed(1)} kg)} kg</td><td>${(kg*2.5</td><td>${(kg*2.5).toFixed().toFixed(2)}2)} €</ €</tdtd><td>—</td><td>—</td><td><td><span class><span class="bad="badge badgege badge-success">↗-success"></span></td↗</span></td></tr>`).></tr>`).join('join(''); if(!'); if(!mapmap.size).size) tbody.innerHTML=' tbody.innerHTML='<tr<tr><td><td colspan="5"> colspan="5">KeineKeine Daten</td></ Daten</tr>td></tr>';'; },
+        gen },
+        gen() { Utils.showNotification('Ber() { Utils.showNotification('Bericht genericht generiert','success');iert','success'); }
+    }
     };
 
-    // ==================== DASHBOARD ====================
-    const Dashboard = {
-        init() { this.updateStatistics(); setInterval(()=>this.updateTime(),60000); this.updateTime(); },
-        updateStatistics() { const today = new Date().toISOString().slice(0,10); const orders = DB.getOrders().filter(o=>o.date===today); let prod=0; orders.forEach(o=>o.items?.forEach(i=>prod+=Utils.calculateWeight(i.size,i.quantity))); document.getElementById('stat-today-orders').innerText = orders.length; document.getElementById('stat-production-today').innerText = prod.toFixed(1)+' kg'; },
-        updateTime() { document.getElementById('current-time').innerText = new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'}); }
     };
 
-    // ==================== PRINTING ====================
-    const Printing = {
-        printOrder() { const orders = DB.getOrders(); if(!orders.length) return Utils.showNotification('Keine Bestellung','warning'); const order = orders[orders.length-1]; const customer = DB.getCustomers().find(c=>c.id===order.customerId); this.printDocument(this.generateOrderHTML(order,customer),'Bestellung'); },
-        printProductionPlan() { const date = document.getElementById('production-date')?.value || new Date().toISOString().slice(0,10); const orders = DB.getOrders().filter(o=>o.date===date); const map = new Map(); orders.forEach(o=>{ o.items.forEach(i=>{ if(!map.has(i.flavor)) map.set(i.flavor,{size750:0,size170:0,kg:0}); const d=map.get(i.flavor); d.kg+=Utils.calculateWeight(i.size,i.quantity); if(i.size==='750') d.size750+=i.quantity; if(i.size==='170') d.size170+=i.quantity; }); }); let rows='', totalBuckets=0; for(let [flavor,data] of map.entries()){ const b=Utils.calculateBuckets(data.kg); totalBuckets+=b; rows+=`<tr><td>${flavor}</td><td>${data.size750}</td><td>${data.size170}</td><td>${data.kg.toFixed(2)} kg</td><td>${b}</td></tr>`; } if(!rows) rows='<tr><td colspan="5">Keine Bestellungen</td></tr>'; const html = `<!DOCTYPE html><html><head><title>Produktionsplan ${date}</title><style>body{font-family:sans-serif;padding:20px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #000;padding:8px;text-align:left}</style></head><body><h2>Produktionsplan - ${Utils.formatDate(date)}</h2><p>Baldes: 6 kg fix</p><table><thead><tr><th>Sorte</th><th>750g</th><th>170g</th><th>KG</th><th>Eimer (6kg)</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td colspan="4"><strong>GESAMT</strong></td><td><strong>${totalBuckets} Eimer</strong></td></tr></tfoot></table></body></html>`; this.printDocument(html,'Produktionsplan'); },
-        printDeliveryNote(orderId) { const order = DB.getOrders().find(o=>o.id==orderId); if(!order) return; const customer = DB.getCustomers().find(c=>c.id===order.customerId); this.printDocument(this.generateDeliveryNoteHTML(order,customer),'Lieferschein'); },
-        printDocument(content,title) { const w = window.open('','_blank'); if(!w) return Utils.showNotification('Pop-up Block','warning'); w.document.write(content); w.document.close(); setTimeout(()=>w.print(),500); },
-        generateOrderHTML(order,customer) { let items='', totalKg=0; order.items.forEach(i=>{ const kg=Utils.calculateWeight(i.size,i.quantity); totalKg+=kg; items+=`<tr><td>${i.flavor}</td><td>${i.size} g</td><td>${i.quantity}</td><td>${kg.toFixed(2)} kg</td></tr>`; }); return `<!DOCTYPE html><html><head><title>Bestellung</title><style>body{font-family:sans-serif;padding:20px}table,th,td{border:1px solid #000;border-collapse:collapse;padding:6px}</style></head><body><h2>Lieferschein</h2><p>Kunde: ${customer?.name} | Datum: ${order.date}</p><table><thead><tr><th>Sorte</th><th>Größe</th><th>Menge</th><th>KG</th></tr></thead><tbody>${items}</tbody><tfoot><tr><td colspan="3"><strong>Total</strong></td><td><strong>${totalKg.toFixed(2)} kg</strong></td></tr><tr><td colspan="3"><strong>Baldes 6kg</strong></td><td><strong>${Utils.calculateBuckets(totalKg)}</strong></td></tr></tfoot></table><p>Notizen: ${order.notes||'-'}</p></body></html>`; },
-        generateDeliveryNoteHTML(order,customer) { return this.generateOrderHTML(order,customer); }
+    // = // ==================== DASH=================== DASHBOARD =================BOARD== ==================
+    const===
+    const Dashboard = Dashboard = {
+        {
+        init() { this init() { this.update(); setInterval.update(); setInterval(()=>(()=>this.updatethis.updateTime(),60000Time(),60000); this.updateTime); this();.updateTime },
+        update(); },
+        update() {() { const today const today = new = new Date().toISO Date().toISOString().String().slice(slice(0,10);0,10); const orders const orders = DB.getOrders = DB().filter.getOrders().filter(o=>(o=>o.dateo.date===today===today); let); let prod= prod=0;0; orders.forEach orders.forEach(o=>(o=>o.itemso.items.forEach(i.forEach(i=>prod=>prod+=Utils+=Utils.calculateWeight(i.calculate.size,iWeight(i.size,i.quantity))); document.quantity)));.getElementById document.getElementById('stat('stat-today-orders-today-orders').inner').innerText =Text = orders.length; document orders.length.getElementById('; document.getElementById('stat-productionstat-production-today').innerText =-today').innerText = prod.to prod.toFixed(Fixed(1)+1)+' kg' kg';'; },
+        update },
+        updateTime() { document.getElementById('current-time').innerText = new Date().toTime() { document.getElementById('current-time').innerText = new Date().LocaleTimetoLocaleTimeString('String('de-Dde-DE',E',{hour{hour:'2:'2-digit',minute:'2-digit'}); }
     };
 
-    // ==================== SETTINGS ====================
+    // =================-digit',minute:'2-digit'}); }
+    };
+
+    //=== SET ==================== SETTINGSTINGS ================= ======================
+    const=
     const Settings = {
-        init() { this.load(); document.getElementById('save-settings').onclick = () => this.save(); document.getElementById('backup-data').onclick = () => this.backup(); document.getElementById('restore-data').onclick = () => this.restore(); document.getElementById('reset-data').onclick = () => this.reset(); },
-        load() { const s = DB.getSettings(); document.getElementById('company-name').value = s.company_name||''; document.getElementById('company-address').value = s.company_address||''; document.getElementById('company-phone').value = s.company_phone||''; document.getElementById('size-170').value = s.sizes?.[0]||170; document.getElementById('size-500').value = s.sizes?.[1]||500; document.getElementById('size-750').value = s.sizes?.[2]||750; document.getElementById('size-1000').value = s.sizes?.[3]||1000; document.getElementById('default-expiry').value = s.default_expiry_days||180; document.getElementById('theme-select').value = s.theme||'light'; document.getElementById('language-select').value = s.language||'de'; this.applyTheme(s.theme||'light'); },
-        save() { const s = { company_name: document.getElementById('company-name').value, company_address: document.getElementById('company-address').value, company_phone: document.getElementById('company-phone').value, sizes: [parseInt(document.getElementById('size-170').value), parseInt(document.getElementById('size-500').value), parseInt(document.getElementById('size-750').value), parseInt(document.getElementById('size-1000').value)], default_expiry_days: parseInt(document.getElementById('default-expiry').value), theme: document.getElementById('theme-select').value, language: document.getElementById('language-select').value }; DB.saveSettings(s); this.applyTheme(s.theme); Utils.showNotification('Einstellungen gespeichert','success'); },
-        applyTheme(theme) { const root = document.documentElement; if(theme==='dark'){ root.style.setProperty('--light', '#1f2937'); root.style.setProperty('--card-bg', '#374151'); root.style.setProperty('--dark', '#f9fafb'); root.style.setProperty('--border', '#4b5563'); } else { root.style.setProperty('--light', '#f9fafb'); root.style.setProperty('--card-bg', '#ffffff'); root.style.setProperty('--dark', '#1f2937'); root.style.setProperty('--border', '#e5e7eb'); } },
-        backup() { const blob = new Blob([DB.backup()], {type:'application/json'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `sanremo-backup-${new Date().toISOString().slice(0,10)}.json`; a.click(); URL.revokeObjectURL(a.href); Utils.showNotification('Backup erstellt','success'); },
-        restore() { const inp = document.createElement('input'); inp.type='file'; inp.accept='.json'; inp.onchange = e=>{ const file=e.target.files[0]; if(!file) return; const reader = new FileReader(); reader.onload = ev=>{ const data = ev.target.result; Utils.showModal('Backup wiederherstellen','Daten werden überschrieben.',[{id:'cancel',label:'Abbrechen',type:'outline'},{id:'restore',label:'Wiederherstellen',type:'danger',onClick:()=>{ if(DB.restore(data)){ Utils.showNotification('Backup wiederhergestellt, Seite neu laden','success'); setTimeout(()=>location.reload(),1500); } else Utils.showNotification('Fehler','danger'); }}]); }; reader.readAsText(file); }; inp.click(); },
-        reset() { Utils.showModal('Daten zurücksetzen','Alle Daten werden gelöscht.',[{id:'cancel',label:'Abbrechen',type:'outline'},{id:'reset',label:'Zurücksetzen',type:'danger',onClick:()=>{ localStorage.clear(); DB.init(); location.reload(); }}]); }
+        Settings = {
+        init() { this init() { this.load();.load(); document.getElementById document.getElementById('save('save-settings-settings').onclick = () =>').onclick = () => this.save this.save(); document(); document.getElementById.getElementById('backup('backup-data').onclick-data').onclick = () = () => this.backup => this(); document.getElementById('.backup(); document.getElementById('restorerestore-data').-data').onclickonclick = () = () => this.restore => this.restore(); document(); document.getElementById('.getElementById('reset-datareset-data').onclick =').on () =>click = () => this.reset this.reset(); document(); document.getElementById('.getElementById('theme-select').ontheme-selectchange =').onchange = e => e => this.apply this.applyTheme(eTheme(e.target.value.target.value);); },
+        load() { },
+        load() { const s const s = DB = DB.getSettings.getSettings(); document.getElementById('(); document.getElementById('company-namecompany-name').value').value = s = s.company||.company||''''; document.getElementById('; documenttheme-select.getElementById('theme-select').value').value = s = s.theme.theme||'light';||' this.applylight';Theme(s this.applyTheme.theme(s.theme||'||'light');light'); },
+        },
+        save() { DB save().saveSettings { DB({ company.saveSettings({ company: document: document.getElementById('.getElementById('company-namecompany-name').value').value, theme: document.getElementById, theme: document.getElementById('('theme-selecttheme-select').value').value }); }); Utils.showNotification Utils('Gespeicher.showNotification('Gespeichert','t','success');success'); },
+        },
+        applyTheme applyTheme(theme(theme) {) { const root const root = document = document.document.documentElement;Element; if( if(theme==theme==='dark'){='dark'){ root.style root.style.setProperty.setProperty('--('--light',light', '#1f293 '#1f2937');7'); root.style root.style.setProperty.setProperty('--('--card-bgcard-bg',', '#374 '#374151');151'); root.style root.style.setProperty.setProperty('--('--dark', '#fdark', '#f9f9fafbafb'); root'); root.style.set.style.setProperty('--borderProperty('', '#--border', '#4b4b55635563'); }'); } else { root.style else { root.style.setProperty.setProperty('--light',('-- '#flight',9f '#f9fafbafb'); root'); root.style.set.style.setProperty('Property('--card--card-bg-bg', '#', '#ffffff');ffffff'); root.style root.style.setProperty.setProperty('--('--dark', '#1dark',f293 '#1f2937'); root7'); root.style.setProperty.style.setProperty('--('--border',border', '#e5e '#e7eb5e'); }7eb },
+       '); } },
+        backup() backup() { const { const blob = blob = new Blob new Blob([JSON([JSON.stringify({.stringify({ orders: DB.get orders: DB.getOrders(), customers:Orders(), DB.get customers: DB.getCustomers(),Customers(), flavors: flavors: DB.get DB.getFlavFlavors()ors() })], {type })], {type:'application:'application/json'}); const/json'} a =); const a = document.createElement document.createElement('a('a'); a'); a.href.href = URL.createObject = URLURL(.createObjectURL(blobblob); a); a.download.download = ` = `backup-${backup-${new Date().toISOString().slice(0,10)}.json`; a.click(); URL.renew Date().toISOString().slice(0,10)}.json`; a.click(); URL.revokeObjectvokeObjectURL(aURL(a.href); Ut.href); Utils.showils.showNotification('Notification('BackupBackup erstellt','success erstellt'); },
+        restore','success'); },
+        restore() {() { const inp const inp = document = document.createElement('input'); inp.type.createElement('input'); inp.type='file='file'; inp'; inp.accept.accept='.='.json';json'; inp.on inp.onchange = e =>change = e => { const { const file = file = e.target e.target.files[.files[00]; if(!file]; if) return(!file) return; const; const reader = reader = new File new FileReader(); reader.onload = ev =>Reader(); reader.onload = ev => { const { const data = data = JSON.parse JSON.parse(ev.target.result(ev); DB.target.result.set(); DB.set(DB.DB.KEYSKEYS.ORD.ORDERS, data.ERS, data.ordersorders||||[]);[]); DB.set(DB DB.set(DB.KE.KEYS.CYS.CUSTOMERS, dataUSTOMERS, data.customers.customers||[]||[]); DB); DB.set(.set(DB.DB.KEYS.FLAKEYSVORS, data.FLAVORS, data.fl.flavors||avors||[]); location.re[]);load(); location.reload(); }; reader }; reader.readAs.readAsText(fileText(file); };); }; inp.click(); inp.click(); },
+        reset },
+        reset()() { if { if(confirm(confirm('ALLE Daten('AL zurücksLE Daten zurücksetzen?'etzen?')){)){ localStorage.clear localStorage.clear(); DB(); DB.init(); location.re.init();load(); location.reload(); } } }
+    }
     };
 
-    // ==================== VIEW MANAGER ====================
-    const ViewManager = {
-        init() { document.querySelectorAll('.nav-btn').forEach(btn=>btn.addEventListener('click',()=>this.switch(btn.dataset.view))); this.switch('dashboard'); },
-        switch(view) { document.querySelectorAll('.view-container').forEach(v=>v.classList.remove('active')); document.getElementById(`${view}-view`).classList.add('active'); document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.view===view)); if(view==='dashboard') Dashboard.init(); if(view==='orders') Orders.init(); if(view==='production') Production.init(); if(view==='flavors') Flavors.init(); if(view==='customers') Customers.init(); if(view==='statistics') Statistics.init(); if(view==='settings') Settings.init(); }
+    // };
+
+    // ==================== VIEW ==================== VIEW MANAGER ================= MANAGER ======================
+    const=
+    const ViewManager ViewManager = = {
+        init {
+        init() {() { document.querySelector document.querySelectorAll('.All('.nav-btnnav-btn').forEach').forEach(btn(btn=>btn.addEventListener('click',=>btn.addEventListener('click',()=>()=>this.swthis.switch(itch(btn.datbtn.dataset.viewaset.view)));))); this.sw this.switch('itch('dashboard');dashboard'); },
+        },
+        switch(view switch(view) {) { document.querySelector document.querySelectorAll('.All('.view-containerview-container').forEach(v').forEach=>v.classList(v=>.remove('v.classList.remove('active'active')); document)); document.getElementById(`${.getElementById(`${view}-view}-view`).classview`List.add('active).classList.add('active'); document'); document.querySelectorAll.querySelectorAll('.nav('.nav-btn').-btn').forEach(b=>bforEach(b=>b.classList.toggle('active',b.dat.classList.toggle('active',b.dataset.viewaset.view===view));===view)); if if(view==(view==='dashboard='dashboard') Dashboard') Dashboard.init(); if(view.init(); if(view==='==='orders')orders') Orders.init Orders.init(); if(); if(view==(view==='production='production') Production') Production.init(); if(view.init(); if(view==='==='flavors')flavors') Flavors Flavors.init(); if(view.init();===' if(viewcustomers==='customers') Customers') Customers.init();.init(); if(view if(view==='statistics==='') Statisticsstatistics') Statistics.init();.init(); if(view if(view==='==='settings')settings') Settings.init Settings.init();(); }
+    }
     };
 
-    document.addEventListener('DOMContentLoaded', () => { DB.init(); ViewManager.init(); const today = new Date().toISOString().slice(0,10); document.querySelectorAll('input[type="date"]').forEach(inp=>{ if(!inp.value) inp.value=today; }); });
+    document };
+
+    document.addEventListener('.addEventListener('DOMContentDOMContentLoaded',Loaded', () => () => { DB { DB.init(); ViewManager.init(); ViewManager.init(); const today.init(); = new const today = new Date(). Date().toISOStringtoISOString().().slice(slice(0,0,10); document.querySelector10); document.querySelectorAll('All('inputinput[type="[type="date"]date"]').forEach').forEach(inp=>{(inp if(!=>{inp if(!inp.value).value) inp.value inp.value=today=today; });; } });
+</script); });
 </script>
-</body>
+</>
+</bodybody>
+</html>
+```>
 </html>
